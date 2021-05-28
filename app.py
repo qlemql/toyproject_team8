@@ -14,8 +14,7 @@ db = client.dbsparta
 @app.route('/')
 def home():
 
-    # db.visitorCounter.delete_one({"Counts"})
-    # db.visitorCounter.insert_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
+    # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
 
     visitor_counts = db.visitorCounter.find_one({})['Counts']
 
