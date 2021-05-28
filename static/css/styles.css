@@ -5,14 +5,32 @@
 }
 
 /* Dark Mode */
+
+body {
+  color: #222;
+  background-color: #fff;
+}
+
+body.dark-theme {
+  color: #eee;
+  background-color: #121212;
+}
+
 .dark__mode {
   position: absolute;
   top: 2%;
   right: 1%;
   width: 4%;
   height: 8%;
-  background-color: brown;
+  background-color: dimgrey;
   border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+.dark__mode .moon {
+  display: none;
 }
 
 /*  Main  */
@@ -23,32 +41,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: burlywood;
+
   margin-top: 10%;
 }
 
 .title {
-  background-color: cadetblue;
   width: auto;
   height: 100%;
   margin-top: 2%;
 }
 
 .subtitle {
-  background-color: chartreuse;
   width: auto;
   height: 100%;
 }
 
 .name {
-  background-color: cornflowerblue;
   width: auto;
   height: 100%;
   padding: 0.3%;
 }
 
 .start {
-  background-color: crimson;
   width: auto;
   height: 100%;
   padding: 0.8%;
@@ -65,7 +79,6 @@
 /* Footer */
 
 .footer {
-  background-color: darkgray;
   width: 100%;
   height: auto;
   display: flex;
@@ -81,7 +94,7 @@
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color: darkgreen;
+
   padding: 1%;
 }
 
@@ -91,6 +104,6 @@
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color: darkkhaki;
+
   padding: 1%;
 }
