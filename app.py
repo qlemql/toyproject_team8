@@ -1,5 +1,5 @@
 import flask
-from pymongo import MongoClient  # develop branch
+from pymongo import MongoClient
 from datetime import datetime, timezone
 
 from flask import Flask, render_template, jsonify, request
