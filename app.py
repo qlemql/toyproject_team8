@@ -21,7 +21,7 @@ def home():
 
     ip_address = flask.request.remote_addr  # 방문자 IP 주소
     db.visitorIP.create_index("date", expireAfterSeconds=5)  # 숫자는 '초' 단위. IP를 얼마나 저장할 것인가
-    if db.users.find({'IP': ip_address}).count() > 0:  # 방문했던 IP 라면 카운트 변동 없음
+    if db.visitorIP.find({'IP': ip_address}).count() > 0:  # 방문했던 IP 라면 카운트 변동 없음
         return
     else:  # 방문하지 않았던 IP 라면 해당 IP를 DB에 추가하고, 카운트 +1
         db.visitorIP.insert_one({'IP': ip_address, "date": datetime.utcnow()})
