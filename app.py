@@ -1,7 +1,7 @@
 import flask
 
 from pymongo import MongoClient
-from datetime import datetime, timezone, date, time
+from datetime import datetime
 
 from flask import Flask, render_template, jsonify, request
 
@@ -15,6 +15,11 @@ db = client.dbsparta
 @app.route('/')
 def home():
     # 김선용 파트!
+
+    # db.visitorCounter.insert_one({'Counts': 0})
+    # db.visitorsToday.insert_one({'today date': 0})
+    # db.todayCounter.insert_one({'todayCounts': 0})
+    # db.visitorIP.insert_one({'IP': flask.request.remote_addr})  # 처음 파일 연 사람 이 4줄 실행할것
 
     # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
     # db.todayCounter.update_one({"todayCounts": 0})  # 일일 방문자수 0으로 세팅하기
@@ -58,18 +63,17 @@ def home():
 
 
 # API 역할을 하는 부분
-@app.route('/api/list', methods=['GET'])
-def show_stars():
-    sample_receive = request.args.get('sample_give')
-    print(sample_receive)
-    return jsonify({'msg': 'list 연결되었습니다!'})
-
-@app.route('/api/counts', methods=['GET'])
-def show_counts():
+@app.route('/api/todayCounts', methods=['GET'])
+def show_todayCounts():
     db_today_counts = list(db.todayCounter.find({}, {'_id': False}))
+    return jsonify({'today_counts': db_today_counts})
+
+
+@app.route('/api/totalCounts', methods=['GET'])
+def show_totalCounts():
     db_total_counts = list(db.visitorCounter.find({}, {'_id': False}))
 
-    return jsonify({'today_counts':db_today_counts}, {'total_counts':db_total_counts})
+    return jsonify({'total_counts': db_total_counts})
 
 
 @app.route('/api/like', methods=['POST'])
