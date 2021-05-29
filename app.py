@@ -19,7 +19,8 @@ def home():
     # db.visitorCounter.insert_one({'Counts': 0})
     # db.visitorsToday.insert_one({'today date': 0})
     # db.todayCounter.insert_one({'todayCounts': 0})
-    # db.visitorIP.insert_one({'IP': flask.request.remote_addr})  # 처음 파일 연 사람 이 4줄 실행할것, 오류 날 시 MongoDB열어서 visitorIP 수동으로 추가해줄 것!
+    # db.visitorIP.insert_one({'IP': flask.request.remote_addr})
+    # 처음 파일 연 사람 이 4줄 실행할것, 오류 날 시 MongoDB열어서 visitorIP 수동으로 추가해줄 것!
 
     # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
     # db.todayCounter.update_one({"todayCounts": 0})  # 일일 방문자수 0으로 세팅하기
