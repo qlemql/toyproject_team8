@@ -227,3 +227,158 @@ body.dark-theme {
 }
 
 /* 민주's css 끝 */
+
+
+/* Yoojin's css start */
+* {
+  font-family: 'Gamja Flower', cursive;
+}
+
+.all {
+  background-color: whitesmoke;
+  /*background-size: cover;*/
+}
+
+.type {
+  width: 500px;
+  height: auto;
+  /*background-color: skyblue;*/
+  margin: 100px auto auto auto;
+  align-content: right;
+}
+
+.items {
+  width: 500px;
+  /*height: 300px;*/
+  /*background-color: blue;*/
+  margin: 50px auto;
+  /*display: flex;*/
+  text-align: center;
+  /*border-radius: 40px;*/
+}
+
+.itemlist {
+  display: flex;
+  background-color: snow;
+  padding: 15px;
+}
+
+.item00 {
+  width: 100px;
+  height: 100px;
+  /*background-color: red;*/
+  background-image: url("https://i.imgur.com/rXazJcm.png");
+  background-size: cover;
+  margin: auto;
+}
+
+.item01 {
+  width: 100px;
+  height: 100px;
+  /*background-color: green;*/
+  background-image: url("https://i.imgur.com/yE3ZelT.png");
+  background-size: cover;
+  margin: auto;
+}
+
+.item02 {
+  width: 100px;
+  height: 100px;
+  /*background-color: purple;*/
+  background-image: url("https://i.imgur.com/0bFXSRk.png");
+  background-size: cover;
+  margin: auto;
+}
+
+.btns {
+  width: 300px;
+  height: 100px;
+  /*background-color: yellow;*/
+  margin: 50px auto auto auto;
+  display: flex;
+}
+
+.btn00 {
+  width: 50px;
+  height: 50px;
+  /*background-color: red;*/
+  background-image: url("https://i.imgur.com/MdQ0oHf.png");
+  background-size: cover;
+  margin: auto;
+}
+
+.btn01 {
+  width: 50px;
+  height: 50px;
+  /*background-color: green;*/
+  background-image: url("https://i.imgur.com/CznbhPl.png");
+  background-size: cover;
+  margin: auto;
+}
+
+.btn02 {
+  width: 50px;
+  height: 50px;
+  /*background-color: purple;*/
+  background-image: url("https://i.imgur.com/4TlsiTO.png");
+  background-size: cover;
+  margin: auto;
+}
+
+.type-image {
+  width: 500px;
+  /*background-color: plum;*/
+  text-align: center;
+}
+
+.type-result {
+  width: 500px;
+  height: 300px;
+  /*background-color: darkorange;*/
+  margin: auto;
+  /*background-image: url("https://i.imgur.com/QTxaBkw.png");*/
+  background-image: url("https://i.imgur.com/vK6ivtL.png");
+  background-size: cover;
+  text-align: center;
+
+}
+
+.result-text {
+  width: 300px;
+  margin: 10px auto;
+
+}
+
+.mode {
+  width: 300px;
+  height: 50px;
+  /*background-color: green;*/
+  margin: 0px auto;
+  float: right;
+  display: flex;
+}
+
+.mod00 {
+  width: 67px;
+  height: 50px;
+  /*background-color: black;*/
+  background-image: url("https://i.imgur.com/GYOsxrD.png");
+  background-size: cover;
+}
+
+.mod00:hover {
+  background-image: url("https://i.imgur.com/3SdQkzh.png");
+}
+
+.mod01 {
+  width: 67px;
+  height: 50px;
+  /*background-color: goldenrod;*/
+  background-image: url("https://i.imgur.com/yRAqMUv.png");
+  background-size: cover;
+}
+
+.mod01:hover {
+  background-image: url("https://i.imgur.com/U6zybu9.png");
+}
+/* yoojin's css END */
