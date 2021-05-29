@@ -2,10 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="https://kit.fontawesome.com/74ac6a490e.js" crossorigin="anonymous"></script>
     <title>Title</title>
 </head>
-<body>
-<h1>git pratice</h1>
+<body class="dark-theme || light-theme">
+
+<!-- dark mode -->
+<button class="dark__mode">
+    <i class="fas fa-sun sun"></i>
+    <i class="fas fa-moon moon"></i>
+</button>
+
+<!-- main section -->
+<section class="section">
+
+
+    <div class="title">
+        <h1>이것은 타이틀입니다.</h1>
+    </div>
+
+
+    <div class="subtitle">
+        <h4>이것은 부제목입니다.</h4>
+    </div>
+
+
+    <input type="text" class="name" placeholder="이름을 입력해주세요.">
+
+
+    <button class="start">
+        <span>시작하기</span>
+    </button>
+
+
+</section>
+
+
+<!-- 원준님 작업 공간 -->
+<section>
+
+</section>
+
+
+<!-- 유진님 작업 공간 -->
+
+<section>
+
+</section>
+
+<!-- 민주님 작업 공간 -->
+
+<section>
+    <button id="modalBtn" class="modalBtn">종합결과 보기</button>
+    <div class="modalOverlay">
+
+        <button id="closeBtn" class="closeBtn">X</button>
+        <button class="prevBtn"><i class="fas fa-caret-left"></i></button>
+        <div class="modal">
+            <div class="slideBox">
+
+                <div class="slideList">
+                    <div class="slide card01">
+                        <div class="image"></div>
+                        <h3 class="type">
+                            typename**1**
+                        </h3>
+                        <p class="desc"></p>
+                        <ul class="items">
+                            <li class="item"></li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                        </ul>
+                    </div>
+                    <div class="slide card02">
+
+                        <div class="image"></div>
+                        <h3 class="type">
+                            typename**2**
+                        </h3>
+                        <p class="desc"></p>
+                        <ul class="items">
+                            <li class="item"></li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                        </ul>
+                    </div>
+                    <div class="slide card03">
+
+                        <div class="image"></div>
+                        <h3 class="type">
+                            typename**3**
+                        </h3>
+                        <p class="desc"></p>
+                        <ul class="items">
+                            <li class="item"></li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul class="slidePagination"></ul>
+        </div>
+        <button class="nextBtn"><i class="fas fa-caret-right"></i></button>
+    </div>
+    </div>
+    <script type="text/javascript" src="test.js"></script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
+
+    <div class="visitors">일일 방문자 수 : 1명 / 총 방문자 수 : 100명</div>
+
+    <div class="copyright">
+        <span class="txt2">Copyright 2021. Team8 All rights reserved.</span>
+    </div>
+
+</footer>
+
+
+<script src="/static/js/index.js"></script>
 </body>
 </html>
