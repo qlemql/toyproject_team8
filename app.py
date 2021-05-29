@@ -75,20 +75,20 @@ def show_totalCounts():
 
     return jsonify({'total_counts': db_total_counts})
 
-
-@app.route('/api/like', methods=['POST'])
-def like_star():
-    visitor_today_receive = request.form['sample_give']
-    print(sample_receive)
-    return jsonify({'msg': 'like 연결되었습니다!'})
-
-
-@app.route('/api/delete', methods=['POST'])
-def delete_star():
-    sample_receive = request.form['sample_give']
-    print(sample_receive)
-    return jsonify({'msg': 'delete 연결되었습니다!'})
-
-
-if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+#
+# @app.route('/api/like', methods=['POST'])
+# def like_star():
+#     visitor_today_receive = request.form['sample_give']
+#     print(sample_receive)
+#     return jsonify({'msg': 'like 연결되었습니다!'})
+#
+#
+# @app.route('/api/delete', methods=['POST'])
+# def delete_star():
+#     sample_receive = request.form['sample_give']
+#     print(sample_receive)
+#     return jsonify({'msg': 'delete 연결되었습니다!'})
+#
+#
+# if __name__ == '__main__':
+#     app.run('0.0.0.0', port=5000, debug=True)
