@@ -123,3 +123,40 @@ prevBtn.addEventListener("click", function () {
 });
 
 //------민주's js 끝!!---------------
+
+
+// 백엔드 js
+
+$(document).ready(function () {
+            showCounts();
+            showTotalCounts();
+        });
+
+        function showTotalCounts() {
+            $.ajax({
+                type: "GET",
+                url: "/api/todayCounts",
+                data: {},
+                success: function (response) {
+                    let todayCounts = response['today_counts']
+                    for (let i = 0; i < todayCounts.length; i++) {
+                        let today = todayCounts[i]['todayCounts']
+                        console.log(today);
+                    }
+                }
+            })
+        }
+
+        function showCounts() {
+            $.ajax({
+                type: "GET",
+                url: "/api/totalCounts",
+                data: {},
+                success: function (response) {
+                    let totalCounts = response['total_counts']['Counts']
+                    console.log(totalCounts);
+                    let temp_html = ``
+
+                }
+            })
+        }

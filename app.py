@@ -60,7 +60,7 @@ def home():
         updated_visitor_counts = visitor_counts + 1
         db.visitorCounter.update_one({'Counts': visitor_counts}, {'$set': {'Counts': updated_visitor_counts}})
 
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 # API 역할을 하는 부분
@@ -73,7 +73,6 @@ def show_todayCounts():
 @app.route('/api/totalCounts', methods=['GET'])
 def show_totalCounts():
     db_total_counts = list(db.visitorCounter.find({}, {'_id': False}))
-
     return jsonify({'total_counts': db_total_counts})
 
 
