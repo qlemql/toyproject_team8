@@ -64,10 +64,17 @@ def show_stars():
     print(sample_receive)
     return jsonify({'msg': 'list 연결되었습니다!'})
 
+@app.route('/api/counts', methods=['GET'])
+def show_counts():
+    db_today_counts = list(db.todayCounter.find({}, {'_id': False}))
+    db_total_counts = list(db.visitorCounter.find({}, {'_id': False}))
+
+    return jsonify({'today_counts':db_today_counts}, {'total_counts':db_total_counts})
+
 
 @app.route('/api/like', methods=['POST'])
 def like_star():
-    sample_receive = request.form['sample_give']
+    visitor_today_receive = request.form['sample_give']
     print(sample_receive)
     return jsonify({'msg': 'like 연결되었습니다!'})
 
