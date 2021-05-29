@@ -119,19 +119,28 @@ body.dark-theme {
 .modalOverlay {
   width: 100%;
   height: 100%;
-  position: fix;
+  position: absolute;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.541);
+  background-color: transparent;
   display: none;
   justify-content: center;
   align-items: center;
 }
 
+.modalFrame {
+  width: 800px;
+  height: 80%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: gray;
+}
+
 .modal {
   width: 400px;
-  height: 90%;
+  height: 100%;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -146,12 +155,15 @@ body.dark-theme {
 }
 
 .slideList {
+  height: 100%;
   display: flex;
+  align-items: center;
   transform: translate3d(-400px, 0px, 0px);
 }
 .slide {
   width: 400px;
-  height: 600px;
+  height: 550px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
