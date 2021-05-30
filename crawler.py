@@ -27,4 +27,8 @@ def bs(product_name):
     db.crawling.delete_one({'name': product_name})
     doc = {'name': product_name, "product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link, "product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}
     db.crawling.insert_one(doc)
-    
+
+    # return [{"product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link}, {"product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}]
+
+# bs("모니터")
+# bs("마우스")
