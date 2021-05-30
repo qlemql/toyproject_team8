@@ -68,7 +68,8 @@ itemBtn.addEventListener("click", (e) => {
     url: "/api/monitor",
     data: {},
     success: function (response) {
-      console.log(response);
+      let crwawler = response;
+      console.log(crwawler);
     },
   });
 });
