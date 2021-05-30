@@ -27,6 +27,19 @@ def home():
     # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
     # db.todayCounter.update_one({"todayCounts": 0})  # 일일 방문자수 0으로 세팅하기
 
+    # db.final_result.insert_one({"type": "판다형", "counts": 1})
+    # db.final_result.insert_one({"type": "2형", "counts": 1})
+    # db.final_result.insert_one({"type": "3형", "counts": 1})
+    # db.final_result.insert_one({"type": "4형", "counts": 1})
+    # db.final_result.insert_one({"type": "5형", "counts": 1})
+    # db.final_result.insert_one({"type": "6형", "counts": 1})
+    # db.final_result.insert_one({"type": "7형", "counts": 1})
+    # db.final_result.insert_one({"type": "8형", "counts": 1})
+    # db.final_result.insert_one({"type": "9형", "counts": 1})
+    # db.final_result.insert_one({"type": "11형", "counts": 1})
+    # db.final_result.insert_one({"type": "12형", "counts": 1})
+    # db.final_result.insert_one({"type": "13형", "counts": 1})
+
     visitor_counts = db.visitorCounter.find_one({})['Counts']  # 총 방문자수
     today_visitor_counts = db.todayCounter.find_one({})['todayCounts']  # 일일 방문자수
 
@@ -96,6 +109,76 @@ def show_monitor():
 #     sample_receive = request.form['sample_give']
 #     print(sample_receive)
 #     return jsonify({'msg': 'delete 연결되었습니다!'})
+
+
+#테스트 결과값 저장 및 카운트
+@app.route('/result', methods=['POST'])
+def result():
+    result_receive = request.form['result_give']
+    count_receive = 0
+
+    doc = {
+        'type': result_receive,
+        'counts': count_receive
+    }
+    db.final_result.insert_one(doc)
+
+    if (db.final_result.find_one({'counts': 0})['type']) == "판다형":
+        counts = db.final_result.find_one({'type': '판다형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '판다형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '2형':
+        counts = db.final_result.find_one({'type': '2형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '2형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '3형':
+        counts = db.final_result.find_one({'type': '3형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '3형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '4형':
+        counts = db.final_result.find_one({'type': '4형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '4형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '5형':
+        counts = db.final_result.find_one({'type': '5형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '5형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '6형':
+        counts = db.final_result.find_one({'type': '6형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '6형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '7형':
+        counts = db.final_result.find_one({'type': '7형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '7형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '8형':
+        counts = db.final_result.find_one({'type': '8형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '8형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '9형':
+        counts = db.final_result.find_one({'type': '9형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '9형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '10형':
+        counts = db.final_result.find_one({'type': '10형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '10형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '11형':
+        counts = db.final_result.find_one({'type': '11형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '11형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '12형':
+        counts = db.final_result.find_one({'type': '12형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '12형'}, {'$set': {'counts': updated_counts}})
+    elif (db.final_result.find_one({'counts': 0})['type']) == '13형':
+        counts = db.final_result.find_one({'type': '13형'})['counts']
+        updated_counts = counts + 1
+        db.final_result.update_one({'type': '13형'}, {'$set': {'counts': updated_counts}})
+
+    db.final_result.delete_many({'counts': 0})
+
+    return jsonify({'result': 'success'})
 
 
 if __name__ == '__main__':

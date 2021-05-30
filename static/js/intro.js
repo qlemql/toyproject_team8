@@ -17,8 +17,6 @@ btn.addEventListener("click", function () {
   localStorage.setItem("theme", theme);
 });
 
-
-
 // fontAwesome icon change
 btn.onclick = function () {
   btn.classList.toggle("active");
@@ -41,7 +39,20 @@ const startBtn = document.querySelector(".start");
 const firstPage = document.querySelector(".section1");
 const lastPage = document.querySelector(".all");
 
+//테스트 결과값 저장 및 카운트
+let final_result = document.getElementById("result");
+let f_r = final_result.textContent;
+
 startBtn.addEventListener("click", function () {
   firstPage.style.display = "none";
   lastPage.style.display = "flex";
+
+  $.ajax({
+    type: "POST",
+    url: "/result",
+    data: {
+      result_give: f_r,
+    },
+    success: function (response) {},
+  });
 });
