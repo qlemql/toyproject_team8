@@ -31,6 +31,7 @@ def home():
     # db.final_result.insert_one({"type": "7형", "counts": 1})
     # db.final_result.insert_one({"type": "8형", "counts": 1})
     # db.final_result.insert_one({"type": "9형", "counts": 1})
+    # db.final_result.insert_one({"type": "10형", "counts": 1})
     # db.final_result.insert_one({"type": "11형", "counts": 1})
     # db.final_result.insert_one({"type": "12형", "counts": 1})
     # db.final_result.insert_one({"type": "13형", "counts": 1})
