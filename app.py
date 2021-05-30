@@ -91,8 +91,8 @@ def show_totalCounts():
 
 @app.route('/api/monitor', methods=['GET'])
 def show_monitor():
-    monitor_crawler = crawler.bs4("모니터")
-    crawling_list = list(db.crwaling.find({}, {'_id': False}))
+    crawler.bs4("모니터")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
     return jsonify({'monitor': crawling_list})
 
 
