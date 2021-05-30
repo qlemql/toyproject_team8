@@ -95,6 +95,12 @@ def show_monitor():
     crawling_list = list(db.crawling.find({}, {'_id': False}))
     return jsonify({'monitor': crawling_list})
 
+@app.route('/api/<variable_name>', methods=['GET'])
+def show_item(name, variable_name):
+    crawler.bs(name)
+    crawling_list = list(db.crawling.find({'name':name}, {'_id': False}))
+    return jsonify({variable_name: crawling_list})
+
 
 # @app.route('/api/like', methods=['POST'])
 # def like_star():
