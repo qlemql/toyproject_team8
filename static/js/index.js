@@ -142,7 +142,7 @@ function showTotalCounts() {
             for (let i = 0; i < todayCounts.length; i++) {
                 let today = todayCounts[i]['todayCounts']
                 console.log(today);
-                let temp_html = `<div class="totady">일일 방문자 수 : ${today}명</div>`
+                let temp_html = `<div class="today">일일 방문자 수 : ${today}명</div>`
                 $('#counter').append(temp_html);
             }
         }
