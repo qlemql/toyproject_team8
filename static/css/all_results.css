@@ -1,117 +1,3 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-/* 태현's css */
-
-/* Dark Mode */
-
-body {
-  color: #222;
-  background-color: #fff;
-}
-
-body.dark-theme {
-  color: #eee;
-  background-color: #121212;
-}
-
-.dark__mode {
-  position: absolute;
-  top: 2%;
-  right: 1%;
-  width: 4%;
-  height: 8%;
-  background-color: dimgrey;
-  border-radius: 50%;
-  border: none;
-  color: white;
-  font-size: 20px;
-}
-
-.dark__mode .moon {
-  display: none;
-}
-
-/*  Main  */
-.section {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  margin-top: 10%;
-}
-
-.title {
-  width: auto;
-  height: 100%;
-  margin-top: 2%;
-}
-
-.subtitle {
-  width: auto;
-  height: 100%;
-}
-
-.name {
-  width: auto;
-  height: 100%;
-  padding: 0.3%;
-}
-
-.start {
-  width: auto;
-  height: 100%;
-  padding: 0.8%;
-}
-
-.section,
-.title,
-.subtitle,
-.name,
-.start {
-  margin-bottom: 3%;
-}
-
-/* Footer */
-
-.footer {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  bottom: 0px;
-}
-
-.footer .visitors {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-
-  padding: 1%;
-}
-
-.footer .copyright {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-
-  padding: 1%;
-}
-
-/* 민주's css */
-
 #modalBtn.modalBtn {
   position: absolute;
   top: 0;
@@ -122,19 +8,28 @@ body.dark-theme {
 .modalOverlay {
   width: 100%;
   height: 100%;
-  position: fix;
+  position: absolute;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.541);
+  background-color: transparent;
   display: none;
   justify-content: center;
   align-items: center;
 }
 
+.modalFrame {
+  width: 800px;
+  height: 80%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: gray;
+}
+
 .modal {
   width: 400px;
-  height: 90%;
+  height: 100%;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -149,12 +44,15 @@ body.dark-theme {
 }
 
 .slideList {
+  height: 100%;
   display: flex;
+  align-items: center;
   transform: translate3d(-400px, 0px, 0px);
 }
 .slide {
   width: 400px;
-  height: 600px;
+  height: 550px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -189,7 +87,7 @@ body.dark-theme {
   background-color: orange;
 }
 
-.type {
+.typeName {
   width: 90%;
   height: 5%;
   display: flex;
@@ -206,10 +104,9 @@ body.dark-theme {
   margin-bottom: 30px;
 }
 
-.items {
+.resultsItems {
   width: 90%;
   height: 25%;
-  background-color: slateblue;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,6 +3,7 @@ import crawler
 
 from pymongo import MongoClient
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, jsonify, request
 
@@ -65,6 +66,18 @@ def home():
 
 
 # API 역할을 하는 부분
+@app.route('/visitor', methods=['POST'])
+def save_name():
+    name_receive = request.form['name_give']
+
+    doc = {
+        'name': name_receive
+    }
+
+    db.visitorsName.insert_one(doc)
+
+    return jsonify({'msg': '저장 완료'})
+
 @app.route('/api/todayCounts', methods=['GET'])
 def show_todayCounts():
     db_today_counts = list(db.todayCounter.find({}, {'_id': False}))
