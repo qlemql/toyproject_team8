@@ -3,6 +3,7 @@ import crawler
 
 from pymongo import MongoClient
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, jsonify, request
 
@@ -79,7 +80,8 @@ def show_totalCounts():
 @app.route('/api/monitor', methods=['GET'])
 def show_monitor():
     monitor_crawler = crawler.bs4("모니터")
-    return jsonify({'monitor': monitor_crawler})
+    crawling_list = list(db.crwaling.find({}, {'_id': False}))
+    return jsonify({'monitor': crawling_list})
 
 
 # @app.route('/api/like', methods=['POST'])
