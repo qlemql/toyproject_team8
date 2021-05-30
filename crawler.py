@@ -1,5 +1,9 @@
 import requests
+from pymongo import MongoClient
 from bs4 import BeautifulSoup
+
+client = MongoClient('localhost', 27017)
+db = client.dbsparta
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
 
@@ -20,7 +24,11 @@ def bs(product_name):
     soup2 = BeautifulSoup(data2.text, 'html.parser')
     product2_image = soup2.select_one('#__next > div > div.style_container__3iYev > div.style_inner__1Eo2z > div.style_content_wrap__2VTVx > div.style_content__36DCX > div > div.image_thumb_area__1dzNx > div.image_photo_area__44Fqz > div > img')['src']
 
-    return [{"product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link}, {"product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}]
+    db.crawling.delete_one({'name': product_name})
+    doc = {'name': product_name, "product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link, "product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}
+    db.crawling.insert_one(doc)
 
-bs("모니터")[0][2]
-bs("마우스")
+    # return [{"product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link}, {"product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}]
+
+bs("모니터")
+# bs("마우스")
