@@ -41,7 +41,20 @@ const startBtn = document.querySelector(".start");
 const firstPage = document.querySelector(".section1");
 const lastPage = document.querySelector(".all");
 
+let final_result = document.getElementById('result');
+let f_r = final_result.textContent;
+
 startBtn.addEventListener("click", function () {
   firstPage.style.display = "none";
   lastPage.style.display = "flex";
+  $.ajax({
+        type: "POST",
+        url: "/result",
+        data: {
+            result_give: f_r
+        },
+        success: function (response) {
+        }
+    })
 });
+
