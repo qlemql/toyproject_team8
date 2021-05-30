@@ -7,7 +7,7 @@ function visitors() {
 
   $.ajax({
       type: "POST",
-      url: "/visitor",
+      url: "/api/visitor",
       data: {name_receive:visitors},
       success: function (response) {
           alert(response["msg"]);
