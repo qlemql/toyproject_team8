@@ -1,4 +1,5 @@
 import flask
+import crawler
 
 from pymongo import MongoClient
 from datetime import datetime
@@ -74,6 +75,11 @@ def show_todayCounts():
 def show_totalCounts():
     db_total_counts = list(db.visitorCounter.find({}, {'_id': False}))
     return jsonify({'total_counts': db_total_counts})
+
+@app.route('/api/monitor', methods=['GET'])
+def show_monitor():
+    monitor_crawler = crawler.bs4("모니터")
+    return jsonify({'monitor': monitor_crawler})
 
 
 # @app.route('/api/like', methods=['POST'])
