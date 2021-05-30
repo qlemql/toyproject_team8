@@ -1,7 +1,9 @@
 import flask
+import crawler
 
 from pymongo import MongoClient
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, jsonify, request
 
@@ -20,7 +22,7 @@ def home():
     # db.visitorsToday.insert_one({'today date': 0})
     # db.todayCounter.insert_one({'todayCounts': 0})
     # db.visitorIP.insert_one({'IP': flask.request.remote_addr})
-    # 처음 파일 연 사람 이 4줄 실행할것, 오류 날 시 MongoDB열어서 visitorIP 수동으로 추가해줄 것!
+    # 처음 파일 연 사람 이 4줄 실행할것, 오류 날 시 MongoDB 열어서 visitorIP 수동으로 추가해줄 것!
 
     # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
     # db.todayCounter.update_one({"todayCounts": 0})  # 일일 방문자수 0으로 세팅하기
@@ -60,10 +62,22 @@ def home():
         updated_visitor_counts = visitor_counts + 1
         db.visitorCounter.update_one({'Counts': visitor_counts}, {'$set': {'Counts': updated_visitor_counts}})
 
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 # API 역할을 하는 부분
+@app.route('/visitor', methods=['POST'])
+def save_name():
+    name_receive = request.form['name_give']
+
+    doc = {
+        'name': name_receive
+    }
+
+    db.visitorsName.insert_one(doc)
+
+    return jsonify({'msg': '저장 완료'})
+
 @app.route('/api/todayCounts', methods=['GET'])
 def show_todayCounts():
     db_today_counts = list(db.todayCounter.find({}, {'_id': False}))
@@ -73,8 +87,19 @@ def show_todayCounts():
 @app.route('/api/totalCounts', methods=['GET'])
 def show_totalCounts():
     db_total_counts = list(db.visitorCounter.find({}, {'_id': False}))
-
     return jsonify({'total_counts': db_total_counts})
+
+@app.route('/api/monitor', methods=['GET'])
+def show_monitor():
+    crawler.bs("모니터")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'monitor': crawling_list})
+
+@app.route('/api/<english_name>', methods=['GET'])
+def show_item(search_name, english_name):  # 동적 url 테스트 함수
+    crawler.bs(search_name)
+    crawling_list = list(db.crawling.find({'name':search_name}, {'_id': False}))
+    return jsonify({english_name: crawling_list})
 
 
 # @app.route('/api/like', methods=['POST'])
