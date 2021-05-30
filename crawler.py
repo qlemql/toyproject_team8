@@ -22,5 +22,3 @@ def bs(product_name):
 
     return [{"product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link}, {"product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}]
 
-bs("모니터")[0][2]
-bs("마우스")

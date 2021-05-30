@@ -17,6 +17,8 @@ btn.addEventListener("click", function () {
   localStorage.setItem("theme", theme);
 });
 
+
+
 // fontAwesome icon change
 btn.onclick = function () {
   btn.classList.toggle("active");

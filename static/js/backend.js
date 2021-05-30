@@ -1,5 +1,23 @@
 // 백엔드 js
 
+
+// input js
+function visitors() {
+  let visitors = $('#visitor__name').val()
+
+  $.ajax({
+      type: "POST",
+      url: "/visitor",
+      data: {name_receive:visitors},
+      success: function (response) {
+          alert(response["msg"]);
+          window.location.reload();
+      }
+  })
+}
+
+
+//  일일 방문자 js
 $(document).ready(function () {
   showCounts();
   showTotalCounts();
@@ -22,6 +40,8 @@ function showTotalCounts() {
   });
 }
 
+
+// 총 방문자 js
 function showCounts() {
   $.ajax({
     type: "GET",
@@ -39,6 +59,8 @@ function showCounts() {
   });
 }
 
+
+// 크롤링 js
 const itemBtn = document.querySelector(".item00");
 itemBtn.addEventListener("click", (e) => {
   $.ajax({
