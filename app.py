@@ -3,6 +3,7 @@ import crawler
 
 from pymongo import MongoClient
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, jsonify, request
 
