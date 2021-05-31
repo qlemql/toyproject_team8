@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
 
 * {
   box-sizing: border-box;
@@ -56,6 +56,11 @@ body.dark-theme {
   /* margin-top: 10%; */
 }
 
+.nameForm {
+  width: 100px;
+  height: 100px;
+}
+
 .title {
   width: auto;
   margin-top: 2%;
@@ -66,7 +71,7 @@ body.dark-theme {
 }
 
 .name {
-  width: auto;
+  width: 100px;
   padding: 0.3%;
 }
 

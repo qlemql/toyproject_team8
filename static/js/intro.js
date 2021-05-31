@@ -39,9 +39,32 @@ btn.onclick = function () {
 
 const startBtn = document.querySelector(".start");
 const firstPage = document.querySelector(".section1");
+// const secondPage = document.querySelector('section2');
+// const secondPage = document.querySelector('section3');
 const lastPage = document.querySelector(".all");
 
-startBtn.addEventListener("click", function () {
+
+
+
+// save name
+const nameInput = document.querySelector('input');
+const userName = document.querySelector('.userName');
+
+function handleName (event) {
   firstPage.style.display = "none";
   lastPage.style.display = "flex";
-});
+  // 새로고침 방지
+  event.preventDefault();
+  // 사용자가 입력한 이름값
+  const currentValue = nameInput.value;
+  // 사용자가 입력한 이름을 보여주는 것
+  paintToName(currentValue);
+  // enter 또는 시작하기 눌렀을때 input창 초기화
+  nameInput.value = "";
+}
+
+function paintToName(text) {
+  userName.innerText = text;
+}
+
+startBtn.addEventListener("click", handleName);
