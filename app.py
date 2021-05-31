@@ -120,8 +120,6 @@ def show_item(search_name, english_name):  # 동적 url 테스트 함수
     crawling_list = list(db.crawling.find({'name': search_name}, {'_id': False}))
     return jsonify({english_name: crawling_list})
 
-show_item("모니터", "monitor")
-
 @app.route('/result', methods=['POST'])
 def count_result():
     result_receive = request.form['result_give']
