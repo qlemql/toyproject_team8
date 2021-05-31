@@ -7,7 +7,7 @@ function visitors() {
 
   $.ajax({
       type: "POST",
-      url: "/visitor",
+      url: "/api/visitor",
       data: {name_receive:visitors},
       success: function (response) {
           alert(response["msg"]);
@@ -69,7 +69,8 @@ itemBtn.addEventListener("click", (e) => {
     url: "/api/monitor",
     data: {},
     success: function (response) {
-      console.log(response);
+      let crwawler = response;
+      console.log(crwawler);
     },
   });
 });

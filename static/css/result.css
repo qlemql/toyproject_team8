@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
 /* Yoojin's css start */
 * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   font-family: "Gamja Flower", cursive;
 }
 
@@ -170,3 +174,8 @@
   background-image: url("https://i.imgur.com/U6zybu9.png");
 }
 /* yoojin's css END */
+
+.userName {
+  width: 100px;
+  height: 100px;
+}
