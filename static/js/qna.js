@@ -1,6 +1,7 @@
 const section1 = document.querySelector(".section1");
 const qna = document.querySelector(".QnA");
 const startBtn = document.querySelector(".start");
+const EndPoint = 10;
 
 let type1 = 0;
 let type2 = 0;
@@ -46,6 +47,8 @@ function goNext(qIdx) {
   for (let i in qnaList[qIdx].a) {
     addAnswer(qnaList[qIdx].a[i], qIdx);
   }
+  const status = document.querySelector('.status_bar');
+  status.style.width = (100/EndPoint) * (qIdx+1) + '%' ;
 }
 
 function begin() {
