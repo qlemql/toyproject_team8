@@ -25,13 +25,14 @@
   color: greenyellow;
 } */
 
-.status{
-    height: 20px;
-    width: 80%;
-    border-radius: 20px;
-    background-color: skyblue;
-  }
-  .status_bar{
-    height: 100%;
-    background-color: red;
-  }
+.status {
+  height: 20px;
+  width: 80%;
+  border-radius: 20px;
+  background-color: skyblue;
+}
+.status_bar {
+  height: 100%;
+  border-radius: 20px;
+  background-color: red;
+}
