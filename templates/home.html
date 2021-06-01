@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <link rel="stylesheet" href="../static/css/qna.css">          
     <link rel="stylesheet" href="../static/css/intro.css">
     <link rel="stylesheet" href="../static/css/result.css">
@@ -17,28 +16,31 @@
 <button class="dark__mode">
     <i class="fas fa-sun sun"></i>
     <i class="fas fa-moon moon"></i>
+    <!-- <div class="mod00 sun"></div>
+    <div class="mod01 moon"></div> -->
 </button>
 
 <!-- main section -->
 <section class="section1">
 
 
+    <div class="container">
+        <div class="title">
+            <h1>이것은 타이틀입니다.</h1>
+        </div>
 
-    <div class="title">
-        <h1>이것은 타이틀입니다.</h1>
+
+        <div class="subtitle">
+            <h4>이것은 부제목입니다.</h4>
+        </div>
+
+        <form class="nameForm">
+            <input type="text" class="name" placeholder="이름을 입력해주세요" id="visitor__name">
+            <button class="start" onclick="js:begin()">
+                <span>시작하기</span>
+            </button>
+        </form>
     </div>
-
-
-    <div class="subtitle">
-        <h4>이것은 부제목입니다.</h4>
-    </div>
-
-    <form class="nameForm">
-        <input type="text" class="name" placeholder="이름을 입력해주세요." id="visitor__name">
-        <button class="start" onclick="js:begin()">
-            <span>시작하기</span>
-        </button>
-    </form>
 
 
 
@@ -72,11 +74,6 @@
 <!-- 유진님 작업 공간 -->
 
 <section>
-        
-    <div class="mode">
-        <div class="mod00"></div>
-        <div class="mod01"></div>
-    </div>
     <div class="all">
         <div class="type">
             <div >
@@ -181,8 +178,6 @@
 <!-- Footer -->
 <footer class="footer" >
     <div class="count" id="counter">
-        <span class="visitors"></span>
-        <span class="totady"></span>
     </div>
     <div class="copyright">
         <span class="txt2">Copyright 2021. Team8 All rights reserved.</span>

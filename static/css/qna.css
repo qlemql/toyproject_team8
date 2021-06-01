@@ -22,11 +22,11 @@
   border-radius: 20px;
 }
 
-.answerList:hover,
+/* .answerList:hover,
 .answerList:focus {
   background-color: green;
   color: greenyellow;
-}
+} */
 
 /* .status{
     height: 20px;
