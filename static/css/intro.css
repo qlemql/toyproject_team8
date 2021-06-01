@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
 
-/* media queries */
-
-@media screen and (width: 480px) {
-  footer {
-    font-size: 24px;
-  }
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -117,7 +109,17 @@ body.dark-theme {
   font-size: 36px;
   margin-bottom: 50px;
   padding: 10px;
-  background: none;
+  background: transparent;
+  outline: none;
+  fill: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0px 1000px none inset !important;
 }
 
 .start {
@@ -132,14 +134,6 @@ body.dark-theme {
   background: none;
 }
 
-/* .section,
-.title,
-.subtitle,
-.name,
-.start {
-  margin-bottom: 10%;
-} */
-
 /* Footer */
 
 .footer {
@@ -151,7 +145,6 @@ body.dark-theme {
   position: absolute;
   bottom: 0px;
   padding: 1%;
-  font-size: 36px;
   font-weight: bold;
 }
 
@@ -162,9 +155,38 @@ body.dark-theme {
   width: 30%;
 }
 
+.count,
+.copyright {
+  font-size: 36px;
+}
+
 .copyright {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 50%;
+}
+
+/* media queries */
+
+@media screen and (max-width: 2000px) {
+  .count,
+  .copyright {
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 24px;
+  }
+  .dark__mode {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 12px;
+  }
 }

@@ -2,7 +2,6 @@
 
 // dark mode
 const btn = document.querySelector(".dark__mode");
-
 const currentTheme = localStorage.getItem("theme");
 const body = document.querySelector("body");
 const inputBtn = document.querySelector(".name");
@@ -16,25 +15,25 @@ btn.addEventListener("click", function () {
   let theme = "light";
   if (document.body.classList.contains("dark-theme")) {
     startBtn.style.color = "#121212";
-    // startBtn.style.backgroundColor = '#eee';
+    startBtn.style.backgroundColor = 'transparent';
     startBtn.style.border = "1px solid #121212";
     inputBtn.style.border = "1px solid #121212";
     body.style.backgroundImage = "url(https://i.imgur.com/mZT110x.png)";
     body.style.backgroundSize = "cover";
     body.style.backgroundPosition = "center";
-    btn.style.backgroundColor = "dimgrey";
+    btn.style.backgroundColor = "#121212";
     btn.style.color = "white";
   } else {
     theme = "dark";
     startBtn.style.color = "#eee";
-    // startBtn.style.backgroundColor = '#121212';
+    startBtn.style.backgroundColor = '#121212';
     startBtn.style.border = "1px solid #eee";
     inputBtn.style.border = "1px solid #eee";
     body.style.backgroundImage = "url(https://i.imgur.com/oYS2gZf.png)";
     body.style.backgroundSize = "cover";
     body.style.backgroundPosition = "center";
     btn.style.backgroundColor = "white";
-    btn.style.color = "dimgrey";
+    btn.style.color = "#121212";
   }
   localStorage.setItem("theme", theme);
 });

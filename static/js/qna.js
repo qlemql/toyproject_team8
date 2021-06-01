@@ -52,8 +52,6 @@ function goNext(qIdx) {
 }
 
 function begin() {
-  section1.style.display = "none";
-  qna.style.display = "block";
   let qIdx = 0;
   goNext(qIdx);
 }
