@@ -82,18 +82,6 @@ def home():
 
 
 # API 역할을 하는 부분
-@app.route('/visitor', methods=['POST'])
-def save_name():
-    name_receive = request.form['name_give']
-
-    doc = {
-        'name': name_receive
-    }
-
-    db.visitorsName.insert_one(doc)
-
-    return jsonify({'msg': '저장 완료'})
-
 @app.route('/api/todayCounts', methods=['GET'])
 def show_todayCounts():
     db_today_counts = list(db.todayCounter.find({}, {'_id': False}))
@@ -108,13 +96,19 @@ def show_totalCounts():
 @app.route('/api/monitor', methods=['GET'])
 def show_monitor():
     crawler.bs("모니터")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    crawling_list = list(db.crawling.find({'name': "모니터"}, {'_id': False}))
     return jsonify({'monitor': crawling_list})
+
+@app.route('/api/mouse', methods=['GET'])
+def show_mouse():
+    crawler.bs("마우스")
+    crawling_list = list(db.crawling.find({'name': "마우스"}, {'_id': False}))
+    return jsonify({'mouse': crawling_list})
 
 @app.route('/api/<english_name>', methods=['GET'])
 def show_item(search_name, english_name):  # 동적 url 테스트 함수
     crawler.bs(search_name)
-    crawling_list = list(db.crawling.find({'name':search_name}, {'_id': False}))
+    crawling_list = list(db.crawling.find({'name': search_name}, {'_id': False}))
     return jsonify({english_name: crawling_list})
 
 @app.route('/result', methods=['POST'])

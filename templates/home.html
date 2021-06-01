@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/qna.css">          
     <link rel="stylesheet" href="../static/css/intro.css">
     <link rel="stylesheet" href="../static/css/result.css">
     <link rel="stylesheet" href="../static/css/all_results.css">
@@ -15,64 +16,74 @@
 <button class="dark__mode">
     <i class="fas fa-sun sun"></i>
     <i class="fas fa-moon moon"></i>
+    <!-- <div class="mod00 sun"></div>
+    <div class="mod01 moon"></div> -->
 </button>
 
 <!-- main section -->
 <section class="section1">
 
 
+    <div class="container">
+        <div class="title">
+            <h1>이것은 타이틀입니다.</h1>
+        </div>
 
-    <div class="title">
-        <h1>이것은 타이틀입니다.</h1>
-    </div>
 
+        <div class="subtitle">
+            <h4>이것은 부제목입니다.</h4>
+        </div>
 
-    <div class="subtitle">
+    <div class="subtitle"> 
         <h4>이것은 부제목입니다.</h4>
     </div>
 
-
-    <input type="text" class="name" placeholder="이름을 입력해주세요." id="visitor__name">
-
-
-    <button class="start">
-        <span>시작하기</span>
-    </button>
-
-
+    <form class="nameForm">
+        <input type="text" class="name" placeholder="이름을 입력해주세요." id="visitor__name">
+        <button class="start">
+            <span>시작하기</span>
+        </button>
+    </form>
 
 </section>
 
 
 <!-- 원준님 작업 공간 -->
-<section>
 
-</section>
+  <section class="QnA">
 
+    <div class="status">
+      <div class="status_bar">
+        
+      </div>
+    </div>
+    <div class="Question">
+
+    </div>
+    <div class="Answer">
+      
+    </div>
+
+    
+  </section>
 
 <!-- 유진님 작업 공간 -->
 
 <section>
-        
-    <div class="mode">
-        <div class="mod00"></div>
-        <div class="mod01"></div>
-    </div>
     <div class="all">
         <div class="type">
-            <div >
-                <img class="type-image" src="https://i.imgur.com/wSVqgj6.png" >
+            <div class="result-image">
             </div>
             <div class="type-result">
                 <div class="result-text">
+
                     <div class="result-title" id="individual">
                         <h4>안락함 추구자</h4>
 <!--                        결과값으로 될 이름 타이틀에는 모두 , id="result" 넣어주세요    -->
                         <h2 id="result">다른 부서 염탐하는 미어캣형</h2>
                         <span></span>
                     </div>
-                    <p class="result-desc">무슨 일을 함에 있어 편안한 환경부터 조성되어야 하는 당신은 판다형이다. 동해물과백두산이 마르고 닳도록 하느님이 보우하사 우리 나라만세. 블라블라. 판다는 귀엽죠 쏘 큐트.
-                        멸종위기보호동물이랍니다. 대나무잎을 먹고 사는데 어린대나무잎을 좋아해요.</p></div>
+                    <p class="result-desc"></p></div>
             </div>
         </div>
         <div class="bottomType">
@@ -103,7 +114,7 @@
     <div class="modalOverlay">
         <div class="modalFrame">
             <button id="closeBtn" class="closeBtn">X</button>
-            <button class="prevBtn"><i class="fas fa-caret-left"></i></button>
+            <button class="prevBtn"><i class="fas fa-chevron-left"></i></i></button>
             <div class="modal">
                 <div class="slideBox">
         
@@ -307,7 +318,7 @@
                 </div>
                 <!-- <ul class="slidePagination"></ul> -->
             </div>
-            <button class="nextBtn"><i class="fas fa-caret-right"></i></button>
+            <button class="nextBtn"><i class="fas fa-chevron-right"></i></i></button>
         </div>
     </div>
 </section>
@@ -316,16 +327,18 @@
 <!-- Footer -->
 <footer class="footer" >
     <div class="count" id="counter">
-        <span class="visitors"></span>
-        <span class="totady"></span>
     </div>
     <div class="copyright">
         <span class="txt2">Copyright 2021. Team8 All rights reserved.</span>
     </div>
 
 </footer>
+<!-- 원준 js -->
+<script src="../static/js/data.js" charset="utf-8"></script>
 
+<!-- 원준 js -->
 
+<script src="../static/js/qna.js" charset="utf-8"></script>
 <script src="/static/js/intro.js"></script>
 <script src="/static/js/all_result.js"></script>
 <script src="/static/js/backend.js"></script>
