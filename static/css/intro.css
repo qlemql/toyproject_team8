@@ -15,8 +15,13 @@ html,
 body {
   width: 100%;
   height: 100%;
-  color: #222;
-  background-color: whitesmoke;
+  color: #eee;
+  padding: 0;
+  margin: 0;
+  background-image: url(https://i.imgur.com/mZT110x.png);
+  background-position: center;
+  background-repeat: unset;
+  background-size: cover;
 }
 
 body.dark-theme {
@@ -38,7 +43,7 @@ body.dark-theme {
   font-size: 20px;
 }
 
-.dark__mode .moon {
+.dark__mode .sun {
   display: none;
 }
 
@@ -78,6 +83,9 @@ body.dark-theme {
 .start {
   width: auto;
   padding: 0.8%;
+  background-color: #121212;
+  color: #eee;
+  border: 1px solid #eee;
 }
 
 .section,
