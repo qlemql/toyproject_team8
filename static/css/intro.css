@@ -47,7 +47,13 @@ body.dark-theme {
   border-radius: 50%;
   border: none;
   color: white;
+<<<<<<< HEAD
+  font-size: 20px;
+  filter: 0;
+  -webkit-filter: 0;
+=======
   font-size: 30px;
+>>>>>>> frontend/develop
 }
 
 .dark__mode .sun {
