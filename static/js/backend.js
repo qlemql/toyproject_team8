@@ -73,8 +73,32 @@ itemBtn.addEventListener("click", (e) => {
   });
 });
 
+
+
+//결과값 저장 및 count up 아래값을 활성화해서 붙여주세요.
+
+//버튼 밖에 로컬에 붙여주세요.
+// let final_result = document.getElementById('result');
+// let f_r = final_result.textContent;
+
+//결과 버튼 안에 넣어주세요.
+// $.ajax({
+//         type: "POST",
+//         url: "/result",
+//         data: {
+//             result_give: f_r
+//         },
+//         success: function (response) {
+//         }
+//     })
+// });
+
+
 // 통계값
 function makeStatistic() {
+
+
+  // 결과값 버튼 안에 넣어주세요.
   $.ajax({
     type: "GET",
     url: "/result/statistic",
@@ -107,4 +131,8 @@ function makeStatistic() {
 
     }
   })
+
+//요기까지
 }
+
+
