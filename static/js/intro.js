@@ -44,6 +44,7 @@ const lastPage = document.querySelector(".all");
 
 
 
+
 // save name
 const nameInput = document.querySelector('input');
 const userName = document.querySelector('.userName');
@@ -66,3 +67,7 @@ function paintToName(text) {
 }
 
 startBtn.addEventListener("click", handleName);
+
+
+
+

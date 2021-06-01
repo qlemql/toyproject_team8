@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- 원준 css -->
+    <link rel="stylesheet" href="../static/css/qna.css">          
+    <!-- css -->
     <link rel="stylesheet" href="../static/css/intro.css">
     <link rel="stylesheet" href="../static/css/result.css">
     <link rel="stylesheet" href="../static/css/all_results.css">
@@ -41,15 +44,33 @@
 
 
 
+    <button class="start" onclick="js:begin()">
+        <span>시작하기</span>
+    </button>
+
+
+
 
 </section>
 
 
 <!-- 원준님 작업 공간 -->
-<section>
 
-</section>
+  <section class="QnA">
 
+    <div class="status">
+      <div class="status_bar">
+        
+      </div>
+    </div>
+    <div class="Question">
+
+    </div>
+    <div class="Answer">
+      
+    </div>
+    
+  </section>
 
 <!-- 유진님 작업 공간 -->
 
@@ -67,9 +88,13 @@
             <div class="type-result">
                 <div class="result-text">
                     <div class="result-title">
+
                         
                         <h4><span class="userName"></span>님은 안락함 추구자</h4>
                         <h2>판다형</h2>
+                        <h4>안락함 추구자</h4>
+                        <h2 id="result">판다형</h2>
+
                     </div>
                     <p class="result-desc">무슨 일을 함에 있어 편안한 환경부터 조성되어야 하는 당신은 판다형이다. 동해물과백두산이 마르고 닳도록 하느님이 보우하사 우리 나라만세. 블라블라. 판다는 귀엽죠 쏘 큐트.
                         멸종위기보호동물이랍니다. 대나무잎을 먹고 사는데 어린대나무잎을 좋아해요.</p></div>
@@ -167,7 +192,11 @@
     </div>
 
 </footer>
+<!-- 원준 js -->
+<script src="../static/js/qna.js" charset="utf-8"></script>
+<script src="../static/js/data.js" charset="utf-8"></script>
 
+<!-- 원준 js -->
 
 <script src="/static/js/intro.js"></script>
 <script src="/static/js/all_result.js"></script>
