@@ -16,19 +16,15 @@
   padding: 5px;
   width: 100%;
   background-color: skyblue;
-  text-align: center;
   border-radius: 20px;
-  display: block;
 }
 
-button {
-  color: white;
-}
-.answerList:hover,
+/* .answerList:hover,
 .answerList:focus {
   background-color: green;
   color: greenyellow;
-}
+} */
+
 /* .status{
     height: 20px;
     width: 80%;
