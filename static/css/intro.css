@@ -1,10 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+
+/* media queries */
+
+@media screen and (width: 480px) {
+  footer {
+    font-size: 24px;
+  }
+}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Gamja Flower", cursive;
+  font-family: "Poor Story", cursive;
 }
 
 /* 태현's css */
@@ -15,30 +23,40 @@ html,
 body {
   width: 100%;
   height: 100%;
-  color: #222;
-  background-color: whitesmoke;
+  color: #eee;
+  padding: 0;
+  margin: 0;
+  background-image: url(https://i.imgur.com/mZT110x.png);
+  background-position: center;
+  background-repeat: unset;
+  background-size: cover;
 }
 
 body.dark-theme {
-  color: #eee;
-  background-color: #121212;
+  color: #121212;
 }
 
 .dark__mode {
   position: absolute;
   top: 2%;
-  right: 1%;
+  right: 2%;
   z-index: 1000;
-  width: 4%;
-  height: 8%;
-  background-color: dimgrey;
+  width: 80px;
+  height: 80px;
+  background-color: #121212;
   border-radius: 50%;
   border: none;
   color: white;
+<<<<<<< HEAD
   font-size: 20px;
+  filter: 0;
+  -webkit-filter: 0;
+=======
+  font-size: 30px;
+>>>>>>> frontend/develop
 }
 
-.dark__mode .moon {
+.dark__mode .sun {
   display: none;
 }
 
@@ -56,37 +74,77 @@ body.dark-theme {
   /* margin-top: 10%; */
 }
 
-.nameForm {
-  width: 100px;
-  height: 100px;
+.container {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .title {
-  width: auto;
-  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 100px;
+  font-size: 42px;
+  font-weight: bold;
 }
 
 .subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: auto;
+  height: 80px;
+  font-size: 36px;
+}
+
+.nameForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  height: 300px;
 }
 
 .name {
-  width: 100px;
-  padding: 0.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: auto;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #121212;
+  font-size: 36px;
+  margin-bottom: 50px;
+  padding: 10px;
+  background: none;
 }
 
 .start {
-  width: auto;
-  padding: 0.8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: auto;
+  border: 1px solid #121212;
+  border-radius: 10px;
+  font-size: 36px;
+  background: none;
 }
 
-.section,
+/* .section,
 .title,
 .subtitle,
 .name,
 .start {
-  margin-bottom: 3%;
-}
+  margin-bottom: 10%;
+} */
 
 /* Footer */
 
@@ -99,11 +157,13 @@ body.dark-theme {
   position: absolute;
   bottom: 0px;
   padding: 1%;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .count {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   width: 30%;
 }

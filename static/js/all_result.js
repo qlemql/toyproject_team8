@@ -1,22 +1,25 @@
 // 민주's js
 const modalOverlay = document.querySelector(".modalOverlay");
 const modalBtn = document.getElementById("modalBtn");
+const section3 = document.querySelector(".all");
 
 modalBtn.addEventListener("click", (e) => {
   modalOverlay.style.display = "flex";
+  section3.style.filter = "blur(5px)";
 });
 
 const closeBtn = document.getElementById("closeBtn");
 
 closeBtn.addEventListener("click", (e) => {
-  console.log(e);
   modalOverlay.style.display = "none";
+  section3.style.filter = "blur(0px)";
 });
 
 modalOverlay.addEventListener("click", (e) => {
   const evTarget = e.target;
   if (evTarget.classList.contains("modalOverlay")) {
     modalOverlay.style.display = "none";
+    section3.style.filter = "blur(0px)";
   }
 });
 
