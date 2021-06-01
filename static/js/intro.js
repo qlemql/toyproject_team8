@@ -35,23 +35,16 @@ btn.onclick = function () {
   }
 };
 
-const startBtn = document.querySelector(".start");
 const firstPage = document.querySelector(".section1");
 // const secondPage = document.querySelector('section2');
 // const secondPage = document.querySelector('section3');
-const lastPage = document.querySelector(".all");
-
-
-
-
 
 // save name
-const nameInput = document.querySelector('input');
-const userName = document.querySelector('.userName');
+const nameInput = document.querySelector("input");
+const userName = document.querySelector(".userName");
 
-function handleName (event) {
+function handleName(event) {
   firstPage.style.display = "none";
-  lastPage.style.display = "flex";
   // 새로고침 방지
   event.preventDefault();
   // 사용자가 입력한 이름값
@@ -67,7 +60,3 @@ function paintToName(text) {
 }
 
 startBtn.addEventListener("click", handleName);
-
-
-
-

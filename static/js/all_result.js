@@ -5,7 +5,6 @@ const section3 = document.querySelector(".all");
 
 modalBtn.addEventListener("click", (e) => {
   modalOverlay.style.display = "flex";
-
   section3.style.filter = "blur(5px)";
 });
 
