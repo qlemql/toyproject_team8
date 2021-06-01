@@ -17,6 +17,8 @@
   position: absolute;
   z-index: 10;
   top: 0;
+  filter: 0;
+  -webkit-filter: 0;
 }
 
 .type {

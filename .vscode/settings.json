@@ -1,7 +1,3 @@
 {
-<<<<<<< HEAD
-    "python.pythonPath": "C:\\Users\\wjdal\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
-=======
-    "python.pythonPath": "C:\\Users\\TaeHyun\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
->>>>>>> frontend/develop
+  "python.pythonPath": "C:\\Users\\wjdal\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
 }
