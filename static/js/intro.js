@@ -59,7 +59,6 @@ btn.onclick = function () {
 // page change
 const firstPage = document.querySelector(".section1");
 const secondPage = document.querySelector(".section2");
-// const secondPage = document.querySelector('section3');
 
 // save name
 const nameInput = document.querySelector("input");
@@ -78,6 +77,7 @@ function handleName(event) {
     secondPage.style.justifyContent = "center";
     secondPage.style.alignItems = "center";
     secondPage.style.flexDirection = "column";
+    btn.style.display = 'none';
     // 새로고침 방지
     // 사용자가 입력한 이름값
 

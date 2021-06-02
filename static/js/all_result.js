@@ -55,29 +55,6 @@ function addSlide() {
       item.classList.add("item");
     }
   }
-
-  // $.ajax({
-  //   type: "GET",
-  //   url: "/result/statistic",
-  //   data: {},
-  //   success: function (response) {
-  //     let statistic = response[0]["statistic"];
-  //     let total_counts = response[1]["total_count"];
-  //     for (let i = 0; i < statistic.length; i++) {
-  //       let final_counts = statistic[i]["counts"];
-  //       $(`#result${i}`).text(
-  //         `${(final_counts / total_counts).toFixed(2)}%  ${final_counts}명`
-  //       );
-  //     }
-
-  //     let firstChild = slideList.firstElementChild;
-  //     let lastChild = slideList.lastElementChild;
-  //     let clonedFirst = firstChild.cloneNode(true);
-  //     let clonedLast = lastChild.cloneNode(true);
-  //     slideList.appendChild(clonedFirst);
-  //     slideList.insertBefore(clonedLast, slideList.firstElementChild);
-  //   },
-  // });
 }
 
 addSlide();

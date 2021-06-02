@@ -45,6 +45,7 @@ function end() {
   loadingDiv.style.display = "flex";
   setTimeout(function () {
     loadingDiv.style.display = "none";
+    btn.style.display = "block";
     result();
   }, 5000);
 }
@@ -74,9 +75,12 @@ const resImageDiv = document.querySelector(".result-image");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
 const typeDesc = document.querySelector(".result-desc");
+const typeRecommed = document.querySelector(".recommId");
 const resultItemList = document.querySelector(".itemlist");
-const resultItem = document.createElement(li);
+const resultItem = document.createElement("li");
 
+//when it show up result, result value save and count up , if it haven't same IP for a while.
+//also , make statistic and attach value of statistic to result page and all results pages.
 function drawResult(resultIndex) {
   resImageDiv.appendChild(resImg);
   resImg.classList.add("type-image");
@@ -84,11 +88,10 @@ function drawResult(resultIndex) {
   resImg.alt = resultInfo[resultIndex].name;
   resImg.title = resultInfo[resultIndex].name;
   typeName.innerText = resultInfo[resultIndex].subName;
-  typeDesc.innerText = resultInfo[resultIndex].desc;
+  typeRecommed.innerText = resultInfo[resultIndex].subName;
 
   let final_result = document.getElementById("result");
   let f_r = final_result.textContent;
-
   $.ajax({
     type: "POST",
     url: "/result",
@@ -106,6 +109,16 @@ function drawResult(resultIndex) {
       let statistic = response[0]["statistic"];
       let total_counts = response[1]["total_count"];
       let type = [];
+
+      for (let i = 0; i < statistic.length; i++) {
+        let final_counts = statistic[i]["counts"];
+        $(`#result${i}`).text(
+          `${((final_counts / total_counts) * 100).toFixed(
+            2
+          )}%  ${final_counts}명`
+        );
+      }
+
       for (let i = 0; i < statistic.length; i++) {
         if (i < 13) {
           let temp_type = statistic[i]["type"] + "@";
@@ -117,14 +130,6 @@ function drawResult(resultIndex) {
       }
       let list_type = type.split("@");
 
-      for (let i = 0; i < statistic.length; i++) {
-        let final_counts = statistic[i]["counts"];
-        $(`#result${i}`).text(
-          `${((final_counts / total_counts) * 100).toFixed(
-            2
-          )}%  ${final_counts}명`
-        );
-      }
       for (let j = 0; j < type.length; j++) {
         if (list_type[j] === f_r) {
           let final_counts = statistic[j]["counts"];
