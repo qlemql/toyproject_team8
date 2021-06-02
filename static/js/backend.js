@@ -75,7 +75,6 @@ itemBtn.addEventListener("click", (e) => {
 
 
 
-//결과값 저장 및 count up 아래값을 활성화해서 붙여주세요.
 
 
 

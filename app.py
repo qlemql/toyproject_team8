@@ -37,7 +37,7 @@ def home():
     # db.final_result.insert_one({"type": "야근요정 부엉이형", "counts": 0})
     # db.final_result.insert_one({"type": "금강산도 식후경 돼지형", "counts": 0})
     # db.total_count.insert_one({"total_count": 0})
-    # 처음 파일 연 사람 이 20줄 실행할것, 오류 날 시 MongoDB 열어서 visitorIP 수동으로 추가해줄 것!
+    # 처음 파일 연 사람 이 19줄 실행할것, 오류 날 시 MongoDB 열어서 visitorIP 수동으로 추가해줄 것!
 
     # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
     # db.todayCounter.update_one({"todayCounts": 0})  # 일일 방문자수 0으로 세팅하기

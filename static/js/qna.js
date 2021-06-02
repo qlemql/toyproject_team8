@@ -77,11 +77,10 @@ const typeName = document.getElementById("result");
 const typeDesc = document.querySelector(".result-desc");
 const typerecommed = document.querySelector('.recommId')
 
-//버튼 밖에 로컬에 붙여주세요.
-let final_result = document.getElementById("result");
-let f_r = final_result.textContent;
 
-//결과 버튼 안에 넣어주세요.
+
+//when it show up result, result value save and count up , if it haven't same IP for a while.
+//also , make statistic and attach value of statistic to result page and all results pages.
 function drawResult(resultIndex) {
   resImageDiv.appendChild(resImg);
   resImg.classList.add("type-image");
@@ -92,6 +91,9 @@ function drawResult(resultIndex) {
   typeDesc.innerText = resultInfo[resultIndex].desc;
   typerecommed.innerText = resultInfo[resultIndex].subName;
 
+
+  let final_result = document.getElementById("result");
+  let f_r = final_result.textContent;
   $.ajax({
     type: "POST",
     url: "/result",
@@ -128,7 +130,7 @@ function drawResult(resultIndex) {
       let type = [];
       for (let i = 0; i < statistic.length; i++) {
         let final_counts = statistic[i]["counts"];
-        let temp_html = `<span>${(final_counts / total_counts).toFixed(
+        let temp_html = `<span>${(final_counts / total_counts * 100).toFixed(
           2
         )}%  ${final_counts}명</span>`;
         $(list_id[i]).append(temp_html);
@@ -140,7 +142,7 @@ function drawResult(resultIndex) {
       for (let j = 0; j < type.length; j++) {
         if (list_type[j] === f_r) {
           let final_counts = statistic[j]["counts"];
-          let temp_html = `<span>${(final_counts / total_counts).toFixed(
+          let temp_html = `<span>${(final_counts / total_counts * 100).toFixed(
             2
           )}%  ${final_counts}명</span>`;
           $("#individual").append(temp_html);
