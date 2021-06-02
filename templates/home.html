@@ -22,35 +22,25 @@
 
 <!-- main section -->
 <section class="section1">
-
-
     <div class="container">
         <div class="title">
             <h1>이것은 타이틀입니다.</h1>
         </div>
-
-
         <div class="subtitle">
             <h4>이것은 부제목입니다.</h4>
         </div>
-
-    <div class="subtitle"> 
-        <h4>이것은 부제목입니다.</h4>
-    </div>
-
     <form class="nameForm">
         <input type="text" class="name" placeholder="이름을 입력해주세요." id="visitor__name">
         <button class="start">
             <span>시작하기</span>
         </button>
     </form>
-
 </section>
 
 
 <!-- 원준님 작업 공간 -->
 
-  <section class="QnA">
+  <section class="section2 QnA">
 
     <div class="status">
       <div class="status_bar">
@@ -61,34 +51,35 @@
 
     </div>
     <div class="Answer">
-      
     </div>
+</section>
 
-    
-  </section>
-
+<div class="load">
+    <div class="loadingBar" data-text="LOADING">loading</div>
+</div>
 <!-- 유진님 작업 공간 -->
 
 <section>
     <div class="all">
         <div class="type">
             <div class="result-image">
+                
             </div>
             <div class="type-result">
                 <div class="result-text">
-
                     <div class="result-title" id="individual">
-                        <h4>안락함 추구자</h4>
+                        <h4><span class="userName"></span>님은</h4>
 <!--                        결과값으로 될 이름 타이틀에는 모두 , id="result" 넣어주세요    -->
-                        <h2 id="result">다른 부서 염탐하는 미어캣형</h2>
-                        <span></span>
+                        <h2 id="result"></h2>
+                        
                     </div>
-                    <p class="result-desc"></p></div>
+                    <!-- <p class="result-desc"></p> -->
+                </div>
             </div>
         </div>
         <div class="bottomType">
             <div class="items">
-                <h2 class="items-title">판다형을 위한 아이템 추천</h2>
+                <h2 class="items-title"><h2 class="recommId"></h2>을 위한 아이템 추천
                 <div class="itemlist">
                     <div class="item00"></div>
                     <div class="item01"></div>
@@ -110,14 +101,12 @@
 <!-- 민주님 작업 공간 -->
 
 <section>
-    
     <div class="modalOverlay">
         <div class="modalFrame">
             <button id="closeBtn" class="closeBtn">X</button>
             <button class="prevBtn"><i class="fas fa-chevron-left"></i></i></button>
             <div class="modal">
-                <div class="slideBox">
-        
+                <div class="slideBox">      
                     <div class="slideList">
                         <div class="slide card01">
                             <div class="image"></div>
@@ -303,7 +292,7 @@
                         <div class="slide card14">
 
                             <div class="image"></div>
-                            <h3  class="typeName" id="stat_12">
+                            <h3  class="typeName" id="stat_14">
                                 typename**14**
                                 <span></span>
                             </h3>
@@ -333,15 +322,13 @@
     </div>
 
 </footer>
-<!-- 원준 js -->
+
 <script src="../static/js/data.js" charset="utf-8"></script>
-
-<!-- 원준 js -->
-
 <script src="../static/js/qna.js" charset="utf-8"></script>
 <script src="/static/js/intro.js"></script>
 <script src="/static/js/all_result.js"></script>
 <script src="/static/js/backend.js"></script>
+
 </body>
 </html>
 

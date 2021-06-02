@@ -94,12 +94,12 @@ const qnaList = [
 const resultInfo = [
   {
     name: "캥거루형",
-    subName: "안마의자 중독 캥거루형",
+    subName: "안마의자 마니아 캥거루형",
     desc: "가구, 편함, 4차원",
   },
   {
     name: "꿀벌형",
-    subName: "시키면 다한다 꿀벌형",
+    subName: "근면성실 꿀벌형",
     desc: "가구, 기기, 편함",
   },
   {
@@ -109,12 +109,12 @@ const resultInfo = [
   },
   {
     name: "돼지형",
-    subName: "배민 중독 돼지형",
+    subName: "금강산도 식후경 돼지형",
     desc: "기기, 편함, 4차원",
   },
   {
     name: "코알라형",
-    subName: "사무실 잠보 코알라형",
+    subName: "사무실 마이홈 코알라형",
     desc: "가구, 편함",
   },
   {
@@ -139,7 +139,7 @@ const resultInfo = [
   },
   {
     name: "미어캣형",
-    subName: "다른 부서 염탐하는 미어캣형",
+    subName: "호기심 많은 미어캣형",
     desc: "가구, 기기",
   },
   {
@@ -154,7 +154,7 @@ const resultInfo = [
   },
   {
     name: "판다형",
-    subName: "나몰라라 판다형",
+    subName: "워라밸 판다형",
     desc: "편암형",
   },
   {
