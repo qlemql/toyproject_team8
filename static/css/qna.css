@@ -40,6 +40,73 @@
   background: linear-gradient(to right, #86a8e7, #91eae4);
 }
 
+.status {
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  margin-bottom: 100px;
+  border: none;
+}
+.status_bar {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(to right, #1c92d271, #f2fcfe);
+  border: none;
+}
+
+/* media queries */
+
+@media (max-width: 1750px) {
+  /* hi-res laptops and desktops */
+  .Question {
+    font-size: 36px;
+  }
+  .answerList {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1290px) {
+  /* big landscape tablets, laptops, and desktops */
+  .Question {
+    font-size: 24px;
+  }
+  .answerList {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 890px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .Question {
+    font-size: 18px;
+  }
+  .answerList {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 685px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .Question {
+    font-size: 14px;
+  }
+  .answerList {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 550px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .Question {
+    font-size: 12px;
+  }
+  .answerList {
+    font-size: 10px;
+  }
+}
+
 /* loading bar */
 .load {
   height: 100%;
@@ -95,69 +162,3 @@
   }
 }
 /*loading bar end..*/
-
-.status {
-  height: 40px;
-  width: 80%;
-  border-radius: 20px;
-  background: linear-gradient(to right, #e1eec3, #f05053);
-  margin-bottom: 100px;
-  border: none;
-}
-.status_bar {
-  height: 100%;
-  border-radius: 20px;
-  background: linear-gradient(to right, #1c92d271, #f2fcfe);
-  border: none;
-}
-
-/* media queries */
-
-@media (min-width: 420px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-  .Question {
-    font-size: 12px;
-  }
-  .answerList {
-    font-size: 10px;
-  }
-}
-
-@media (min-width: 620px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-  .Question {
-    font-size: 16px;
-  }
-  .answerList {
-    font-size: 12px;
-  }
-}
-@media (min-width: 880px) {
-  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-  .Question {
-    font-size: 24px;
-  }
-  .answerList {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1140px) {
-  /* big landscape tablets, laptops, and desktops */
-  .Question {
-    font-size: 24px;
-  }
-  .answerList {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1295px) {
-  /* hi-res laptops and desktops */
-  .Question {
-    font-size: 36px;
-  }
-  .answerList {
-    font-size: 24px;
-  }
-}
