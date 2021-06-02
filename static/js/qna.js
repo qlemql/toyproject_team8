@@ -76,10 +76,7 @@ const typeName = document.getElementById("result");
 const typeDesc = document.querySelector(".result-desc");
 
 //버튼 밖에 로컬에 붙여주세요.
-let final_result = document.getElementById("result");
-let f_r = final_result.textContent;
 
-//결과 버튼 안에 넣어주세요.
 function drawResult(resultIndex) {
   resImageDiv.appendChild(resImg);
   resImg.classList.add("type-image");
@@ -88,6 +85,8 @@ function drawResult(resultIndex) {
   resImg.title = resultInfo[resultIndex].name;
   typeName.innerText = resultInfo[resultIndex].subName;
   typeDesc.innerText = resultInfo[resultIndex].desc;
+  let final_result = document.getElementById("result");
+  let f_r = final_result.textContent;
 
   $.ajax({
     type: "POST",
@@ -97,6 +96,7 @@ function drawResult(resultIndex) {
     },
     success: function (response) {},
   });
+
   $.ajax({
     type: "GET",
     url: "/result/statistic",
@@ -104,45 +104,44 @@ function drawResult(resultIndex) {
     success: function (response) {
       let statistic = response[0]["statistic"];
       let total_counts = response[1]["total_count"];
-      let list_id = [
-        "#stat_01",
-        "#stat_02",
-        "#stat_03",
-        "#stat_04",
-        "#stat_05",
-        "#stat_06",
-        "#stat_07",
-        "#stat_08",
-        "#stat_09",
-        "#stat_10",
-        "#stat_11",
-        "#stat_12",
-        "#stat_13",
-        "#stat_14",
-      ];
-      let final_result = document.getElementById("result");
-      let f_r = final_result.textContent;
       let type = [];
       for (let i = 0; i < statistic.length; i++) {
-        let final_counts = statistic[i]["counts"];
-        let temp_html = `<span>${(final_counts / total_counts).toFixed(
-          2
-        )}%  ${final_counts}명</span>`;
-        $(list_id[i]).append(temp_html);
-        let temp_type = statistic[i]["type"] + "@";
-        type += temp_type;
+        if (i < 13) {
+          let temp_type = statistic[i]["type"] + "@";
+          type += temp_type;
+        } else {
+          let temp_type = statistic[i]["type"];
+          type += temp_type;
+        }
       }
       let list_type = type.split("@");
 
+      for (let i = 0; i < statistic.length; i++) {
+        let final_counts = statistic[i]["counts"];
+        $(`#result${i}`).text(
+          `${((final_counts / total_counts) * 100).toFixed(
+            2
+          )}%  ${final_counts}명`
+        );
+      }
       for (let j = 0; j < type.length; j++) {
         if (list_type[j] === f_r) {
           let final_counts = statistic[j]["counts"];
-          let temp_html = `<span>${(final_counts / total_counts).toFixed(
-            2
-          )}%  ${final_counts}명</span>`;
+          let temp_html = `<span>
+              ${((final_counts / total_counts) * 100).toFixed(
+                2
+              )}% ${final_counts}명
+            </span>`;
           $("#individual").append(temp_html);
         }
       }
+
+      let firstChild = slideList.firstElementChild;
+      let lastChild = slideList.lastElementChild;
+      let clonedFirst = firstChild.cloneNode(true);
+      let clonedLast = lastChild.cloneNode(true);
+      slideList.appendChild(clonedFirst);
+      slideList.insertBefore(clonedLast, slideList.firstElementChild);
     },
   });
 }

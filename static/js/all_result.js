@@ -24,24 +24,73 @@ modalOverlay.addEventListener("click", (e) => {
 });
 
 const slideList = document.querySelector(".slideList");
+
+function addSlide() {
+  for (let i = 0; i < resultInfo.length; i++) {
+    const slide = document.createElement("div");
+    const typeImage = document.createElement("img");
+    const typeName = document.createElement("div");
+    const resultValue = document.createElement("h3");
+    const typeDesc = document.createElement("p");
+    const itemList = document.createElement("ul");
+    slide.classList.add("slide");
+    typeImage.classList.add("image");
+    typeName.classList.add("typeName");
+    resultValue.classList.add("resultValue");
+    resultValue.id = "result" + i;
+    typeDesc.classList.add("desc");
+    itemList.classList.add("resultsItems");
+    slideList.appendChild(slide);
+    slide.appendChild(typeImage);
+    slide.appendChild(typeName);
+    slide.appendChild(resultValue);
+    slide.appendChild(typeDesc);
+    slide.appendChild(itemList);
+    typeImage.src = "/static/images/" + resultInfo[i].name + ".png";
+    typeName.innerHTML = resultInfo[i].subName;
+    typeDesc.innerHTML = resultInfo[i].desc;
+    for (let i = 0; i < 3; i++) {
+      const item = document.createElement("li");
+      itemList.appendChild(item);
+      item.classList.add("item");
+    }
+  }
+
+  // $.ajax({
+  //   type: "GET",
+  //   url: "/result/statistic",
+  //   data: {},
+  //   success: function (response) {
+  //     let statistic = response[0]["statistic"];
+  //     let total_counts = response[1]["total_count"];
+  //     for (let i = 0; i < statistic.length; i++) {
+  //       let final_counts = statistic[i]["counts"];
+  //       $(`#result${i}`).text(
+  //         `${(final_counts / total_counts).toFixed(2)}%  ${final_counts}명`
+  //       );
+  //     }
+
+  //     let firstChild = slideList.firstElementChild;
+  //     let lastChild = slideList.lastElementChild;
+  //     let clonedFirst = firstChild.cloneNode(true);
+  //     let clonedLast = lastChild.cloneNode(true);
+  //     slideList.appendChild(clonedFirst);
+  //     slideList.insertBefore(clonedLast, slideList.firstElementChild);
+  //   },
+  // });
+}
+
+addSlide();
+
 const slides = document.querySelectorAll(".slide"); // each slide dom
 const prevBtn = document.querySelector(".prevBtn"); // prev button
 const nextBtn = document.querySelector(".nextBtn"); // next button
-const pagination = document.querySelector(".slidePagination");
 const slidesLen = slides.length;
 const slideWidth = 400;
 const slideSpeed = 300;
 const startNum = 0;
 
 slideList.style.width = slideWidth * (slidesLen + 2) + "px";
-
-let firstChild = slideList.firstElementChild;
-let lastChild = slideList.lastElementChild;
-let clonedFirst = firstChild.cloneNode(true);
-let clonedLast = lastChild.cloneNode(true);
-
-slideList.appendChild(clonedFirst);
-slideList.insertBefore(clonedLast, slideList.firstElementChild);
 
 let curIndex = startNum;
 let curSlide = slides[curIndex];

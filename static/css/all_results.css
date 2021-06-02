@@ -97,13 +97,18 @@
 }
 
 .typeName {
-  width: 90%;
+  width: 80%;
   height: 5%;
-  display: flex;
+  font-size: 20px;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
+}
+
+.resultValue {
+  width: 20%;
+  height: 5%;
 }
 
 .desc {
