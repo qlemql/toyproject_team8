@@ -20,7 +20,7 @@ body {
   margin: 0;
   background-image: url(https://i.imgur.com/mZT110x.png);
   background-position: center;
-  background-repeat: unset;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -169,15 +169,14 @@ input:-webkit-autofill:active {
 
 /* media queries */
 
-/* @media screen and (max-width: 2000px) {
-  .count,
-  .copyright {
-  }
-} */
-
-@media screen and (max-width: 600px) {
+@media (min-width: 320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
   .title {
     font-size: 24px;
+    height: 50px;
+  }
+  .subtitle {
+    font-size: 12px;
   }
   .dark__mode {
     width: 30px;
@@ -185,8 +184,158 @@ input:-webkit-autofill:active {
     font-size: 12px;
   }
 
+  .name,
+  .start {
+    width: 150px;
+    height: auto;
+    font-size: 12px;
+  }
+
   .count,
   .copyright {
     font-size: 12px;
+  }
+}
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .title {
+    font-size: 24px;
+    height: 50px;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .dark__mode {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .nameForm {
+    height: 100px;
+  }
+
+  .name {
+    margin-bottom: 20px;
+  }
+
+  .name,
+  .start {
+    width: 150px;
+    height: auto;
+    font-size: 12px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 16px;
+  }
+}
+@media (min-width: 755px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .title {
+    font-size: 36px;
+    height: 80px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+  .dark__mode {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+  }
+
+  .nameForm {
+    height: 150px;
+  }
+
+  .name {
+    margin-bottom: 40px;
+  }
+
+  .name,
+  .start {
+    width: 250px;
+    height: auto;
+    font-size: 24px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1140px) {
+  /* big landscape tablets, laptops, and desktops */
+  .title {
+    font-size: 42px;
+    height: 100px;
+  }
+  .subtitle {
+    font-size: 36px;
+  }
+
+  .dark__mode {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .nameForm {
+    height: 300px;
+  }
+
+  .name {
+    margin-bottom: 50px;
+  }
+
+  .name,
+  .start {
+    width: 350px;
+    height: auto;
+    font-size: 36px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+  .title {
+    font-size: 42px;
+    height: 100px;
+  }
+  .subtitle {
+    font-size: 36px;
+  }
+  .dark__mode {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .nameForm {
+    height: 300px;
+  }
+
+  .name {
+    margin-bottom: 50px;
+  }
+
+  .name,
+  .start {
+    width: 350px;
+    height: auto;
+    font-size: 36px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 36px;
   }
 }
