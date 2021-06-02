@@ -22,20 +22,22 @@ def home():
     # db.visitorsToday.insert_one({'today date': 0})
     # db.todayCounter.insert_one({'todayCounts': 0})
     # db.visitorIP.insert_one({'IP': flask.request.remote_addr})
-    # db.final_result.insert_one({"type": "판다형", "counts": 1})
-    # db.final_result.insert_one({"type": "2형", "counts": 1})
-    # db.final_result.insert_one({"type": "3형", "counts": 1})
-    # db.final_result.insert_one({"type": "4형", "counts": 1})
-    # db.final_result.insert_one({"type": "5형", "counts": 1})
-    # db.final_result.insert_one({"type": "6형", "counts": 1})
-    # db.final_result.insert_one({"type": "7형", "counts": 1})
-    # db.final_result.insert_one({"type": "8형", "counts": 1})
-    # db.final_result.insert_one({"type": "9형", "counts": 1})
-    # db.final_result.insert_one({"type": "10형", "counts": 1})
-    # db.final_result.insert_one({"type": "11형", "counts": 1})
-    # db.final_result.insert_one({"type": "12형", "counts": 1})
-    # db.final_result.insert_one({"type": "13형", "counts": 1})
-    # 처음 파일 연 사람 이 4줄 실행할것, 오류 날 시 MongoDB 열어서 visitorIP 수동으로 추가해줄 것!
+    # db.final_result.insert_one({"type": "반들반들 청결 펭귄형", "counts": 0})
+    # db.final_result.insert_one({"type": "영타 500타 원숭이형", "counts": 0})
+    # db.final_result.insert_one({"type": "수다쟁이 앵무새형", "counts": 0})
+    # db.final_result.insert_one({"type": "워라밸 판다형", "counts": 0})
+    # db.final_result.insert_one({"type": "사무실 마이홈 코알라형", "counts": 0})
+    # db.final_result.insert_one({"type": "유아독존 고양이형", "counts": 0})
+    # db.final_result.insert_one({"type": "탕비실 지박령 다람쥐형", "counts": 0})
+    # db.final_result.insert_one({"type": "충혈된 카멜레온형", "counts": 0})
+    # db.final_result.insert_one({"type": "빡! 집중 고슴도치형", "counts": 0})
+    # db.final_result.insert_one({"type": "호기심 많은 미어캣형", "counts": 0})
+    # db.final_result.insert_one({"type": "안마의자 마니아 캥거루형", "counts": 0})
+    # db.final_result.insert_one({"type": "근면성실 꿀벌형", "counts": 0})
+    # db.final_result.insert_one({"type": "야근요정 부엉이형", "counts": 0})
+    # db.final_result.insert_one({"type": "금강산도 식후경 돼지형", "counts": 0})
+    # db.total_count.insert_one({"total_count": 0})
+    # 처음 파일 연 사람 이 19줄 실행할것, 오류 날 시 MongoDB 열어서 visitorIP 수동으로 추가해줄 것!
 
     # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
     # db.todayCounter.update_one({"todayCounts": 0})  # 일일 방문자수 0으로 세팅하기
@@ -79,18 +81,6 @@ def home():
 
 
 # API 역할을 하는 부분
-@app.route('/visitor', methods=['POST'])
-def save_name():
-    name_receive = request.form['name_give']
-
-    doc = {
-        'name': name_receive
-    }
-
-    db.visitorsName.insert_one(doc)
-
-    return jsonify({'msg': '저장 완료'})
-
 @app.route('/api/todayCounts', methods=['GET'])
 def show_todayCounts():
     db_today_counts = list(db.todayCounter.find({}, {'_id': False}))
@@ -105,8 +95,20 @@ def show_totalCounts():
 
 @app.route('/api/items', methods=['GET'])
 def show_items():
-    items = ["인체공학의자", "높이조절가능책상", "모니터암", "기계식키보드", "마우스", "피벗모니터", "손마사지기", "가습기", "인공눈물", "헤드셋", "간식박스", "블루라이트차단경",
-             "발받침대", "등받이쿠션", "파티션", "이어플러그", "스테인리스텀블러", "슬리퍼", "손목패드", "팔받침대", "키패드", "마이크", "카메라", "커피자판기"]
+    items = ["인체공학의자", "높이조절 가능 책상", "모니터암",  # 펭귄
+             "기계식 키보드", "마우스", "피벗모니터",  # 원숭이
+             "손 마사지기", "가습기", "인공눈물",  # 앵무새
+             "헤드셋", "간식 박스", "블루라이트차단경",  # 판다
+             "발 받침대", "등받이 쿠션",  # 코알라
+             "파티션", "흡음재",  # 고양이
+             "스테인리스 텀블러 빨대", "슬리퍼",  # 다람쥐
+             "손목패드", "팔 받침대",  #카멜레온
+             "키패드",  # 고슴도치
+             "마이크", "카메라",  # 미어캣
+               # 캥거루
+               # 꿀벌
+               # 부엉이
+             "커피 자판기"]  #돼지
     for item in items:
         crawler.bs(item)
     crawling_list = list(db.crawling.find({}, {'_id': False}))
@@ -121,76 +123,93 @@ def show_item(search_name, english_name):  # 동적 url 테스트 함수
 
 @app.route('/result', methods=['POST'])
 def count_result():
+    ip_address = flask.request.remote_addr
     result_receive = request.form['result_give']
-    count_receive = 0
+    count_receive = -1
+    db.result_IP.create_index("date", expireAfterSeconds=20)
+    db.result_IP.insert_one({'IP': ip_address, "date": datetime.utcnow()})
 
     doc = {
         'type': result_receive,
         'counts': count_receive
     }
-    db.final_result.insert_one(doc)
-
-    if (db.final_result.find_one({'counts': 0})['type']) == "판다형":
-        counts = db.final_result.find_one({'type': '판다형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '판다형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '2형':
-        counts = db.final_result.find_one({'type': '2형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '2형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '3형':
-        counts = db.final_result.find_one({'type': '3형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '3형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '4형':
-        counts = db.final_result.find_one({'type': '4형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '4형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '5형':
-        counts = db.final_result.find_one({'type': '5형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '5형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '6형':
-        counts = db.final_result.find_one({'type': '6형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '6형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '7형':
-        counts = db.final_result.find_one({'type': '7형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '7형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '8형':
-        counts = db.final_result.find_one({'type': '8형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '8형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '9형':
-        counts = db.final_result.find_one({'type': '9형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '9형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '10형':
-        counts = db.final_result.find_one({'type': '10형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '10형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '11형':
-        counts = db.final_result.find_one({'type': '11형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '11형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '12형':
-        counts = db.final_result.find_one({'type': '12형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '12형'}, {'$set': {'counts': updated_counts}})
-    elif (db.final_result.find_one({'counts': 0})['type']) == '13형':
-        counts = db.final_result.find_one({'type': '13형'})['counts']
-        updated_counts = counts + 1
-        db.final_result.update_one({'type': '13형'}, {'$set': {'counts': updated_counts}})
-
-    db.final_result.delete_many({'counts': 0})
+    if db.result_IP.find({'IP': ip_address}).count() > 1:  # 방문했던 IP 라면 카운트 변동 없음
+        pass
+    else:
+        db.final_result.insert_one(doc)
+        if (db.final_result.find_one({'counts': -1})['type']) == "반들반들 청결 펭귄형":
+            counts = db.final_result.find_one({'type': '반들반들 청결 펭귄형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '반들반들 청결 펭귄형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '영타 500타 원숭이형':
+            counts = db.final_result.find_one({'type': '영타 500타 원숭이형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '영타 500타 원숭이형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '수다쟁이 앵무새형':
+            counts = db.final_result.find_one({'type': '수다쟁이 앵무새형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '수다쟁이 앵무새형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '워라밸 판다형':
+            counts = db.final_result.find_one({'type': '워라밸 판다형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '워라밸 판다형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '사무실 마이홈 코알라형':
+            counts = db.final_result.find_one({'type': '사무실 마이홈 코알라형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '사무실 마이홈 코알라형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '유아독존 고양이형':
+            counts = db.final_result.find_one({'type': '유아독존 고양이형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '유아독존 고양이형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '탕비실 지박령 다람쥐형':
+            counts = db.final_result.find_one({'type': '탕비실 지박령 다람쥐형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '탕비실 지박령 다람쥐형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '충혈된 카멜레온형':
+            counts = db.final_result.find_one({'type': '충혈된 카멜레온형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '충혈된 카멜레온형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '빡! 집중 고슴도치형':
+            counts = db.final_result.find_one({'type': '빡! 집중 고슴도치형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '빡! 집중 고슴도치형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '호기심 많은 미어캣형':
+            counts = db.final_result.find_one({'type': '호기심 많은 미어캣형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '호기심 많은 미어캣형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '안마의자 마니아 캥거루형':
+            counts = db.final_result.find_one({'type': '안마의자 마니아 캥거루형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '안마의자 마니아 캥거루형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '근면성실 꿀벌형':
+            counts = db.final_result.find_one({'type': '근면성실 꿀벌형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '근면성실 꿀벌형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '야근요정 부엉이형':
+            counts = db.final_result.find_one({'type': '야근요정 부엉이형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '야근요정 부엉이형'}, {'$set': {'counts': updated_counts}})
+        elif (db.final_result.find_one({'counts': -1})['type']) == '금강산도 식후경 돼지형':
+            counts = db.final_result.find_one({'type': '금강산도 식후경 돼지형'})['counts']
+            updated_counts = counts + 1
+            db.final_result.update_one({'type': '금강산도 식후경 돼지형'}, {'$set': {'counts': updated_counts}})
+        db.final_result.delete_many({'counts': -1})
 
     return jsonify({'result': 'success'})
 
 @app.route('/result/statistic', methods=['GET'])
 def make_statistic():
+    list_result = list(db.final_result.find({}, {'_id': False}))
+    r_count = list_result
+    total_count = 0
+    for i in range(len(r_count)):
+        result_count = r_count[i]['counts']
+        total_count += result_count
+    db.total_count.update_one({}, {'$set': {'total_count': total_count}})
+
     result_list = list(db.final_result.find({}, {'_id': False}))
-    return jsonify({'statistic': result_list})
+    total_count = db.total_count.find_one({}, {'_id': False})["total_count"]
+    return jsonify({'statistic': result_list}, {'total_count': total_count})
 
 # @app.route('/api/like', methods=['POST'])
 # def like_star():

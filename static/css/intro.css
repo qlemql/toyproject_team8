@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
 
-/* media queries */
-
-@media screen and (width: 480px) {
-  footer {
-    font-size: 24px;
-  }
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -28,7 +20,7 @@ body {
   margin: 0;
   background-image: url(https://i.imgur.com/mZT110x.png);
   background-position: center;
-  background-repeat: unset;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -47,13 +39,7 @@ body.dark-theme {
   border-radius: 50%;
   border: none;
   color: white;
-<<<<<<< HEAD
-  font-size: 20px;
-  filter: 0;
-  -webkit-filter: 0;
-=======
   font-size: 30px;
->>>>>>> frontend/develop
 }
 
 .dark__mode .sun {
@@ -123,7 +109,17 @@ body.dark-theme {
   font-size: 36px;
   margin-bottom: 50px;
   padding: 10px;
-  background: none;
+  background: transparent;
+  outline: none;
+  fill: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0px 1000px none inset !important;
 }
 
 .start {
@@ -138,14 +134,6 @@ body.dark-theme {
   background: none;
 }
 
-/* .section,
-.title,
-.subtitle,
-.name,
-.start {
-  margin-bottom: 10%;
-} */
-
 /* Footer */
 
 .footer {
@@ -157,7 +145,6 @@ body.dark-theme {
   position: absolute;
   bottom: 0px;
   padding: 1%;
-  font-size: 36px;
   font-weight: bold;
 }
 
@@ -168,9 +155,187 @@ body.dark-theme {
   width: 30%;
 }
 
+.count,
+.copyright {
+  font-size: 36px;
+}
+
 .copyright {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 50%;
+}
+
+/* media queries */
+
+@media (min-width: 320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .title {
+    font-size: 24px;
+    height: 50px;
+  }
+  .subtitle {
+    font-size: 12px;
+  }
+  .dark__mode {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .name,
+  .start {
+    width: 150px;
+    height: auto;
+    font-size: 12px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 12px;
+  }
+}
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .title {
+    font-size: 24px;
+    height: 50px;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .dark__mode {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .nameForm {
+    height: 100px;
+  }
+
+  .name {
+    margin-bottom: 20px;
+  }
+
+  .name,
+  .start {
+    width: 150px;
+    height: auto;
+    font-size: 12px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 16px;
+  }
+}
+@media (min-width: 755px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .title {
+    font-size: 36px;
+    height: 80px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+  .dark__mode {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+  }
+
+  .nameForm {
+    height: 150px;
+  }
+
+  .name {
+    margin-bottom: 40px;
+  }
+
+  .name,
+  .start {
+    width: 250px;
+    height: auto;
+    font-size: 24px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1140px) {
+  /* big landscape tablets, laptops, and desktops */
+  .title {
+    font-size: 42px;
+    height: 100px;
+  }
+  .subtitle {
+    font-size: 36px;
+  }
+
+  .dark__mode {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .nameForm {
+    height: 300px;
+  }
+
+  .name {
+    margin-bottom: 50px;
+  }
+
+  .name,
+  .start {
+    width: 350px;
+    height: auto;
+    font-size: 36px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+  .title {
+    font-size: 42px;
+    height: 100px;
+  }
+  .subtitle {
+    font-size: 36px;
+  }
+  .dark__mode {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .nameForm {
+    height: 300px;
+  }
+
+  .name {
+    margin-bottom: 50px;
+  }
+
+  .name,
+  .start {
+    width: 350px;
+    height: auto;
+    font-size: 36px;
+  }
+
+  .count,
+  .copyright {
+    font-size: 36px;
+  }
 }
