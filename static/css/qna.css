@@ -1,0 +1,37 @@
+.QnA {
+  display: none;
+  margin: auto;
+  width: 700px;
+}
+.Question {
+  margin: 0 30px 30px 30px;
+  padding: 10px;
+  background-color: skyblue;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 15px;
+}
+.answerList {
+  margin: 10px;
+  padding: 5px;
+  width: 100%;
+  background-color: skyblue;
+  border-radius: 20px;
+}
+
+/* .answerList:hover,
+.answerList:focus {
+  background-color: green;
+  color: greenyellow;
+} */
+
+/* .status{
+    height: 20px;
+    width: 80%;
+    border-radius: 20px;
+    background-color: skyblue;
+  }
+  .status_bar{
+    height: 100%;
+    background-color: red;
+  } */
