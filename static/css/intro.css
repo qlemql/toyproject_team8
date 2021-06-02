@@ -349,6 +349,7 @@ input:-webkit-autofill:active {
 
 @media (min-width: 1450px) {
   .nameForm {
+    height: 350px;
     margin-bottom: 350px;
   }
 }
