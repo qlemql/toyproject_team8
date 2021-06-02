@@ -22,15 +22,8 @@
   align-items: center;
 }
 
-.result-image {
-  width: 70%;
-  height: 150px;
-  text-align: center;
-  display: block;
-  margin: 10px auto;
-}
 .type-image {
-  width: 70%;
+  width: auto;
   height: 150px;
   text-align: center;
   display: block;

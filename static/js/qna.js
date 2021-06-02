@@ -74,8 +74,7 @@ const lastPage = document.querySelector(".all");
 const resImageDiv = document.querySelector(".result-image");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
-const typeDesc = document.querySelector(".result-desc");
-const typerecommed = document.querySelector('.recommId')
+const typeRecommed = document.querySelector('.recommId')
 
 
 
@@ -88,8 +87,7 @@ function drawResult(resultIndex) {
   resImg.alt = resultInfo[resultIndex].name;
   resImg.title = resultInfo[resultIndex].name;
   typeName.innerText = resultInfo[resultIndex].subName;
-  typeDesc.innerText = resultInfo[resultIndex].desc;
-  typerecommed.innerText = resultInfo[resultIndex].subName;
+  typeRecommed.innerText = resultInfo[resultIndex].subName;
 
 
   let final_result = document.getElementById("result");
