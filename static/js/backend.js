@@ -21,7 +21,7 @@ function visitors() {
 $(document).ready(function () {
   showCounts();
   showTotalCounts();
-  makeStatistic();
+  
 });
 
 function showTotalCounts() {
@@ -73,20 +73,11 @@ itemBtn.addEventListener("click", (e) => {
   });
 });
 
-// 통계값
-function makeStatistic() {
-  $.ajax({
-    type: "GET",
-    url: "/result/statistic",
-    data: {},
-    success: function (response) {
-      let statistic = response["statistic"];
-      let final_counts = statistic["counts"]
-      console.log(final_counts)
-      for (let i = 0; i < statistic.length; i++) {
-        let final_counts = statistic[i]["counts"]
-        console.log(final_counts)
-      }
-    }
-    })
-  }
+
+
+//결과값 저장 및 count up 아래값을 활성화해서 붙여주세요.
+
+
+
+
+
