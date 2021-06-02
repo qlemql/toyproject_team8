@@ -48,7 +48,9 @@ function end() {
   loadingDiv.style.display = "flex";
   setTimeout(function () {
     loadingDiv.style.display = "none";
-    btn.style.display = "block";
+    btn.style.display = "flex";
+    btn.style.justifyContent = 'center';
+    btn.style.alignItems = 'center';
     result();
   }, 5000);
 }
