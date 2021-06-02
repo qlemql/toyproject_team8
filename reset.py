@@ -3,7 +3,7 @@ from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
 
-#  파일이 첫 실행이 아니지만, 모든 값을 리셋하고 싶으실 때 실행해주세요!
+# 파일이 첫 실행이 아니지만, 모든 값을 리셋하고 싶으실 때 실행해주세요!
 
 db.visitorCounter.update_one({"Counts" : 0})
 db.todayCounter.update_one({"todayCounts": 0})
