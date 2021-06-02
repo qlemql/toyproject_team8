@@ -102,17 +102,28 @@ def show_totalCounts():
     db_total_counts = list(db.visitorCounter.find({}, {'_id': False}))
     return jsonify({'total_counts': db_total_counts})
 
-@app.route('/api/monitor', methods=['GET'])
-def show_monitor():
-    crawler.bs("모니터")
-    crawling_list = list(db.crawling.find({'name': "모니터"}, {'_id': False}))
-    return jsonify({'monitor': crawling_list})
 
-@app.route('/api/mouse', methods=['GET'])
-def show_mouse():
-    crawler.bs("마우스")
-    crawling_list = list(db.crawling.find({'name': "마우스"}, {'_id': False}))
-    return jsonify({'mouse': crawling_list})
+@app.route('/api/items', methods=['GET'])
+def show_items():
+    items = ["인체공학의자", "높이조절 가능 책상", "모니터암",  # 펭귄
+             "기계식 키보드", "마우스", "피벗모니터",  # 원숭이
+             "손 마사지기", "가습기", "인공눈물",  # 앵무새
+             "헤드셋", "간식 박스", "블루라이트차단경",  # 판다
+             "발 받침대", "등받이 쿠션",  # 코알라
+             "파티션", "흡음재",  # 고양이
+             "스테인리스 텀블러 빨대", "슬리퍼",  # 다람쥐
+             "손목패드", "팔 받침대",  #카멜레온
+             "키패드",  # 고슴도치
+             "마이크", "카메라",  # 미어캣
+               # 캥거루
+               # 꿀벌
+               # 부엉이
+             "커피 자판기"]  #돼지
+    for item in items:
+        crawler.bs(item)
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
 
 @app.route('/api/<english_name>', methods=['GET'])
 def show_item(search_name, english_name):  # 동적 url 테스트 함수
