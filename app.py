@@ -22,7 +22,7 @@ def home():
     # db.visitorsToday.insert_one({'today date': 0})
     # db.todayCounter.insert_one({'todayCounts': 0})
     # db.visitorIP.insert_one({'IP': flask.request.remote_addr})
-    db.final_result.insert_one({"type": "반들반들 청결 펭귄형", "counts": 0})
+    # db.final_result.insert_one({"type": "반들반들 청결 펭귄형", "counts": 0})
     # db.final_result.insert_one({"type": "영타 500타 원숭이형", "counts": 0})
     # db.final_result.insert_one({"type": "수다쟁이 앵무새형", "counts": 0})
     # db.final_result.insert_one({"type": "워라밸 판다형", "counts": 0})

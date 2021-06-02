@@ -2,12 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- kakaoshare -->
+    <meta property="og:url" content="도메인이 들어갑니다"/>
+    <meta property="og:title" content="제목이 들어갑니다"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="이미지가 들어갑니다"/>
+    <meta porperty="og:description" content="설명이 들어갑니다"/> 
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
     <link rel="stylesheet" href="../static/css/qna.css">          
     <link rel="stylesheet" href="../static/css/intro.css">
     <link rel="stylesheet" href="../static/css/result.css">
     <link rel="stylesheet" href="../static/css/all_results.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/74ac6a490e.js" crossorigin="anonymous"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('f1de4ca6a0fdb0d014bb347eae35aac3');
+        Kakao.isInitialized();
+    </script>
     <title>Title</title>
 </head>
 <body class="dark-theme || light-theme">
@@ -89,7 +106,7 @@
             <div class="btns">
                 <div class="btn00"></div>
                 <div class="btn01"></div>
-                <div class="btn02"></div>
+                <button id="result" class="kakaobtn" onclick="kakaoshare()">카카오톡</button>
                 <button id="modalBtn" class="btn03">종합결과 보기</button>
             </div>
         </div>
@@ -324,6 +341,7 @@
 
 <script src="../static/js/data.js" charset="utf-8"></script>
 <script src="../static/js/qna.js" charset="utf-8"></script>
+<script src="../static/js/share.js" charset="utf-8"></script>
 <script src="/static/js/intro.js"></script>
 <script src="/static/js/all_result.js"></script>
 <script src="/static/js/backend.js"></script>
