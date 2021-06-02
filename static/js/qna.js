@@ -154,11 +154,140 @@ function drawResult(resultIndex) {
   });
   $.ajax({
     type: "GET",
-    url: "/api/items",
+    url: "/api/pig",
     data: {},
     success: function (response) {
       let crwawler = response;
       console.log(crwawler);
+    }
+  })
+  $.ajax({
+    type: "GET",
+    url: "/api/owl",
+    data: {},
+    success: function (response) {
+      let crwawler1 = response;
+      console.log(crwawler1);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/honeybee",
+    data: {},
+    success: function (response) {
+      let crwawler2 = response;
+      console.log(crwawler2);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/kangaroo",
+    data: {},
+    success: function (response) {
+      let crwawler3 = response;
+      console.log(crwawler3);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/meerkat",
+    data: {},
+    success: function (response) {
+      let crwawler4 = response;
+      console.log(crwawler4);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/hedgehog",
+    data: {},
+    success: function (response) {
+      let crwawler5 = response;
+      console.log(crwawler5);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/chameleon",
+    data: {},
+    success: function (response) {
+      let crwawler6 = response;
+      console.log(crwawler6);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/squirrel",
+    data: {},
+    success: function (response) {
+      let crwawler7 = response;
+      console.log(crwawler7);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/cat",
+    data: {},
+    success: function (response) {
+      let crwawler8 = response;
+      console.log(crwawler8);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/koala",
+    data: {},
+    success: function (response) {
+      let crwawler9 = response;
+      console.log(crwawler9);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/panda",
+    data: {},
+    success: function (response) {
+      let crwawler10 = response;
+      console.log(crwawler10);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/parrot",
+    data: {},
+    success: function (response) {
+      let crwawler11 = response;
+      console.log(crwawler11);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/monkey",
+    data: {},
+    success: function (response) {
+      let crwawler12 = response;
+      console.log(crwawler12);
+    }
+  })
+
+  $.ajax({
+    type: "GET",
+    url: "/api/penguin",
+    data: {},
+    success: function (response) {
+      let crwawler13 = response;
+      console.log(crwawler13);
     }
   })
 }
