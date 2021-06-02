@@ -5,6 +5,7 @@ const btn = document.querySelector(".dark__mode");
 const currentTheme = localStorage.getItem("theme");
 const body = document.querySelector("body");
 const inputBtn = document.querySelector(".name");
+const modal = document.querySelector('.modalFrame');
 
 if (currentTheme == "dark") {
   document.body.classList.add("dark-theme");
@@ -18,22 +19,28 @@ btn.addEventListener("click", function () {
     startBtn.style.backgroundColor = "transparent";
     startBtn.style.border = "1px solid #121212";
     inputBtn.style.border = "1px solid #121212";
+    inputBtn.style.color = '#121212';
+    inputBtn.style.backgroundColor = 'transparent';
     body.style.backgroundImage = "url(https://i.imgur.com/mZT110x.png)";
     body.style.backgroundSize = "cover";
-    body.style.backgroundPosition = "center";
+    body.style.backgroundPosition = "center bottom";
     btn.style.backgroundColor = "#121212";
     btn.style.color = "white";
+    modal.style.backgroundColor = '#eee';
   } else {
     theme = "dark";
     startBtn.style.color = "#eee";
-    startBtn.style.backgroundColor = "#121212";
+    startBtn.style.backgroundColor = "transparent";
     startBtn.style.border = "1px solid #eee";
     inputBtn.style.border = "1px solid #eee";
+    inputBtn.style.color = '#eee';
+    inputBtn.style.backgroundColor = 'transparent';
     body.style.backgroundImage = "url(https://i.imgur.com/oYS2gZf.png)";
     body.style.backgroundSize = "cover";
-    body.style.backgroundPosition = "center";
+    body.style.backgroundPosition = "center bottom";
     btn.style.backgroundColor = "white";
     btn.style.color = "#121212";
+    modal.style.backgroundColor = '#121212';
   }
   localStorage.setItem("theme", theme);
 });
@@ -45,7 +52,9 @@ btn.onclick = function () {
   const iconSun = document.querySelector(".sun");
   const iconMoon = document.querySelector(".moon");
   iconSun.style.justifyContent = "center";
+  iconSun.style.alignItems = "center";
   iconMoon.style.justifyContent = "center";
+  iconMoon.style.alignItems = "center";
 
   if (iconSun.style.display == "flex") {
     iconSun.style.display = "none";
