@@ -1,9 +1,4 @@
 /* Yoojin's css start */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 
 .all {
   width: 100%;
@@ -27,15 +22,8 @@
   align-items: center;
 }
 
-.result-image {
-  width: 70%;
-  height: 150px;
-  text-align: center;
-  display: block;
-  margin: 10px auto;
-}
 .type-image {
-  width: 70%;
+  width: auto;
   height: 150px;
   text-align: center;
   display: block;
@@ -93,7 +81,6 @@
 .item02 {
   width: 80px;
   height: 80px;
-
   background-size: cover;
   margin: auto;
 }

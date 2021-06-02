@@ -1,27 +1,24 @@
 // 백엔드 js
 
-
 // input js
 function visitors() {
-  let visitors = $('#visitor__name').val()
+  let visitors = $("#visitor__name").val();
 
   $.ajax({
-      type: "POST",
-      url: "/api/visitor",
-      data: {name_receive:visitors},
-      success: function (response) {
-          alert(response["msg"]);
-          window.location.reload();
-      }
-  })
+    type: "POST",
+    url: "/api/visitor",
+    data: { name_receive: visitors },
+    success: function (response) {
+      alert(response["msg"]);
+      window.location.reload();
+    },
+  });
 }
-
 
 //  일일 방문자 js
 $(document).ready(function () {
   showCounts();
   showTotalCounts();
-  
 });
 
 function showTotalCounts() {
@@ -40,7 +37,6 @@ function showTotalCounts() {
   });
 }
 
-
 // 총 방문자 js
 function showCounts() {
   $.ajax({
@@ -58,26 +54,6 @@ function showCounts() {
   });
 }
 
-
 // 크롤링 js
-const itemBtn = document.querySelector(".item00");
-itemBtn.addEventListener("click", (e) => {
-  $.ajax({
-    type: "GET",
-    url: "/api/monitor",
-    data: {},
-    success: function (response) {
-      let crwawler = response;
-      console.log(crwawler);
-    },
-  });
-});
-
-
-
-//결과값 저장 및 count up 아래값을 활성화해서 붙여주세요.
-
-
-
 
 
