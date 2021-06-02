@@ -14,9 +14,39 @@
   -webkit-filter: 0;
 }
 
+.block {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.218);
+}
+
+@media screen and (max-width: 1370px) {
+  .block {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1160px) {
+  .block {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .block {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .block {
+    width: 100%;
+  }
+}
+
 .type {
   width: 500px;
-  height: 70%;
+  height: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,13 +57,12 @@
   height: 150px;
   text-align: center;
   display: block;
-  margin: 10px auto;
+  margin: 20px auto 10px auto;
 }
 
 .type-result {
   width: 100%;
   height: 100%;
-  background-image: url("https://i.imgur.com/vK6ivtL.png");
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -41,12 +70,25 @@
 
 .result-text {
   width: 70%;
-  height: 100px;
+  height: 80px;
   margin: 10px auto;
 }
 
-.result-title {
-  margin: 20px 0;
+.userName {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.static {
+  font-size: 20px;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.caution {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .bottomType {
@@ -59,84 +101,115 @@
 
 .items {
   width: 500px;
-  margin: 10px auto;
   display: flex;
   flex-direction: column;
   text-align: center;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 5px;
 }
 
 .items-title {
-  border: 2px solid #000000;
-  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: rgba(105, 156, 179, 0.348);
 }
 
 .itemlist {
+  width: 100%;
+  height: 130px;
   display: flex;
-  background-color: snow;
-  padding: 15px;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
 }
 
-.item00,
-.item01,
-.item02 {
-  width: 80px;
-  height: 80px;
-  background-size: cover;
-  margin: auto;
+.resultItemFrame {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 250, 250, 0.5);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  transition: all 0.3s;
 }
 
-.item00 {
-  width: 100px;
+.resultItemFrame:hover {
+  width: 125px;
+  height: 125px;
+  background-color: rgb(255, 250, 250);
+}
+
+.itemImage {
+  width: 90px;
   height: 100px;
-  background-image: url("https://i.imgur.com/rXazJcm.png");
   background-size: cover;
-  margin: auto;
 }
 
-.item01 {
-  width: 100px;
-  height: 100px;
-  background-image: url("https://i.imgur.com/yE3ZelT.png");
-  background-size: cover;
-  margin: auto;
+.itemModalCloseBtn {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
 }
 
-.item02 {
-  width: 100px;
-  height: 100px;
-  background-image: url("https://i.imgur.com/0bFXSRk.png");
-  background-size: cover;
-  margin: auto;
+.itemModal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  background-color: transparent;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemModalFrame {
+  width: 700px;
+  height: 80%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .btns {
   width: 300px;
   display: flex;
-  margin-bottom: 20px;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
 .btn00,
 .btn01,
-.btn02,
-.btn03 {
-  width: 50px;
-  height: 50px;
-  background-size: cover;
-  margin: auto;
-}
-
-.btn00 {
-  background-image: url("https://i.imgur.com/MdQ0oHf.png");
-}
-
-.btn01 {
-  background-image: url("https://i.imgur.com/CznbhPl.png");
-}
-
 .btn02 {
-  background-image: url("https://i.imgur.com/4TlsiTO.png");
+  width: 70px;
+  height: 70px;
+  border: none;
+  margin-top: 10px;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
 }
 
+.btnImg00,
+.btnImg01,
+.btnImg02 {
+  width: 50px;
+  height: 60px;
+}
 /* yoojin's css END */
 
 .userName {

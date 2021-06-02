@@ -61,37 +61,43 @@
 
 <section>
     <div class="all">
-        <div class="type">
-            <div class="result-image">
-                
-            </div>
-            <div class="type-result">
-                <div class="result-text">
-                    <div class="result-title" id="individual">
-                        <h4><span class="userName"></span>님은</h4>
-<!--                        결과값으로 될 이름 타이틀에는 모두 , id="result" 넣어주세요    -->
-                        <h2 id="result"></h2>
-                        
+        <div class="block">
+            <div class="type">
+                <div class="result-image"></div>
+                <div class="type-result">
+                    <div class="result-text">
+                        <div class="result-title" id="individual">
+                            <h4><span class="userName"></span>님은</h4>
+    <!--                        결과값으로 될 이름 타이틀에는 모두 , id="result" 넣어주세요    -->
+                            <h2 id="result"></h2>
+                            <span class="static"></span>
+                        </div>
+                        <p class="result-desc"></p>
                     </div>
-                    <!-- <p class="result-desc"></p> -->
+                </div>
+            </div>
+            <div class="bottomType">
+                <p class="caution">※일정 시간 동안 동일 환경에서의 결과는 중복 집계되지 않습니다.</p>
+                <div class="items">
+                    <p class="items-title"><span class="recommId"></span>을 위한 아이템 추천
+                    <div class="itemlist"></div>
+                </div>
+                <div class="btns">
+                    <button class="btn00"><img class="btnImg00" src="https://i.imgur.com/4TlsiTO.png"></button>
+                    <button class="btn01"><img class="btnImg01" src="https://i.imgur.com/CznbhPl.png"></button>
+                    <button id="modalBtn" class="btn02"><img class="btnImg02" src="https://i.imgur.com/YlFtPUR.png"></button>
+                    
                 </div>
             </div>
         </div>
-        <div class="bottomType">
-            <div class="items">
-                <h2 class="items-title"><h2 class="recommId"></h2>을 위한 아이템 추천
-                <div class="itemlist"></div>
-
-            </div>
-            <div class="btns">
-                <div class="btn00"></div>
-                <div class="btn01"></div>
-                <div class="btn02"></div>
-                <button id="modalBtn" class="btn03">종합결과 보기</button>
-            </div>
-        </div>
     </div>
+</section>
 
+<section>
+    <div class="itemModal">
+        <div class="itemModalFrame">
+            <button class="itemModalCloseBtn">X</button>
+        </div>
 </section>
 
 <!-- 민주님 작업 공간 -->

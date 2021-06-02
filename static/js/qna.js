@@ -77,7 +77,6 @@ const typeName = document.getElementById("result");
 const typeDesc = document.querySelector(".result-desc");
 const typeRecommed = document.querySelector(".recommId");
 const resultItemList = document.querySelector(".itemlist");
-const resultItem = document.createElement("li");
 
 //when it show up result, result value save and count up , if it haven't same IP for a while.
 //also , make statistic and attach value of statistic to result page and all results pages.
@@ -88,7 +87,40 @@ function drawResult(resultIndex) {
   resImg.alt = resultInfo[resultIndex].name;
   resImg.title = resultInfo[resultIndex].name;
   typeName.innerText = resultInfo[resultIndex].subName;
+  typeDesc.innerText = resultInfo[resultIndex].desc;
   typeRecommed.innerText = resultInfo[resultIndex].subName;
+
+  for (let i = 0; i < 3; i++) {
+    const resultItem = document.createElement("li");
+    const resultItemImage = document.createElement("img");
+    resultItem.classList.add("resultItemFrame");
+    resultItemImage.classList.add("itemImage");
+    resultItemList.appendChild(resultItem);
+    resultItem.appendChild(resultItemImage);
+    resultItemImage.src =
+      "static/images/items/" + resultInfo[resultIndex].items[i] + ".png";
+
+    const itemModal = document.querySelector(".itemModal");
+    const itemModalCloseBtn = document.querySelector(".itemModalCloseBtn");
+
+    resultItem.addEventListener("click", () => {
+      itemModal.style.display = "flex";
+      section3.style.filter = "blur(5px)";
+    });
+
+    itemModalCloseBtn.addEventListener("click", (e) => {
+      itemModal.style.display = "none";
+      section3.style.filter = "blur(0px)";
+    });
+
+    itemModal.addEventListener("click", (e) => {
+      const evTarget = e.target;
+      if (evTarget.classList.contains("itemModal")) {
+        itemModal.style.display = "none";
+        section3.style.filter = "blur(0px)";
+      }
+    });
+  }
 
   let final_result = document.getElementById("result");
   let f_r = final_result.textContent;
@@ -133,12 +165,11 @@ function drawResult(resultIndex) {
       for (let j = 0; j < type.length; j++) {
         if (list_type[j] === f_r) {
           let final_counts = statistic[j]["counts"];
-          let temp_html = `<span>
+          $(".static").text(`
               ${((final_counts / total_counts) * 100).toFixed(
                 2
               )}% ${final_counts}명
-            </span>`;
-          $("#individual").append(temp_html);
+            `);
         }
       }
 
