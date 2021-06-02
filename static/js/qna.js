@@ -74,17 +74,18 @@ const resImageDiv = document.querySelector(".result-image");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
 const typeDesc = document.querySelector(".result-desc");
-
-//버튼 밖에 로컬에 붙여주세요.
+const resultItemList = document.querySelector(".itemlist");
+const resultItem = document.createElement(li);
 
 function drawResult(resultIndex) {
   resImageDiv.appendChild(resImg);
   resImg.classList.add("type-image");
-  resImg.src = "static/images/" + resultInfo[resultIndex].name + ".png";
+  resImg.src = "static/images/animals/" + resultInfo[resultIndex].name + ".png";
   resImg.alt = resultInfo[resultIndex].name;
   resImg.title = resultInfo[resultIndex].name;
   typeName.innerText = resultInfo[resultIndex].subName;
   typeDesc.innerText = resultInfo[resultIndex].desc;
+
   let final_result = document.getElementById("result");
   let f_r = final_result.textContent;
 

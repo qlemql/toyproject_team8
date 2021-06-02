@@ -46,7 +46,7 @@ function addSlide() {
     slide.appendChild(resultValue);
     slide.appendChild(typeDesc);
     slide.appendChild(itemList);
-    typeImage.src = "/static/images/" + resultInfo[i].name + ".png";
+    typeImage.src = "/static/images/animals/" + resultInfo[i].name + ".png";
     typeName.innerHTML = resultInfo[i].subName;
     typeDesc.innerHTML = resultInfo[i].desc;
     for (let i = 0; i < 3; i++) {
