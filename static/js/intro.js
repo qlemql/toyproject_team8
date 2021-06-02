@@ -52,7 +52,9 @@ btn.onclick = function () {
   const iconSun = document.querySelector(".sun");
   const iconMoon = document.querySelector(".moon");
   iconSun.style.justifyContent = "center";
+  iconSun.style.alignItems = "center";
   iconMoon.style.justifyContent = "center";
+  iconMoon.style.alignItems = "center";
 
   if (iconSun.style.display == "flex") {
     iconSun.style.display = "none";

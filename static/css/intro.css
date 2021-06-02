@@ -40,6 +40,9 @@ body.dark-theme {
   border: none;
   color: white;
   font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dark__mode .sun {
@@ -184,7 +187,7 @@ input:-webkit-autofill:active {
   .dark__mode {
     width: 30px;
     height: 30px;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .name,
@@ -211,7 +214,7 @@ input:-webkit-autofill:active {
   .dark__mode {
     width: 30px;
     height: 30px;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .nameForm {
@@ -247,7 +250,7 @@ input:-webkit-autofill:active {
   .dark__mode {
     width: 45px;
     height: 45px;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .nameForm {

@@ -13,6 +13,7 @@ function addAnswer(allAnswer, qIdx) {
   const a = document.querySelector(".Answer");
   const answer = document.createElement("button");
   answer.classList.add("answerList");
+  answer.id = 'test';
   a.appendChild(answer);
   answer.innerHTML = allAnswer.answer;
   answer.addEventListener(
@@ -37,6 +38,8 @@ function addAnswer(allAnswer, qIdx) {
     false
   );
 }
+
+
 
 const loadingDiv = document.querySelector(".load");
 
@@ -149,6 +152,15 @@ function drawResult(resultIndex) {
       slideList.insertBefore(clonedLast, slideList.firstElementChild);
     },
   });
+  $.ajax({
+    type: "GET",
+    url: "/api/items",
+    data: {},
+    success: function (response) {
+      let crwawler = response;
+      console.log(crwawler);
+    }
+  })
 }
 //----------------------------------------------------
 

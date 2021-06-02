@@ -56,15 +56,4 @@ function showCounts() {
 
 // 크롤링 js
 
-const itemBtn = document.querySelector(".start");
-itemBtn.addEventListener("click", (e) => {
-  $.ajax({
-    type: "GET",
-    url: "/api/items",
-    data: {},
-    success: function (response) {
-      let crwawler = response;
-      console.log(crwawler);
-    },
-  });
-});
+
