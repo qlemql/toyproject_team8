@@ -2,7 +2,6 @@
 
 // dark mode
 const btn = document.querySelector(".dark__mode");
-
 const currentTheme = localStorage.getItem("theme");
 const body = document.querySelector("body");
 const inputBtn = document.querySelector(".name");
@@ -67,25 +66,26 @@ const nameInput = document.querySelector("input");
 const userName = document.querySelector(".userName");
 
 function handleName(event) {
-  // if (nameInput.value == "") {
-  //   alert("이름을 입력해주세요.");
-  //   firstPage.style.display = "flex";
-  //   secondPage.style.display = "none";
-  // } else {
-  event.preventDefault();
-  firstPage.style.display = "none";
-  // secondPage.style.display = "flex";
-  // secondPage.style.justifyContent = "center";
-  // secondPage.style.alignItems = "center";
-  // secondPage.style.flexDirection = "column";
-  // 새로고침 방지
-  // 사용자가 입력한 이름값
   const currentValue = nameInput.value;
-  // 사용자가 입력한 이름을 보여주는 것
-  paintToName(currentValue);
-  // enter 또는 시작하기 눌렀을때 input창 초기화
-  nameInput.value = "";
-  // }
+  if (currentValue == "") {
+    alert("이름을 입력해주세요.");
+    firstPage.style.display = "flex";
+    secondPage.style.display = "none";
+  } else {
+    event.preventDefault();
+    firstPage.style.display = "none";
+    secondPage.style.display = "flex";
+    secondPage.style.justifyContent = "center";
+    secondPage.style.alignItems = "center";
+    secondPage.style.flexDirection = "column";
+    // 새로고침 방지
+    // 사용자가 입력한 이름값
+
+    // 사용자가 입력한 이름을 보여주는 것
+    paintToName(currentValue);
+    // enter 또는 시작하기 눌렀을때 input창 초기화
+    nameInput.value = "";
+  }
 }
 
 function paintToName(text) {

@@ -37,10 +37,21 @@ function addAnswer(allAnswer, qIdx) {
   );
 }
 
+const loadingDiv = document.querySelector(".load");
+
+function end() {
+  qna.style.display = "none";
+  loadingDiv.style.display = "flex";
+  setTimeout(function () {
+    loadingDiv.style.display = "none";
+    result();
+  }, 5000);
+}
+
 function goNext(qIdx) {
   const q = document.querySelector(".Question");
   if (qIdx === 10) {
-    return result();
+    return end();
   }
   q.innerHTML = qnaList[qIdx].q;
   for (let i in qnaList[qIdx].a) {
@@ -49,8 +60,8 @@ function goNext(qIdx) {
 }
 
 function begin() {
-  section1.style.display = "none";
-  qna.style.display = "block";
+  // section1.style.display = "none";
+  // qna.style.display = "block";
   let qIdx = 0;
   goNext(qIdx);
 }
@@ -77,7 +88,6 @@ function drawResult(resultIndex) {
 //calculate result------------------------------------
 function result() {
   biggest = Math.max(type1, type2, type3, type4);
-  qna.style.display = "none";
   lastPage.style.display = "flex";
 
   if (biggest === type1 && biggest === type3 && biggest === type4) {
