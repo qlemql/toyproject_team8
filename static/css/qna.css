@@ -92,12 +92,6 @@
 }
 /*loading bar end..*/
 
-/* .answerList:hover,
-.answerList:focus {
-  background-color: green;
-  color: greenyellow;
-} */
-
 .status {
   height: 30px;
   width: 80%;
@@ -111,66 +105,4 @@
   border-radius: 20px;
   background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
   border: none;
-}
-
-/* 로딩창 */
-
-.loading {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.percent {
-  color: #999;
-  font-size: 100px;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.text {
-  position: absolute;
-  top: 153px;
-  left: 160px;
-  color: #fdb5ca;
-  font-size: 15px;
-  letter-spacing: 1px;
-  line-height: 21px;
-  display: none;
-}
-
-.text-blink {
-  animation: blink 0.5s ease-in-out 0.5s;
-  color: #fff;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.progress-bar {
-  width: 406px;
-  height: 21px;
-  background-color: #111;
-  border-radius: 13px;
-  padding: 3px;
-  box-sizing: border-box;
-}
-
-.progress {
-  width: 200px;
-  height: 30px;
-  background-color: #f60d54;
-  border-radius: 13px;
 }

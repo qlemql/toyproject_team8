@@ -45,6 +45,7 @@ function end() {
   loadingDiv.style.display = "flex";
   setTimeout(function () {
     loadingDiv.style.display = "none";
+    btn.style.display ='block';
     result();
   }, 5000);
 }
@@ -74,6 +75,7 @@ const resImageDiv = document.querySelector(".result-image");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
 const typeDesc = document.querySelector(".result-desc");
+const typerecommed = document.querySelector('.recommId')
 
 //버튼 밖에 로컬에 붙여주세요.
 let final_result = document.getElementById("result");
@@ -88,6 +90,7 @@ function drawResult(resultIndex) {
   resImg.title = resultInfo[resultIndex].name;
   typeName.innerText = resultInfo[resultIndex].subName;
   typeDesc.innerText = resultInfo[resultIndex].desc;
+  typerecommed.innerText = resultInfo[resultIndex].subName;
 
   $.ajax({
     type: "POST",

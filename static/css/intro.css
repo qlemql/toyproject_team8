@@ -169,11 +169,11 @@ input:-webkit-autofill:active {
 
 /* media queries */
 
-@media screen and (max-width: 2000px) {
+/* @media screen and (max-width: 2000px) {
   .count,
   .copyright {
   }
-}
+} */
 
 @media screen and (max-width: 600px) {
   .title {
