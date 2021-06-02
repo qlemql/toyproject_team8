@@ -60,10 +60,30 @@
 @media (max-width: 1750px) {
   /* hi-res laptops and desktops */
   .Question {
-    font-size: 36px;
+    font-size: 32px;
   }
   .answerList {
     font-size: 24px;
+  }
+}
+
+@media (max-width: 1560px) {
+  /* big landscape tablets, laptops, and desktops */
+  .Question {
+    font-size: 28px;
+  }
+  .answerList {
+    font-size: 24px;
+  }
+
+  @media (max-width: 1365px) {
+    /* big landscape tablets, laptops, and desktops */
+    .Question {
+      font-size: 26px;
+    }
+    .answerList {
+      font-size: 22px;
+    }
   }
 }
 
@@ -77,7 +97,7 @@
   }
 }
 
-@media (max-width: 890px) {
+@media (max-width: 920px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
   .Question {
     font-size: 18px;
