@@ -38,17 +38,28 @@ function addAnswer(allAnswer, qIdx) {
   );
 }
 
+const loadingDiv = document.querySelector(".load");
+
+function end() {
+  qna.style.display = "none";
+  loadingDiv.style.display = "flex";
+  setTimeout(function () {
+    loadingDiv.style.display = "none";
+    result();
+  }, 5000);
+}
+
 function goNext(qIdx) {
   const q = document.querySelector(".Question");
   if (qIdx === 10) {
-    return result();
+    return end();
   }
   q.innerHTML = qnaList[qIdx].q;
   for (let i in qnaList[qIdx].a) {
     addAnswer(qnaList[qIdx].a[i], qIdx);
   }
-  const status = document.querySelector('.status_bar');
-  status.style.width = (100/EndPoint) * (qIdx+1) + '%' ;
+  const status = document.querySelector(".status_bar");
+  status.style.width = (100 / EndPoint) * (qIdx + 1) + "%";
 }
 
 function begin() {
@@ -65,7 +76,7 @@ const typeName = document.getElementById("result");
 const typeDesc = document.querySelector(".result-desc");
 
 //버튼 밖에 로컬에 붙여주세요.
-let final_result = document.getElementById('result');
+let final_result = document.getElementById("result");
 let f_r = final_result.textContent;
 
 //결과 버튼 안에 넣어주세요.
@@ -82,50 +93,64 @@ function drawResult(resultIndex) {
     type: "POST",
     url: "/result",
     data: {
-        result_give: f_r
+      result_give: f_r,
     },
-    success: function (response) {
-    }
-});
+    success: function (response) {},
+  });
   $.ajax({
-      type: "GET",
-      url: "/result/statistic",
-      data: {},
-      success: function (response) {
+    type: "GET",
+    url: "/result/statistic",
+    data: {},
+    success: function (response) {
       let statistic = response[0]["statistic"];
       let total_counts = response[1]["total_count"];
-      let list_id = ["#stat_01", "#stat_02", "#stat_03", "#stat_04", "#stat_05", "#stat_06", "#stat_07", "#stat_08", "#stat_09", "#stat_10", "#stat_11", "#stat_12", "#stat_13", "#stat_14"]
-      let final_result = document.getElementById('result');
+      let list_id = [
+        "#stat_01",
+        "#stat_02",
+        "#stat_03",
+        "#stat_04",
+        "#stat_05",
+        "#stat_06",
+        "#stat_07",
+        "#stat_08",
+        "#stat_09",
+        "#stat_10",
+        "#stat_11",
+        "#stat_12",
+        "#stat_13",
+        "#stat_14",
+      ];
+      let final_result = document.getElementById("result");
       let f_r = final_result.textContent;
       let type = [];
       for (let i = 0; i < statistic.length; i++) {
-          let final_counts = statistic[i]["counts"]
-          let temp_html = `<span>${(final_counts / total_counts).toFixed(2)}%  ${final_counts}명</span>`;
-          $(list_id[i]).append(temp_html);
-          let temp_type = statistic[i]["type"] + "@"
-          type += temp_type
+        let final_counts = statistic[i]["counts"];
+        let temp_html = `<span>${(final_counts / total_counts).toFixed(
+          2
+        )}%  ${final_counts}명</span>`;
+        $(list_id[i]).append(temp_html);
+        let temp_type = statistic[i]["type"] + "@";
+        type += temp_type;
       }
-      let list_type = type.split("@")
+      let list_type = type.split("@");
 
       for (let j = 0; j < type.length; j++) {
-          if (list_type[j] === f_r) {
-          let final_counts = statistic[j]["counts"]
-          let temp_html = `<span>${(final_counts / total_counts).toFixed(2)}%  ${final_counts}명</span>`;
+        if (list_type[j] === f_r) {
+          let final_counts = statistic[j]["counts"];
+          let temp_html = `<span>${(final_counts / total_counts).toFixed(
+            2
+          )}%  ${final_counts}명</span>`;
           $("#individual").append(temp_html);
-          }
-
+        }
       }
-
-
-      }
-    })
+    },
+  });
 }
 //----------------------------------------------------
 
 //calculate result------------------------------------
 function result() {
   biggest = Math.max(type1, type2, type3, type4);
-  qna.style.display = "none";
   lastPage.style.display = "flex";
 
   if (biggest === type1 && biggest === type3 && biggest === type4) {
