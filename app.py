@@ -3,7 +3,6 @@ import crawler
 
 from pymongo import MongoClient
 from datetime import datetime
-from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, jsonify, request
 
@@ -12,35 +11,16 @@ app = Flask(__name__)
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
 
+# DB 크롤링 함수
+def item_selector(a, b, c):
+    items = [a, b, c]
+    db.crawling.remove()
+    for item in items:
+        crawler.bs(item)
 
 # HTML 화면 보여주기
 @app.route('/')
 def home():
-    # 김선용 파트!
-
-    # db.visitorCounter.insert_one({'Counts': 0})
-    # db.visitorsToday.insert_one({'today date': 0})
-    # db.todayCounter.insert_one({'todayCounts': 0})
-    # db.visitorIP.insert_one({'IP': flask.request.remote_addr})
-    # db.final_result.insert_one({"type": "반들반들 청결 펭귄형", "counts": 0})
-    # db.final_result.insert_one({"type": "영타 500타 원숭이형", "counts": 0})
-    # db.final_result.insert_one({"type": "수다쟁이 앵무새형", "counts": 0})
-    # db.final_result.insert_one({"type": "워라밸 판다형", "counts": 0})
-    # db.final_result.insert_one({"type": "사무실 마이홈 코알라형", "counts": 0})
-    # db.final_result.insert_one({"type": "유아독존 고양이형", "counts": 0})
-    # db.final_result.insert_one({"type": "탕비실 지박령 다람쥐형", "counts": 0})
-    # db.final_result.insert_one({"type": "충혈된 카멜레온형", "counts": 0})
-    # db.final_result.insert_one({"type": "빡! 집중 고슴도치형", "counts": 0})
-    # db.final_result.insert_one({"type": "호기심 많은 미어캣형", "counts": 0})
-    # db.final_result.insert_one({"type": "안마의자 마니아 캥거루형", "counts": 0})
-    # db.final_result.insert_one({"type": "근면성실 꿀벌형", "counts": 0})
-    # db.final_result.insert_one({"type": "야근요정 부엉이형", "counts": 0})
-    # db.final_result.insert_one({"type": "금강산도 식후경 돼지형", "counts": 0})
-    # db.total_count.insert_one({"total_count": 0})
-    # 처음 파일 연 사람 이 20줄 실행할것, 오류 날 시 MongoDB 열어서 visitorIP 수동으로 추가해줄 것!
-
-    # db.visitorCounter.update_one({"Counts" : 0})  # 초기 방문자수 0으로 세팅하기
-    # db.todayCounter.update_one({"todayCounts": 0})  # 일일 방문자수 0으로 세팅하기
 
     visitor_counts = db.visitorCounter.find_one({})['Counts']  # 총 방문자수
     today_visitor_counts = db.todayCounter.find_one({})['todayCounts']  # 일일 방문자수
@@ -92,23 +72,104 @@ def show_totalCounts():
     db_total_counts = list(db.visitorCounter.find({}, {'_id': False}))
     return jsonify({'total_counts': db_total_counts})
 
-@app.route('/api/monitor', methods=['GET'])
-def show_monitor():
-    crawler.bs("모니터")
-    crawling_list = list(db.crawling.find({'name': "모니터"}, {'_id': False}))
-    return jsonify({'monitor': crawling_list})
 
-@app.route('/api/mouse', methods=['GET'])
-def show_mouse():
-    crawler.bs("마우스")
-    crawling_list = list(db.crawling.find({'name': "마우스"}, {'_id': False}))
-    return jsonify({'mouse': crawling_list})
+@app.route('/api/penguin', methods=['GET'])
+def show_items1():
+    item_selector("인체공학의자", "높이조절책상", "모니터암")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
 
-@app.route('/api/<english_name>', methods=['GET'])
-def show_item(search_name, english_name):  # 동적 url 테스트 함수
-    crawler.bs(search_name)
-    crawling_list = list(db.crawling.find({'name': search_name}, {'_id': False}))
-    return jsonify({english_name: crawling_list})
+
+@app.route('/api/monkey', methods=['GET'])
+def show_items2():
+    item_selector("기계식 키보드", "마우스", "피벗모니터")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/parrot', methods=['GET'])
+def show_items3():
+    item_selector("손마사지기", "가습기", "인공눈물")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/panda', methods=['GET'])
+def show_items4():
+    item_selector("헤드셋", "간식박스", "블루라이트차단경")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/koala', methods=['GET'])
+def show_items5():
+    item_selector("팔받침대", "등받이 쿠션", "인체공학의자")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/cat', methods=['GET'])
+def show_items6():
+    item_selector("헤드셋", "파티션", "이어플러그")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/squirrel', methods=['GET'])
+def show_items7():
+    item_selector("간식박스", "텀블러", "슬리퍼")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/chameleon', methods=['GET'])
+def show_items8():
+    item_selector("블루라이트차단경", "손목패드", "팔받침대")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/hedgehog', methods=['GET'])
+def show_items9():
+    item_selector("키패드", "인공눈물", "기계식 키보드")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/meerkat', methods=['GET'])
+def show_items10():
+    item_selector("마이크", "카메라", "마우스")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/kangaroo', methods=['GET'])
+def show_items11():
+    item_selector("인체공학의자", "손마사지기", "등받이 쿠션")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/honeybee', methods=['GET'])
+def show_items12():
+    item_selector("모니터암", "높이조절가능책상", "손목패드")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/owl', methods=['GET'])
+def show_items13():
+    item_selector("높이조절가능책상", "가습기", "모니터암")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
+
+@app.route('/api/pig', methods=['GET'])
+def show_items14():
+    item_selector("간식박스", "커피자판기", "텀블러")
+    crawling_list = list(db.crawling.find({}, {'_id': False}))
+    return jsonify({'items': crawling_list})
+
 
 @app.route('/result', methods=['POST'])
 def count_result():
