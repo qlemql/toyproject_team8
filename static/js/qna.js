@@ -74,7 +74,6 @@ const lastPage = document.querySelector(".all");
 const resImageDiv = document.querySelector(".result-image");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
-const typeDesc = document.querySelector(".result-desc");
 const typeRecommed = document.querySelector(".recommId");
 const resultItemList = document.querySelector(".itemlist");
 const resultItem = document.createElement("li");
