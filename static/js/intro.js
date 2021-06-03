@@ -9,6 +9,7 @@ const modal = document.querySelector('.modalFrame');
 const itemsBox = document.querySelector('.items');
 const leftArrow = document.querySelector('.leftArrow');
 const rightArrow = document.querySelector('.rightArrow');
+const itemModal = document.querySelector('.itemModalFrame');
 
 if (currentTheme == "dark") {
   document.body.classList.add("dark-theme");
@@ -33,6 +34,7 @@ btn.addEventListener("click", function () {
     modal.style.backgroundColor = '#eee';
     leftArrow.style.color = '#121212';
     rightArrow.style.color = '#121212';
+    itemModal.style.backgroundColor = '#eee';
   } else {
     theme = "dark";
     startBtn.style.color = "#eee";
@@ -50,6 +52,7 @@ btn.addEventListener("click", function () {
     modal.style.backgroundColor = '#121212';
     leftArrow.style.color = '#eee';
     rightArrow.style.color = '#eee';
+    itemModal.style.backgroundColor = '#121212';
   }
   localStorage.setItem("theme", theme);
 });
