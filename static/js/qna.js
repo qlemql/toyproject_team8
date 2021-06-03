@@ -13,6 +13,7 @@ function addAnswer(allAnswer, qIdx) {
   const a = document.querySelector(".Answer");
   const answer = document.createElement("button");
   answer.classList.add("answerList");
+  answer.id = 'test';
   a.appendChild(answer);
   answer.innerHTML = allAnswer.answer;
   answer.addEventListener(
@@ -38,6 +39,8 @@ function addAnswer(allAnswer, qIdx) {
   );
 }
 
+
+
 const loadingDiv = document.querySelector(".load");
 
 function end() {
@@ -45,7 +48,9 @@ function end() {
   loadingDiv.style.display = "flex";
   setTimeout(function () {
     loadingDiv.style.display = "none";
-    btn.style.display = "block";
+    btn.style.display = "flex";
+    btn.style.justifyContent = 'center';
+    btn.style.alignItems = 'center';
     result();
   }, 5000);
 }
@@ -74,7 +79,6 @@ const lastPage = document.querySelector(".all");
 const resImageDiv = document.querySelector(".result-image");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
-const typeDesc = document.querySelector(".result-desc");
 const typeRecommed = document.querySelector(".recommId");
 const resultItemList = document.querySelector(".itemlist");
 
@@ -191,32 +195,158 @@ function result() {
 
   if (biggest === type1 && biggest === type3 && biggest === type4) {
     drawResult(0);
+    $.ajax({
+      type: "GET",
+      url: "/api/kangaroo",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type1 && biggest === type2 && biggest === type3) {
     drawResult(1);
+    $.ajax({
+      type: "GET",
+      url: "/api/honeybee",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type1 && biggest === type2 && biggest === type4) {
     drawResult(2);
+    $.ajax({
+      type: "GET",
+      url: "/api/owl",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type2 && biggest === type3 && biggest === type4) {
     drawResult(3);
+    $.ajax({
+      type: "GET",
+      url: "/api/pig",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type1 && biggest === type3) {
     drawResult(4);
+    $.ajax({
+      type: "GET",
+      url: "/api/koala",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type3 && biggest === type4) {
     drawResult(5);
+    $.ajax({
+      type: "GET",
+      url: "/api/cat",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type2 && biggest === type3) {
     drawResult(6);
+    $.ajax({
+      type: "GET",
+      url: "/api/squirrel",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type1 && biggest === type4) {
     drawResult(7);
+    $.ajax({
+      type: "GET",
+      url: "/api/chameleon",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type2 && biggest === type4) {
     drawResult(8);
+    $.ajax({
+      type: "GET",
+      url: "/api/hedgehog",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type1 && biggest === type2) {
     drawResult(9);
+    $.ajax({
+      type: "GET",
+      url: "/api/meerkat",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type1) {
     drawResult(10);
+    $.ajax({
+      type: "GET",
+      url: "/api/penguin",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type2) {
     drawResult(11);
+    $.ajax({
+      type: "GET",
+      url: "/api/monkey",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type3) {
     drawResult(12);
+    $.ajax({
+      type: "GET",
+      url: "/api/panda",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   } else if (biggest === type4) {
     drawResult(13);
+    $.ajax({
+      type: "GET",
+      url: "/api/parrot",
+      data: {},
+      success: function (response) {
+        let crwawler = response;
+        console.log(crwawler);
+      }
+    })
   }
 }
 //-------------------------------------------------

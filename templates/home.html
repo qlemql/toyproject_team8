@@ -2,12 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- kakao share -->
+
+    <meta property="og:url" content="도메인이 들어가야 합니다"/>
+    <meta property="og:title" content="제목 들어가야 합니다"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="이미지 파일"/>
+    <meta property="og:description" content="설명이 들어가야합니다"/>
+
+    <!-- favicon -->
+
+
     <link rel="stylesheet" href="../static/css/qna.css">          
     <link rel="stylesheet" href="../static/css/intro.css">
     <link rel="stylesheet" href="../static/css/result.css">
     <link rel="stylesheet" href="../static/css/all_results.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/74ac6a490e.js" crossorigin="anonymous"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('f1de4ca6a0fdb0d014bb347eae35aac3');
+        Kakao.isInitialized();
+    </script>
     <title>Title</title>
 </head>
 <body class="dark-theme || light-theme">
@@ -85,6 +102,7 @@
                 <div class="btns">
                     <button class="btn00"><img class="btnImg00" src="https://i.imgur.com/4TlsiTO.png"></button>
                     <button class="btn01"><img class="btnImg01" src="https://i.imgur.com/CznbhPl.png"></button>
+                    <button id="result" class="kakaobtn" onclick="kakaoshare()">카카오톡</button>
                     <button id="modalBtn" class="btn02"><img class="btnImg02" src="https://i.imgur.com/YlFtPUR.png"></button>
                     
                 </div>
@@ -114,6 +132,7 @@
                 </div>
             </div>
             <button class="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
     </div>
 </section>
 
@@ -130,6 +149,7 @@
 
 <script src="../static/js/data.js" charset="utf-8"></script>
 <script src="../static/js/qna.js" charset="utf-8"></script>
+<script src="../static/js/share.js" charset="utf-8"></script>
 <script src="/static/js/intro.js"></script>
 <script src="/static/js/all_result.js"></script>
 <script src="/static/js/backend.js"></script>

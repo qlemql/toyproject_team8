@@ -8,7 +8,7 @@ db = client.dbsparta
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
 
 def bs(product_name):
-    research_site = 'https://search.shopping.naver.com/search/all?query=' + product_name + '&frm=NVSHATC'
+    research_site = 'https://search.shopping.naver.com/search/all?frm=NVSHMDL&origQuery' + product_name + '&pagingIndex=1&pagingSize=40&productSet=model&query=' + product_name + '&sort=rel&timestamp=&viewType=list'
     data = requests.get(research_site, headers=headers)
     soup = BeautifulSoup(data.text, 'html.parser')
 
@@ -28,7 +28,12 @@ def bs(product_name):
     doc = {'name': product_name, "product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link, "product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}
     db.crawling.insert_one(doc)
 
-    # return [{"product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link}, {"product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}]
 
-# bs("모니터")
-# bs("마우스")
+# def item_selector(a, b, c):
+#     items = [a, b, c]
+#     db.crawling.remove()
+#     for item in items:
+#         bs(item)
+#
+# item_selector("인체공학의자", "높이조절가능책상", "모니터암")
+# print(list(db.crawling.find({}, {'_id': False})))
