@@ -14,7 +14,7 @@ db = client.dbsparta
 
 
 # DB 크롤링 함수
-def item_selector(a, b, c):  # 타입에 따라 크롤링 갱신하는 목록
+def item_selector(a, b, c):
 
     def item_thread(item_name) -> None:
         crawler.bs(item_name)
