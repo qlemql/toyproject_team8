@@ -44,14 +44,14 @@
   width: 80%;
   height: 40px;
   border-radius: 20px;
-  background: linear-gradient(to right, #00b4db, #0083b0);
+  background: linear-gradient(to right, #fc5c7d, #6a82fb);
   margin-bottom: 100px;
   border: none;
 }
 .statusBar {
   height: 100%;
   border-radius: 20px;
-  background: linear-gradient(to right, #1c92d271, #f2fcfe);
+  background: linear-gradient(to right, #fc5c7d, #6a82fb);
   border: none;
 }
 
@@ -133,6 +133,7 @@
   display: none;
   justify-content: center;
   align-items: center;
+  margin-bottom: 120px;
 }
 
 .loadingBar {
@@ -140,6 +141,7 @@
   text-transform: uppercase;
   color: #fff;
   position: relative;
+  margin-bottom: 120px;
 }
 
 .loadingBar::before {
