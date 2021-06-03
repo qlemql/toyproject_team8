@@ -49,10 +49,15 @@ function addSlide() {
     typeImage.src = "/static/images/animals/" + resultInfo[i].name + ".png";
     typeName.innerHTML = resultInfo[i].subName;
     typeDesc.innerHTML = resultInfo[i].desc;
-    for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
       const item = document.createElement("li");
+      const slideItemImage = document.createElement("img");
       itemList.appendChild(item);
+      item.appendChild(slideItemImage);
       item.classList.add("item");
+      slideItemImage.classList.add("slideItem");
+      slideItemImage.src =
+        "static/images/items/" + resultInfo[i].items[j] + ".png";
     }
   }
 }

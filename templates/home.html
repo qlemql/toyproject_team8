@@ -2,18 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- kakao share -->
+
+    <meta property="og:url" content="도메인이 들어가야 합니다"/>
+    <meta property="og:title" content="제목 들어가야 합니다"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="이미지 파일"/>
+    <meta property="og:description" content="설명이 들어가야합니다"/>
+
+    <!-- favicon -->
+
+
     <link rel="stylesheet" href="../static/css/qna.css">          
     <link rel="stylesheet" href="../static/css/intro.css">
     <link rel="stylesheet" href="../static/css/result.css">
     <link rel="stylesheet" href="../static/css/all_results.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/74ac6a490e.js" crossorigin="anonymous"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('f1de4ca6a0fdb0d014bb347eae35aac3');
+        Kakao.isInitialized();
+    </script>
     <title>Title</title>
 </head>
 <body class="dark-theme || light-theme">
 
 <!-- dark mode -->
-<button class="dark__mode">
+<button class="darkMode">
     <i class="fas fa-sun sun"></i>
     <i class="fas fa-moon moon"></i>
     <!-- <div class="mod00 sun"></div>
@@ -43,7 +60,7 @@
   <section class="section2 QnA">
 
     <div class="status">
-      <div class="status_bar">
+      <div class="statusBar">
         
       </div>
     </div>
@@ -61,37 +78,52 @@
 
 <section>
     <div class="all">
-        <div class="type">
-            <div class="result-image">
-                
-            </div>
-            <div class="type-result">
-                <div class="result-text">
-                    <div class="result-title" id="individual">
-                        <h4><span class="userName"></span>님은</h4>
-<!--                        결과값으로 될 이름 타이틀에는 모두 , id="result" 넣어주세요    -->
-                        <h2 id="result"></h2>
-                        
+        <div class="block">
+            <div class="type">
+                <div class="resultImage"></div>
+                <div class="typeResult">
+                    <div class="resultText">
+                        <div class="resultTitle" id="individual">
+                            <h4><span class="userName"></span>님은</h4>
+    <!--                        결과값으로 될 이름 타이틀에는 모두 , id="result" 넣어주세요    -->
+                            <h2 id="result"></h2>
+                            <span class="static"></span>
+                        </div>
+                        <div class="resultDesc"></div>
                     </div>
-                    <!-- <p class="result-desc"></p> -->
+                </div>
+            </div>
+            <div class="bottomType">
+                <p class="caution">※일정 시간 동안 동일 환경에서의 결과는 중복 집계되지 않습니다.</p>
+                <div class="items">
+                    <p class="itemsTitle"><span class="recommId"></span>을 위한 아이템 추천
+                    <div class="itemList">
+
+                    </div>
+                </div>
+                <div class="btns">
+                    <button class="btn00"><img class="btnImg00" src="https://i.imgur.com/4TlsiTO.png"></button>
+                    <button class="btn01"><img class="btnImg01" src="https://i.imgur.com/CznbhPl.png"></button>
+                    <button id="result" class="kakaobtn" onclick="kakaoshare()">카카오톡</button>
+                    <button id="modalBtn" class="btn02"><img class="btnImg02" src="https://i.imgur.com/YlFtPUR.png"></button>
+                    
                 </div>
             </div>
         </div>
-        <div class="bottomType">
-            <div class="items">
-                <h2 class="items-title"><h2 class="recommId"></h2>을 위한 아이템 추천
-                <div class="itemlist"></div>
+    </div>
+</section>
 
-            </div>
-            <div class="btns">
-                <div class="btn00"></div>
-                <div class="btn01"></div>
-                <div class="btn02"></div>
-                <button id="modalBtn" class="btn03">종합결과 보기</button>
-            </div>
+<section>
+    <div class="itemModal">
+        <div class="itemModalFrame">
+            <button class="itemModalCloseBtn">X</button>
+            <ul class="itemsContainer">
+                <li class="recommendItem0"></li>
+                <li class="recommendItem1"></li>
+                <li class="recommendItem2"></li>
+            </ul>
         </div>
     </div>
-
 </section>
 
 <!-- 민주님 작업 공간 -->
@@ -108,6 +140,7 @@
                 </div>
             </div>
             <button class="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
     </div>
 </section>
 
@@ -116,7 +149,7 @@
 <footer class="footer" >
     <div class="count" id="counter">
     </div>
-    <div class="copyright">
+    <div class="copyRight">
         <span class="txt2">Copyright 2021. Team8 All rights reserved.</span>
     </div>
 
@@ -124,6 +157,7 @@
 
 <script src="../static/js/data.js" charset="utf-8"></script>
 <script src="../static/js/qna.js" charset="utf-8"></script>
+<script src="../static/js/share.js" charset="utf-8"></script>
 <script src="/static/js/intro.js"></script>
 <script src="/static/js/all_result.js"></script>
 <script src="/static/js/backend.js"></script>
