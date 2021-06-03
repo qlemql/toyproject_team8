@@ -77,6 +77,7 @@ const lastPage = document.querySelector(".all");
 const resImageDiv = document.querySelector(".resultImage");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
+const descTitle = document.querySelector(".descTitle");
 const typeDesc = document.querySelector(".resultDesc");
 const typeRecommed = document.querySelector(".recommId");
 const resultItemList = document.querySelector(".itemList");
@@ -90,6 +91,7 @@ function drawResult(resultIndex) {
   resImg.alt = resultInfo[resultIndex].name;
   resImg.title = resultInfo[resultIndex].name;
   typeName.innerText = resultInfo[resultIndex].subName;
+  descTitle.innerText = resultInfo[resultIndex].descTitle;
   typeDesc.innerText = resultInfo[resultIndex].desc;
   typeRecommed.innerText = resultInfo[resultIndex].subName;
 
@@ -196,100 +198,221 @@ function drawResult(resultIndex) {
     });
   }
 
-  let final_result = document.getElementById("result");
-  let f_r = final_result.textContent;
-  $.ajax({
-    type: "POST",
-    url: "/result",
-    data: {
-      result_give: f_r,
-    },
-    success: function (response) {},
-  });
+  setTimeout(function () {
+    $.ajax({
+      type: "GET",
+      url: "/result/statistic",
+      data: {},
+      success: function (response) {
+        let statistic = response[0]["statistic"];
+        let total_counts = response[1]["total_count"];
+        let type = [];
 
-  $.ajax({
-    type: "GET",
-    url: "/result/statistic",
-    data: {},
-    success: function (response) {
-      let statistic = response[0]["statistic"];
-      let total_counts = response[1]["total_count"];
-      let type = [];
-
-      for (let i = 0; i < statistic.length; i++) {
-        let final_counts = statistic[i]["counts"];
-        $(`#result${i}`).text(
-          `${((final_counts / total_counts) * 100).toFixed(
-            2
-          )}%  ${final_counts}명`
-        );
-      }
-
-      for (let i = 0; i < statistic.length; i++) {
-        if (i < 13) {
-          let temp_type = statistic[i]["type"] + "@";
-          type += temp_type;
-        } else {
-          let temp_type = statistic[i]["type"];
-          type += temp_type;
+        for (let i = 0; i < statistic.length; i++) {
+          let final_counts = statistic[i]["counts"];
+          $(`#result${i}`).text(
+            `${((final_counts / total_counts) * 100).toFixed(
+              2
+            )}%  ${final_counts}명`
+          );
         }
-      }
-      let list_type = type.split("@");
 
-      for (let j = 0; j < type.length; j++) {
-        if (list_type[j] === f_r) {
-          let final_counts = statistic[j]["counts"];
-          $(".static").text(`
+        for (let i = 0; i < statistic.length; i++) {
+          if (i < 13) {
+            let temp_type = statistic[i]["type"] + "@";
+            type += temp_type;
+          } else {
+            let temp_type = statistic[i]["type"];
+            type += temp_type;
+          }
+        }
+        let list_type = type.split("@");
+
+        for (let j = 0; j < type.length; j++) {
+          if (list_type[j] === resultInfo[resultIndex].subName) {
+            let final_counts = statistic[j]["counts"];
+            $(".static").text(`
               ${((final_counts / total_counts) * 100).toFixed(
                 2
               )}% ${final_counts}명
             `);
+          }
         }
-      }
 
-      let firstChild = slideList.firstElementChild;
-      let lastChild = slideList.lastElementChild;
-      let clonedFirst = firstChild.cloneNode(true);
-      let clonedLast = lastChild.cloneNode(true);
-      slideList.appendChild(clonedFirst);
-      slideList.insertBefore(clonedLast, slideList.firstElementChild);
-    },
-  });
+        let firstChild = slideList.firstElementChild;
+        let lastChild = slideList.lastElementChild;
+        let clonedFirst = firstChild.cloneNode(true);
+        let clonedLast = lastChild.cloneNode(true);
+        slideList.appendChild(clonedFirst);
+        slideList.insertBefore(clonedLast, slideList.firstElementChild);
+      },
+    });
+  }, 1000);
+
+  // let final_result = document.getElementById("result");
+  // let f_r = final_result.textContent;
 }
 //----------------------------------------------------
 
 //calculate result------------------------------------
+let type_name = "";
 function result() {
   biggest = Math.max(type1, type2, type3, type4);
   lastPage.style.display = "flex";
 
   if (biggest === type1 && biggest === type3 && biggest === type4) {
+    type_name = "안마의자 마니아 캥거루형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(0);
   } else if (biggest === type1 && biggest === type2 && biggest === type3) {
+    type_name = "근면성실 꿀벌형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(1);
   } else if (biggest === type1 && biggest === type2 && biggest === type4) {
+    type_name = "야근요정 부엉이형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(2);
   } else if (biggest === type2 && biggest === type3 && biggest === type4) {
+    type_name = "금강산도 식후경 돼지형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(3);
   } else if (biggest === type1 && biggest === type3) {
+    type_name = "사무실 마이홈 코알라형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(4);
   } else if (biggest === type3 && biggest === type4) {
+    type_name = "유아독존 고양이형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(5);
   } else if (biggest === type2 && biggest === type3) {
+    type_name = "탕비실 지박령 다람쥐형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(6);
   } else if (biggest === type1 && biggest === type4) {
+    type_name = "충혈된 카멜레온형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(7);
   } else if (biggest === type2 && biggest === type4) {
+    type_name = "빡! 집중 고슴도치형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(8);
   } else if (biggest === type1 && biggest === type2) {
+    type_name = "호기심 많은 미어캣형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(9);
   } else if (biggest === type1) {
+    type_name = "반들반들 청결 펭귄형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(10);
   } else if (biggest === type2) {
+    type_name = "영타 500타 원숭이형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(11);
   } else if (biggest === type3) {
+    type_name = "워라밸 판다형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(12);
   } else if (biggest === type4) {
+    type_name = "수다쟁이 앵무새형";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      data: {
+        result_give: type_name,
+      },
+      success: function (response) {},
+    });
     drawResult(13);
   }
 }
