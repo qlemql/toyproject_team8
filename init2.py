@@ -77,6 +77,6 @@ while len(update_failed) > 0:
             update_failed.remove(item)
     except TypeError:
         continue
-
+print("\n주의! DB에 등록된 아이템 목록이 총 24개여야 함!\n")
 print("init2.py... DB setting finished")
 print("\nAll database settings are finished. Thank you.")
