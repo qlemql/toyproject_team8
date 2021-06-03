@@ -245,18 +245,18 @@ def count_result():
             db.final_result.update_one({'type': '금강산도 식후경 돼지형'}, {'$set': {'counts': updated_counts}})
         db.final_result.delete_many({'counts': -1})
 
+        list_result = list(db.final_result.find({}, {'_id': False}))
+        r_count = list_result
+        total_count = 0
+        for i in range(len(r_count)):
+            result_count = r_count[i]['counts']
+            total_count += result_count
+        db.total_count.update_one({}, {'$set': {'total_count': total_count}})
+
     return jsonify({'result': 'success'})
 
 @app.route('/result/statistic', methods=['GET'])
 def make_statistic():
-    list_result = list(db.final_result.find({}, {'_id': False}))
-    r_count = list_result
-    total_count = 0
-    for i in range(len(r_count)):
-        result_count = r_count[i]['counts']
-        total_count += result_count
-    db.total_count.update_one({}, {'$set': {'total_count': total_count}})
-
     result_list = list(db.final_result.find({}, {'_id': False}))
     total_count = db.total_count.find_one({}, {'_id': False})["total_count"]
     return jsonify({'statistic': result_list}, {'total_count': total_count})
