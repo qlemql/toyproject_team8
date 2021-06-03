@@ -20,8 +20,6 @@ def item_selector(a, b, c):  # 타입에 따라 크롤링 갱신하는 목록
         crawler.bs(item_name)
         print(item_name + " / DB 업데이트 완료")
 
-    for item in [a, b, c]:
-        threading.Thread(target=item_thread(item)).start()
     threading.Thread(target=item_thread(a)).start()
     threading.Thread(target=item_thread(b)).start()
     threading.Thread(target=item_thread(c)).start()
