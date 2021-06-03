@@ -6,6 +6,7 @@ const currentTheme = localStorage.getItem("theme");
 const body = document.querySelector("body");
 const inputBtn = document.querySelector(".name");
 const modal = document.querySelector('.modalFrame');
+const itemsBox = document.querySelector('.items');
 
 if (currentTheme == "dark") {
   document.body.classList.add("dark-theme");
@@ -19,6 +20,7 @@ btn.addEventListener("click", function () {
     startBtn.style.backgroundColor = "transparent";
     startBtn.style.border = "1px solid #121212";
     inputBtn.style.border = "1px solid #121212";
+    itemsBox.style.border = "1px solid #121212";
     inputBtn.style.color = '#121212';
     inputBtn.style.backgroundColor = 'transparent';
     body.style.backgroundImage = "url(https://i.imgur.com/mZT110x.png)";
@@ -33,6 +35,7 @@ btn.addEventListener("click", function () {
     startBtn.style.backgroundColor = "transparent";
     startBtn.style.border = "1px solid #eee";
     inputBtn.style.border = "1px solid #eee";
+    itemsBox.style.border = "1px solid #eee";
     inputBtn.style.color = '#eee';
     inputBtn.style.backgroundColor = 'transparent';
     body.style.backgroundImage = "url(https://i.imgur.com/oYS2gZf.png)";
