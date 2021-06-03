@@ -64,7 +64,7 @@ function goNext(qIdx) {
   for (let i in qnaList[qIdx].a) {
     addAnswer(qnaList[qIdx].a[i], qIdx);
   }
-  const status = document.querySelector(".status_bar");
+  const status = document.querySelector(".statusBar");
   status.style.width = (100 / EndPoint) * (qIdx + 1) + "%";
 }
 
@@ -76,12 +76,12 @@ startBtn.addEventListener("click", begin);
 
 // draw result page --------------------------------
 const lastPage = document.querySelector(".all");
-const resImageDiv = document.querySelector(".result-image");
+const resImageDiv = document.querySelector(".resultImage");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
-const typeDesc = document.querySelector('.result-desc');
+const typeDesc = document.querySelector('.resultDesc');
 const typeRecommed = document.querySelector(".recommId");
-const resultItemList = document.querySelector(".itemlist");
+const resultItemList = document.querySelector(".itemList");
 
 //when it show up result, result value save and count up , if it haven't same IP for a while.
 //also , make statistic and attach value of statistic to result page and all results pages.

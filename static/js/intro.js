@@ -1,7 +1,7 @@
 // 태현's js
 
 // dark mode
-const btn = document.querySelector(".dark__mode");
+const btn = document.querySelector(".darkMode");
 const currentTheme = localStorage.getItem("theme");
 const body = document.querySelector("body");
 const inputBtn = document.querySelector(".name");
