@@ -87,7 +87,7 @@ const resultItemList = document.querySelector(".itemList");
 //also , make statistic and attach value of statistic to result page and all results pages.
 function drawResult(resultIndex) {
   resImageDiv.appendChild(resImg);
-  resImg.classList.add("type-image");
+  resImg.classList.add("typeImage");
   resImg.src = "static/images/animals/" + resultInfo[resultIndex].name + ".png";
   resImg.alt = resultInfo[resultIndex].name;
   resImg.title = resultInfo[resultIndex].name;
@@ -96,6 +96,52 @@ function drawResult(resultIndex) {
   typeRecommed.innerText = resultInfo[resultIndex].subName;
 
   for (let i = 0; i < 3; i++) {
+    $.ajax({
+      type: "GET",
+      url: `/api/${resultInfo[resultIndex].api}`,
+      data: {},
+      success: function (response) {
+        let crwawler = response['items'];
+        let name = crwawler[i]['name'];
+        let product1_name = crwawler[i]['product1_name'];
+        let product1_image = crwawler[i]['product1_image'];
+        let product1_link = crwawler[i]['product1_link'];
+        let product2_name = crwawler[i]['product2_name'];
+        let product2_image = crwawler[i]['product2_image'];
+        let product2_link = crwawler[i]['product2_link'];
+          
+        let temp_items = `
+              <div class="itemRecommends">
+                  <div class="recommendType">
+                    ${name} 
+                  </div>
+                  <div class="recommendImage">
+                    <img src="${product1_image}" alt="">
+                  </div>
+                  <div class="recommendName">
+                    ${product1_name}
+                  </div>
+                  <button class="recommendLink">
+                    <a href="${product1_link}">Link</a>
+                  </button>
+              </div>
+              <div class="itemRecommends2">
+                  <div class="recommendType">
+                    ${name} 
+                  </div>
+                  <div class="recommendImage">
+                    <img src="${product2_image}" alt="">
+                  </div>
+                  <div class="recommendName">
+                    ${product2_name}
+                  </div>
+                  <button class="recommendLink">
+                    <a href="${product2_link}">Link</a>
+                  </button>
+              </div>`
+        $('#recommendOne').append(temp_items);
+      }
+    })
     const resultItem = document.createElement("li");
     const resultItemImage = document.createElement("img");
     resultItem.classList.add("resultItemFrame");
@@ -306,15 +352,6 @@ function result() {
     })
   } else if (biggest === type1) {
     drawResult(10);
-    $.ajax({
-      type: "GET",
-      url: "/api/penguin",
-      data: {},
-      success: function (response) {
-        let crwawler = response;
-        console.log(crwawler);
-      }
-    })
   } else if (biggest === type2) {
     drawResult(11);
     $.ajax({
