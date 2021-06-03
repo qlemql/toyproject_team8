@@ -16,7 +16,7 @@ def item_selector(a, b, c):  # 타입에 따라 크롤링 갱신하는 목록
     items = [a, b, c]
     for item in items:
         crawler.bs(item)
-    return list(db.crawling.find({}, {'_id': False}))
+    return list(db.crawling.find({'name': {'$in': items, '_id': False}}))
 
 # HTML 화면 보여주기
 @app.route('/')
