@@ -408,4 +408,10 @@ function result() {
     });
   }
 }
+
+const reloadBtn = document.querySelector('.btn01');
+
+reloadBtn.addEventListener('click', function(){
+  window.location.reload();
+});
 //-------------------------------------------------
