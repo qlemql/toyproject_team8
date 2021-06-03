@@ -12,11 +12,11 @@ client = MongoClient('localhost', 27017)
 db = client.dbsparta
 
 # DB 크롤링 함수
-def item_selector(a, b, c):
+def item_selector(a, b, c):  # 타입에 따라 크롤링 갱신하는 목록
     items = [a, b, c]
-    db.crawling.remove()
     for item in items:
         crawler.bs(item)
+    return list(db.crawling.find({}, {'_id': False}))
 
 # HTML 화면 보여주기
 @app.route('/')
