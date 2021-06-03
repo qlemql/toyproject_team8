@@ -53,7 +53,3 @@ function showCounts() {
     },
   });
 }
-
-// 크롤링 js
-
-
