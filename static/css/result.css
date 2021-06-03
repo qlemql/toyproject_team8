@@ -264,6 +264,15 @@
   width: 100px;
   height: 50px;
 }
+.recommendItem0 {
+  display: none;
+}
+.recommendItem1 {
+  display: none;
+}
+.recommendItem2 {
+  display: none;
+}
 
 .recommendImage {
   display: flex;

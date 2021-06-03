@@ -13,7 +13,7 @@ function addAnswer(allAnswer, qIdx) {
   const a = document.querySelector(".Answer");
   const answer = document.createElement("button");
   answer.classList.add("answerList");
-  answer.id = 'test';
+  answer.id = "test";
   a.appendChild(answer);
   answer.innerHTML = allAnswer.answer;
   answer.addEventListener(
@@ -39,8 +39,6 @@ function addAnswer(allAnswer, qIdx) {
   );
 }
 
-
-
 const loadingDiv = document.querySelector(".load");
 
 function end() {
@@ -49,8 +47,8 @@ function end() {
   setTimeout(function () {
     loadingDiv.style.display = "none";
     btn.style.display = "flex";
-    btn.style.justifyContent = 'center';
-    btn.style.alignItems = 'center';
+    btn.style.justifyContent = "center";
+    btn.style.alignItems = "center";
     result();
   }, 5000);
 }
@@ -79,7 +77,7 @@ const lastPage = document.querySelector(".all");
 const resImageDiv = document.querySelector(".resultImage");
 const resImg = document.createElement("img");
 const typeName = document.getElementById("result");
-const typeDesc = document.querySelector('.resultDesc');
+const typeDesc = document.querySelector(".resultDesc");
 const typeRecommed = document.querySelector(".recommId");
 const resultItemList = document.querySelector(".itemList");
 
@@ -95,25 +93,25 @@ function drawResult(resultIndex) {
   typeDesc.innerText = resultInfo[resultIndex].desc;
   typeRecommed.innerText = resultInfo[resultIndex].subName;
 
-  for (let i = 0; i < 3; i++) {
-    $.ajax({
-      type: "GET",
-      url: `/api/${resultInfo[resultIndex].api}`,
-      data: {},
-      success: function (response) {
-        let crwawler = response['items'];
-        let name = crwawler[i]['name'];
-        let product1_name = crwawler[i]['product1_name'];
-        let product1_image = crwawler[i]['product1_image'];
-        let product1_link = crwawler[i]['product1_link'];
-        let product2_name = crwawler[i]['product2_name'];
-        let product2_image = crwawler[i]['product2_image'];
-        let product2_link = crwawler[i]['product2_link'];
-          
+  $.ajax({
+    type: "GET",
+    url: `/api/${resultInfo[resultIndex].api}`,
+    data: {},
+    success: function (response) {
+      for (let j = 0; j < 3; j++) {
+        let crwawler = response["items"];
+        let name = crwawler[j]["name"];
+        let product1_name = crwawler[j]["product1_name"];
+        let product1_image = crwawler[j]["product1_image"];
+        let product1_link = crwawler[j]["product1_link"];
+        let product2_name = crwawler[j]["product2_name"];
+        let product2_image = crwawler[j]["product2_image"];
+        let product2_link = crwawler[j]["product2_link"];
+
         let temp_items = `
               <div class="itemRecommends">
                   <div class="recommendType">
-                    ${name} 
+                    ${name}
                   </div>
                   <div class="recommendImage">
                     <img src="${product1_image}" alt="">
@@ -122,12 +120,12 @@ function drawResult(resultIndex) {
                     ${product1_name}
                   </div>
                   <button class="recommendLink">
-                    <a href="${product1_link}">Link</a>
+                    <a href="${product1_link}" target="_blank">Link</a>
                   </button>
               </div>
               <div class="itemRecommends2">
                   <div class="recommendType">
-                    ${name} 
+                    ${name}
                   </div>
                   <div class="recommendImage">
                     <img src="${product2_image}" alt="">
@@ -136,12 +134,15 @@ function drawResult(resultIndex) {
                     ${product2_name}
                   </div>
                   <button class="recommendLink">
-                    <a href="${product2_link}">Link</a>
+                    <a href="${product2_link}" target="_blank">Link</a>
                   </button>
-              </div>`
-        $('#recommendOne').append(temp_items);
+              </div>`;
+        $(".recommendItem" + j).append(temp_items);
       }
-    })
+    },
+  });
+
+  for (let i = 0; i < 3; i++) {
     const resultItem = document.createElement("li");
     const resultItemImage = document.createElement("img");
     resultItem.classList.add("resultItemFrame");
@@ -153,10 +154,30 @@ function drawResult(resultIndex) {
 
     const itemModal = document.querySelector(".itemModal");
     const itemModalCloseBtn = document.querySelector(".itemModalCloseBtn");
+    const class0 = document.querySelector(".recommendItem0");
+    const class1 = document.querySelector(".recommendItem1");
+    const class2 = document.querySelector(".recommendItem2");
 
-    resultItem.addEventListener("click", () => {
+    function selectItem(index) {
       itemModal.style.display = "flex";
       section3.style.filter = "blur(5px)";
+      if (index === 0) {
+        class0.style.display = "flex";
+        class1.style.display = "none";
+        class2.style.display = "none";
+      } else if (index === 1) {
+        class0.style.display = "none";
+        class1.style.display = "flex";
+        class2.style.display = "none";
+      } else {
+        class0.style.display = "none";
+        class1.style.display = "none";
+        class2.style.display = "flex";
+      }
+    }
+
+    resultItem.addEventListener("click", (e) => {
+      selectItem(i);
     });
 
     itemModalCloseBtn.addEventListener("click", (e) => {
@@ -249,8 +270,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type1 && biggest === type2 && biggest === type3) {
     drawResult(1);
     $.ajax({
@@ -260,8 +281,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type1 && biggest === type2 && biggest === type4) {
     drawResult(2);
     $.ajax({
@@ -271,8 +292,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type2 && biggest === type3 && biggest === type4) {
     drawResult(3);
     $.ajax({
@@ -282,8 +303,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type1 && biggest === type3) {
     drawResult(4);
     $.ajax({
@@ -293,8 +314,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type3 && biggest === type4) {
     drawResult(5);
     $.ajax({
@@ -304,8 +325,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type2 && biggest === type3) {
     drawResult(6);
     $.ajax({
@@ -315,8 +336,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type1 && biggest === type4) {
     drawResult(7);
     $.ajax({
@@ -326,8 +347,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type2 && biggest === type4) {
     drawResult(8);
     $.ajax({
@@ -337,8 +358,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type1 && biggest === type2) {
     drawResult(9);
     $.ajax({
@@ -348,8 +369,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type1) {
     drawResult(10);
   } else if (biggest === type2) {
@@ -361,8 +382,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type3) {
     drawResult(12);
     $.ajax({
@@ -372,8 +393,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   } else if (biggest === type4) {
     drawResult(13);
     $.ajax({
@@ -383,8 +404,8 @@ function result() {
       success: function (response) {
         let crwawler = response;
         console.log(crwawler);
-      }
-    })
+      },
+    });
   }
 }
 //-------------------------------------------------
