@@ -1,3 +1,4 @@
+import threading
 import warnings
 import requests
 from pymongo import MongoClient
@@ -35,7 +36,8 @@ def bs(product_name):
 def item_selector(a, b, c):
     items = [a, b, c]
     for item in items:
-        bs(item)
+        threading.Thread(target=bs(item)).start()
+
 
 print("init.py")
 print(".\n.\n.\n")
@@ -73,4 +75,4 @@ db.total_count.remove()
 db.total_count.insert_one({"total_count": 0})
 print("init.py... DB setting finished")
 print("\nPlease run \"init2.py\" file.")
-print("주의! 2분 정도 기다리신 뒤 init2.py 파일을 실행해주세요!")
+print("주의! 1분 정도 기다리신 뒤 init2.py 파일을 실행해주세요!")

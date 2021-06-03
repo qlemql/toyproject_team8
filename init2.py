@@ -1,3 +1,4 @@
+import threading
 import warnings
 import requests
 from pymongo import MongoClient
@@ -37,7 +38,7 @@ def item_try_except(a, b, c):
     items = [a, b, c]
     try:
         for itemA in items:
-            bs(itemA)
+            threading.Thread(target=bs(itemA)).start()
         print(a + ", " + b + ", " + c + " / DB 업데이트 완료")
     except TypeError:
         try:

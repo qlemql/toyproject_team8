@@ -1,3 +1,4 @@
+import threading
 import flask
 import crawler
 
@@ -11,17 +12,25 @@ app = Flask(__name__)
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
 
+
 # DB 크롤링 함수
 def item_selector(a, b, c):  # 타입에 따라 크롤링 갱신하는 목록
-    items = [a, b, c]
-    for item in items:
-        crawler.bs(item)
+
+    def item_thread(item_name) -> None:
+        crawler.bs(item_name)
+        print(item_name + " / DB 업데이트 완료")
+
+    for item in [a, b, c]:
+        threading.Thread(target=item_thread(item)).start()
+    threading.Thread(target=item_thread(a)).start()
+    threading.Thread(target=item_thread(b)).start()
+    threading.Thread(target=item_thread(c)).start()
     return list(db.crawling.find({"name": {'$in': [a, b, c]}}, {'_id': False}))
+
 
 # HTML 화면 보여주기
 @app.route('/')
 def home():
-
     visitor_counts = db.visitorCounter.find_one({})['Counts']  # 총 방문자수
     today_visitor_counts = db.todayCounter.find_one({})['todayCounts']  # 일일 방문자수
 
@@ -120,7 +129,7 @@ def show_items9():
 
 @app.route('/api/meerkat', methods=['GET'])
 def show_items10():
-    return jsonify({'items':item_selector("마이크", "카메라", "마우스")})
+    return jsonify({'items': item_selector("마이크", "카메라", "마우스")})
 
 
 @app.route('/api/kangaroo', methods=['GET'])
@@ -219,6 +228,7 @@ def count_result():
 
     return jsonify({'result': 'success'})
 
+
 @app.route('/result/statistic', methods=['GET'])
 def make_statistic():
     list_result = list(db.final_result.find({}, {'_id': False}))
@@ -232,6 +242,7 @@ def make_statistic():
     result_list = list(db.final_result.find({}, {'_id': False}))
     total_count = db.total_count.find_one({}, {'_id': False})["total_count"]
     return jsonify({'statistic': result_list}, {'total_count': total_count})
+
 
 # @app.route('/api/like', methods=['POST'])
 # def like_star():
