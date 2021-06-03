@@ -51,10 +51,14 @@ function addSlide() {
     typeDesc.innerHTML = resultInfo[i].desc;
     for (let j = 0; j < 3; j++) {
       const item = document.createElement("li");
+      const imageText = document.createElement("p");
       const slideItemImage = document.createElement("img");
       itemList.appendChild(item);
+      item.appendChild(imageText);
       item.appendChild(slideItemImage);
       item.classList.add("item");
+      imageText.classList.add("imageText");
+      imageText.innerHTML = resultInfo[i].items[j];
       slideItemImage.classList.add("slideItem");
       slideItemImage.src =
         "static/images/items/" + resultInfo[i].items[j] + ".png";
