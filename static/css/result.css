@@ -77,6 +77,13 @@
   padding: 10px;
 }
 
+.resultPercent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .userName {
   font-size: 20px;
   font-weight: bold;
@@ -273,7 +280,7 @@
 
 .recommendType {
   width: 700px;
-  height: 700px;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
