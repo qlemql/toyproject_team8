@@ -75,100 +75,72 @@ def show_totalCounts():
 
 @app.route('/api/penguin', methods=['GET'])
 def show_items1():
-    item_selector("인체공학의자", "높이조절책상", "모니터암")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("인체공학의자", "높이조절책상", "모니터암")})
 
 
 @app.route('/api/monkey', methods=['GET'])
 def show_items2():
-    item_selector("기계식 키보드", "마우스", "피벗모니터")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("기계식 키보드", "마우스", "피벗모니터")})
 
 
 @app.route('/api/parrot', methods=['GET'])
 def show_items3():
-    item_selector("손마사지기", "가습기", "인공눈물")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("손마사지기", "가습기", "인공눈물")})
 
 
 @app.route('/api/panda', methods=['GET'])
 def show_items4():
-    item_selector("헤드셋", "간식박스", "블루라이트차단경")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("헤드셋", "간식박스", "블루라이트차단경")})
 
 
 @app.route('/api/koala', methods=['GET'])
 def show_items5():
-    item_selector("팔받침대", "등받이 쿠션", "인체공학의자")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("팔받침대", "등받이 쿠션", "인체공학의자")})
 
 
 @app.route('/api/cat', methods=['GET'])
 def show_items6():
-    item_selector("헤드셋", "파티션", "이어플러그")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("헤드셋", "파티션", "이어플러그")})
 
 
 @app.route('/api/squirrel', methods=['GET'])
 def show_items7():
-    item_selector("간식박스", "텀블러", "슬리퍼")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("간식박스", "텀블러", "슬리퍼")})
 
 
 @app.route('/api/chameleon', methods=['GET'])
 def show_items8():
-    item_selector("블루라이트차단경", "손목패드", "팔받침대")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("블루라이트차단경", "손목패드", "팔받침대")})
 
 
 @app.route('/api/hedgehog', methods=['GET'])
 def show_items9():
-    item_selector("키패드", "인공눈물", "기계식 키보드")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("키패드", "인공눈물", "기계식 키보드")})
 
 
 @app.route('/api/meerkat', methods=['GET'])
 def show_items10():
-    item_selector("마이크", "카메라", "마우스")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items':item_selector("마이크", "카메라", "마우스")})
 
 
 @app.route('/api/kangaroo', methods=['GET'])
 def show_items11():
-    item_selector("인체공학의자", "손마사지기", "등받이 쿠션")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("인체공학의자", "손마사지기", "등받이 쿠션")})
 
 
 @app.route('/api/honeybee', methods=['GET'])
 def show_items12():
-    item_selector("모니터암", "높이조절가능책상", "손목패드")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("모니터암", "높이조절가능책상", "손목패드")})
 
 
 @app.route('/api/owl', methods=['GET'])
 def show_items13():
-    item_selector("높이조절가능책상", "가습기", "모니터암")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("높이조절가능책상", "가습기", "모니터암")})
 
 
 @app.route('/api/pig', methods=['GET'])
 def show_items14():
-    item_selector("간식박스", "커피자판기", "텀블러")
-    crawling_list = list(db.crawling.find({}, {'_id': False}))
-    return jsonify({'items': crawling_list})
+    return jsonify({'items': item_selector("간식박스", "커피자판기", "텀블러")})
 
 
 @app.route('/result', methods=['POST'])
