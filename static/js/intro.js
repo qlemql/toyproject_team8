@@ -7,6 +7,8 @@ const body = document.querySelector("body");
 const inputBtn = document.querySelector(".name");
 const modal = document.querySelector('.modalFrame');
 const itemsBox = document.querySelector('.items');
+const leftArrow = document.querySelector('.leftArrow');
+const rightArrow = document.querySelector('.rightArrow');
 
 if (currentTheme == "dark") {
   document.body.classList.add("dark-theme");
@@ -29,6 +31,8 @@ btn.addEventListener("click", function () {
     btn.style.backgroundColor = "#121212";
     btn.style.color = "white";
     modal.style.backgroundColor = '#eee';
+    leftArrow.style.color = '#121212';
+    rightArrow.style.color = '#121212';
   } else {
     theme = "dark";
     startBtn.style.color = "#eee";
@@ -44,6 +48,8 @@ btn.addEventListener("click", function () {
     btn.style.backgroundColor = "white";
     btn.style.color = "#121212";
     modal.style.backgroundColor = '#121212';
+    leftArrow.style.color = '#eee';
+    rightArrow.style.color = '#eee';
   }
   localStorage.setItem("theme", theme);
 });
