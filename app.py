@@ -75,7 +75,7 @@ def show_totalCounts():
 
 @app.route('/api/penguin', methods=['GET'])
 def show_items1():
-    return jsonify({'items': item_selector("인체공학의자", "높이조절책상", "모니터암")})
+    return jsonify({'items': item_selector("인체공학의자", "높이조절가능책상", "모니터암")})
 
 
 @app.route('/api/monkey', methods=['GET'])
