@@ -33,11 +33,9 @@ def bs(product_name):
         doc = {'name': product_name, "product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link, "product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}
         db.crawling.insert_one(doc)
 
-update_failed = []
-
 def item_try_except(a, b, c):
+    items = [a, b, c]
     try:
-        items = [a, b, c]
         for itemA in items:
             bs(itemA)
         print(a + ", " + b + ", " + c + " / DB 업데이트 완료")
@@ -57,7 +55,6 @@ def item_try_except(a, b, c):
                     for itemB in items:
                         if db.visitorsToday.find({'name': itemB}).count() == 0:
                             print(itemB + " update 실패!!")
-                            update_failed.append(itemB)
 
 print("init2.py")
 print(".\n.\n.\n")
@@ -66,17 +63,6 @@ item_try_except("팔받침대", "등받이 쿠션", "파티션")
 item_try_except("텀블러", "슬리퍼", "이어플러그")
 item_try_except("키패드", "손목패드", "인공눈물")
 item_try_except("마이크", "카메라", "커피자판기")
-
-if len(update_failed) > 0:
-    print("업데이트에 실패한 아이템들을 다시 크롤링합니다...")
-while len(update_failed) > 0:
-    try:
-        for item in update_failed:
-            bs(item)
-            print(item + " / DB 업데이트 완료")
-            update_failed.remove(item)
-    except TypeError:
-        continue
 print("\n주의! DB에 등록된 아이템 목록이 총 24개여야 함!\n")
 print("init2.py... DB setting finished")
-print("\nAll database settings are finished. Thank you.")
+print("All database settings are finished. Thank you.")
