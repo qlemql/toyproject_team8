@@ -111,34 +111,36 @@ function drawResult(resultIndex) {
         let product2_link = crwawler[j]["product2_link"];
 
         let temp_items = `
-              <div class="itemRecommends">
-                  <div class="recommendType">
-                    ${name}
+              <div class="recommendType">
+                <div class ='itemTypeName'> 
+                    ${name} 
+                </div>
+                <div class= 'itemContainer'>
+                  <div class="itemRecommends">
+                    <div class="recommendImage">
+                      <img src="${product1_image}" alt="">
+                    </div>
+                    <div class="recommendName">
+                      ${product1_name}
+                    </div>
+                    <button class="recommendLink">
+                      <a href="${product1_link}" target="_blank">Link</a>
+                    </button>
                   </div>
-                  <div class="recommendImage">
-                    <img src="${product1_image}" alt="">
+                  <div class="itemRecommends2">
+                    <div class="recommendImage">
+                      <img src="${product2_image}" alt="">
+                    </div>
+                    <div class="recommendName">
+                      ${product2_name}
+                    </div>
+                    <button class="recommendLink">
+                      <a href="${product2_link}" target="_blank">Link</a>
+                    </button>
                   </div>
-                  <div class="recommendName">
-                    ${product1_name}
-                  </div>
-                  <button class="recommendLink">
-                    <a href="${product1_link}" target="_blank">Link</a>
-                  </button>
+                </div>
               </div>
-              <div class="itemRecommends2">
-                  <div class="recommendType">
-                    ${name}
-                  </div>
-                  <div class="recommendImage">
-                    <img src="${product2_image}" alt="">
-                  </div>
-                  <div class="recommendName">
-                    ${product2_name}
-                  </div>
-                  <button class="recommendLink">
-                    <a href="${product2_link}" target="_blank">Link</a>
-                  </button>
-              </div>`;
+              `;
         $(".recommendItem" + j).append(temp_items);
       }
     },
@@ -414,4 +416,10 @@ function result() {
     drawResult(13);
   }
 }
+
+const reloadBtn = document.querySelector('.btn01');
+
+reloadBtn.addEventListener('click', function(){
+  window.location.reload();
+});
 //-------------------------------------------------

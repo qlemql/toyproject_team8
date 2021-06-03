@@ -239,13 +239,21 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.itemContainer {
+.itemsContainer {
   width: 700px;
-  height: 700px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.recommendItem0,
+.recommendItem1,
+.recommendItem2 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: row;
 }
 
 .itemRecommends {
@@ -253,6 +261,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-right: 100px;
 }
 
 .itemRecommends2 {
@@ -263,12 +272,31 @@
 }
 
 .recommendType {
+  width: 700px;
+  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 50px;
+  flex-direction: column;
 }
+
+.itemTypeName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100px;
+  font-size: 36px;
+  padding-bottom: 50px;
+}
+
+.itemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
 .recommendItem0 {
   display: none;
 }
@@ -283,32 +311,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: chartreuse;
   width: 200px;
   height: 300px;
   margin-bottom: 20px;
 }
 
 .recommendImage img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
 }
 
 .recommendName {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
   width: 200px;
   height: 100px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .recommendLink {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: chartreuse;
   width: 100px;
   height: 50px;
+  border-radius: 15px;
+}
+
+.recommendLink a {
+  text-decoration: none;
+  color: inherit;
 }

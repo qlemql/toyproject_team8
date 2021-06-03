@@ -24,9 +24,8 @@ def bs(product_name):
     soup2 = BeautifulSoup(data2.text, 'html.parser')
     product2_image = soup2.select_one('#__next > div > div.style_container__3iYev > div.style_inner__1Eo2z > div.style_content_wrap__2VTVx > div.style_content__36DCX > div > div.image_thumb_area__1dzNx > div.image_photo_area__44Fqz > div > img')['src']
 
-    db.crawling.delete_one({'name': product_name})
-    doc = {'name': product_name, "product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link, "product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}
-    db.crawling.insert_one(doc)
+    doc = {"product1_name": product1_name, "product1_image": product1_image, "product1_link": product1_link, "product2_name": product2_name, "product2_image": product2_image, "product2_link": product2_link}
+    db.crawling.update({'name': product_name}, {'$set': doc})
 
 
 # def item_selector(a, b, c):
