@@ -40,19 +40,35 @@
   background: linear-gradient(to right, #86a8e7, #91eae4);
 }
 
+.statusFrame {
+  width: 80%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .status {
   width: 80%;
-  height: 4%;
+  height: 40%;
   border-radius: 20px;
   background: linear-gradient(to right, #3493e6a8, #ec6eadbe);
-  margin-bottom: 100px;
   border: none;
 }
+
+.statusNum {
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
 .statusBar {
   height: 100%;
   border-radius: 20px;
   background: linear-gradient(to right, #be93c5, #7bc6cc);
   border: none;
+  transition: width 1s;
 }
 
 /* media queries */
@@ -134,10 +150,6 @@
   }
   .answerList {
     height: 15%;
-  }
-  .status {
-    height: 15%;
-    margin-bottom: 30px;
   }
 }
 
