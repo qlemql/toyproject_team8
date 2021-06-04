@@ -9,7 +9,7 @@ const qnaList = [
     ],
   },
   {
-    q: "2. 첫 IT회사에 입사해서 빈 책상에 가장 먼저 놓고 싶은 물건은?",
+    q: "2. 첫 IT 회사에 입사해서 책상에 가장 먼저 놓고 싶은 물건은?",
     a: [
       { answer: "a. 컴퓨터", type: 1 },
       { answer: "b. 노트북 거치대", type: 2 },
@@ -40,8 +40,8 @@ const qnaList = [
     a: [
       { answer: "a. 하드웨어 결함", type: 1 },
       { answer: "b. 모니터가 망가졌다", type: 2 },
-      { answer: "c. USB포트 고장", type: 3 },
-      { answer: "d. 고양가 전선을 건드렸다", type: 4 },
+      { answer: "c. USB 포트 고장", type: 3 },
+      { answer: "d. 고양이가 전선을 건드렸다", type: 4 },
     ],
   },
   {

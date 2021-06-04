@@ -5,9 +5,7 @@ from pymongo import MongoClient
 from bs4 import BeautifulSoup
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-client = MongoClient('localhost', 27017,
-                     username='test',
-                     password='test')
+client = MongoClient('mongodb://test:test@localhost', 27017)
 db = client.dbsparta
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
@@ -61,6 +59,7 @@ db.visitorsToday.insert_one({'today date': "2021-05-30"})
 db.todayCounter.insert_one({'todayCounts': 0})
 db.visitorIP.insert_one({'IP': 0})
 db.visitorIP.remove()
+db.resultIP.remove()
 db.final_result.remove()
 db.final_result.insert_one({"type": "안마의자 마니아 캥거루형", "counts": 0})
 db.final_result.insert_one({"type": "근면성실 꿀벌형", "counts": 0})
