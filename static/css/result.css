@@ -204,7 +204,9 @@
   justify-content: space-around;
 }
 
-.btn {
+.btn01,
+.btn02,
+.btn03 {
   border: none;
   margin-bottom: 10px;
   background-size: cover;

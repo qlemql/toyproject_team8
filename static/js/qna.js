@@ -421,7 +421,7 @@ function result() {
   }
 }
 
-const reloadBtn = document.querySelector('.btn01');
+const reloadBtn = document.querySelector('.btn02');
 
 reloadBtn.addEventListener('click', function(){
   window.location.reload();
