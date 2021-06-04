@@ -9,21 +9,22 @@ from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
 db = client.dbsparta
 
 
 # DB 크롤링 함수
 def item_selector(a, b, c):
+    item_list = list(db.crawling.find({"name": {'$in': [a, b, c]}}, {'_id': False}))  # 갱신하는 코드
 
-    def item_thread(item_name) -> None:
+    def item_thread(item_name) -> None:  # 이게 크롤링하는 코드
         crawler.bs(item_name)
         print(item_name + " / DB 업데이트 완료")
 
     threading.Thread(target=item_thread(a)).start()
     threading.Thread(target=item_thread(b)).start()
     threading.Thread(target=item_thread(c)).start()
-    return list(db.crawling.find({"name": {'$in': [a, b, c]}}, {'_id': False}))
+    return item_list
 
 
 # HTML 화면 보여주기
@@ -59,7 +60,7 @@ def home():
     if db.visitorIP.find({'IP': ip_address}).count() > 0:  # 방문했던 IP 라면 카운트 변동 없음
         pass
     else:  # 방문하지 않았던 IP 라면 해당 IP를 DB에 추가하고, 카운트 +1
-        db.visitorIP.create_index("date", expireAfterSeconds=5)  # 숫자는 '초' 단위. IP를 얼마나 저장할 것인가
+        db.visitorIP.create_index("date", expireAfterSeconds=3600)  # 숫자는 '초' 단위. IP를 얼마나 저장할 것인가
         db.visitorIP.insert_one({'IP': ip_address, "date": datetime.utcnow()})
         updated_visitor_counts = visitor_counts + 1
         db.visitorCounter.update_one({'Counts': visitor_counts}, {'$set': {'Counts': updated_visitor_counts}})
@@ -155,7 +156,7 @@ def count_result():
     ip_address = flask.request.remote_addr
     result_receive = request.form['result_give']
     count_receive = -1
-    db.result_IP.create_index("date", expireAfterSeconds=20)
+    db.result_IP.create_index("date", expireAfterSeconds=3600)
     db.result_IP.insert_one({'IP': ip_address, "date": datetime.utcnow()})
 
     doc = {
