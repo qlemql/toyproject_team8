@@ -2,8 +2,8 @@ const qnaList = [
   {
     q: '1. 친구가 말했다. "너 입사 선물로 뭐 갖고 싶어?"',
     a: [
-      { answer: "a. 최신 핸드폰", type: 1 },
-      { answer: "b. 침대", type: 2 },
+      { answer: "a. 데스크탑", type: 1 },
+      { answer: "b. 핸드폰", type: 2 },
       { answer: "c. 블루투스 이어폰", type: 3 },
       { answer: "d. 너(you)", type: 4 },
     ],
@@ -11,7 +11,7 @@ const qnaList = [
   {
     q: "2. 첫 IT 회사에 입사해서 책상에 가장 먼저 놓고 싶은 물건은?",
     a: [
-      { answer: "a. 컴퓨터", type: 1 },
+      { answer: "a. 외장 하드", type: 1 },
       { answer: "b. 노트북 거치대", type: 2 },
       { answer: "c. 무선 충전기", type: 3 },
       { answer: "d. 부장님 사진", type: 4 },
@@ -56,7 +56,7 @@ const qnaList = [
   {
     q: "7. 아침에 차고 갈 시계 종류?",
     a: [
-      { answer: "a. 핸드폰으로 충분하다", type: 1 },
+      { answer: "a. 스마트워치", type: 1 },
       { answer: "b. 롤렉스", type: 2 },
       { answer: "c. 카시오 전자시계", type: 3 },
       { answer: "d. 캐릭터 시계", type: 4 },
@@ -74,10 +74,10 @@ const qnaList = [
   {
     q: "9. 오늘 저녁 회식 메뉴는?",
     a: [
-      { answer: "a. 소고기", type: 1 },
-      { answer: "b. 돈까스", type: 2 },
-      { answer: "c. 김치찌개", type: 3 },
-      { answer: "d. 인절미 빙수", type: 4 },
+      { answer: "a. 양식", type: 1 },
+      { answer: "b. 중식", type: 2 },
+      { answer: "c. 한식", type: 3 },
+      { answer: "d. 잡식", type: 4 },
     ],
   },
   {

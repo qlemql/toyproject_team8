@@ -65,7 +65,7 @@ def home():
         updated_visitor_counts = visitor_counts + 1
         db.visitorCounter.update_one({'Counts': visitor_counts}, {'$set': {'Counts': updated_visitor_counts}})
 
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 # API 역할을 하는 부분
