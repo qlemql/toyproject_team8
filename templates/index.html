@@ -2,143 +2,175 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <meta name="viewport" content="width = device-width, initial-scale = 0.6, shrink-to-fit = no, user-scalable=yes">
+    <!-- kakao share -->
+
+    <meta property="og:url" content="http://animal-tool.site"/>
+    <meta property="og:title" content="개발자도구"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="../static/images/Title.png"/>
+    <meta property="og:description" content="동물들이 전해주는 오피스 아이템!"/>
+
+
+    <!-- favicon -->
+
+
+    <link rel="stylesheet" href="../static/css/qna.css">
+    <link rel="stylesheet" href="../static/css/intro.css">
+    <link rel="stylesheet" href="../static/css/result.css">
+    <link rel="stylesheet" href="../static/css/all_results.css">
+    <link rel="icon" href="../static/images/icon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/74ac6a490e.js" crossorigin="anonymous"></script>
-    <title>Title</title>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('f1de4ca6a0fdb0d014bb347eae35aac3');
+        Kakao.isInitialized();
+    </script>
+    <title>OFFICEITEMS</title>
 </head>
 <body class="dark-theme || light-theme">
 
 <!-- dark mode -->
-<button class="dark__mode">
+<button class="darkMode">
     <i class="fas fa-sun sun"></i>
     <i class="fas fa-moon moon"></i>
+    <!-- <div class="mod00 sun"></div>
+    <div class="mod01 moon"></div> -->
 </button>
 
 <!-- main section -->
-<section class="section">
-
-
-    <div class="title">
-        <h1>이것은 타이틀입니다.</h1>
+<section class="section1">
+    <div class="container">
+        <div class="title">
+            <h1>개발자 도구</h1>
+        </div>
+        <div class="subtitle">
+            <h4>동물들이 전해주는 오피스 아이템</h4>
+        </div>
     </div>
-
-
-    <div class="subtitle">
-        <h4>이것은 부제목입니다.</h4>
-    </div>
-
-
-    <input type="text" class="name" placeholder="이름을 입력해주세요.">
-
-
-    <button class="start">
-        <span>시작하기</span>
-    </button>
-
-
+    <form class="nameForm">
+        <input type="text" class="name" placeholder="이름을 입력해주세요." id="visitor__name">
+        <button class="start">
+            <span>시작하기</span>
+        </button>
+    </form>
 </section>
 
 
 <!-- 원준님 작업 공간 -->
-<section>
 
+<section class="section2 QnA">
+
+    <div class="statusFrame">
+        <div class="status">
+            <div class="statusBar"></div>
+        </div>
+        <p class="statusNum"></p>
+    </div>
+    <div class="Question">
+
+    </div>
+    <div class="Answer">
+    </div>
 </section>
 
-
+<div class="load">
+    <div class="loadingBar" data-text="LOADING">loading</div>
+</div>
 <!-- 유진님 작업 공간 -->
 
 <section>
+    <div class="all">
+        <div class="block">
+            <div class="type">
+                <div class="resultImage">
+                </div>
+                <div class="typeResult">
+                    <div class="resultTitle" id="individual">
+                        <h4><span class="userName"></span>님은
+                        </h4>
+                        <!--                        결과값으로 될 이름 타이틀에는 모두 , id="result" 넣어주세요    -->
+                        <h2 id="result">
+                        </h2>
+                        <h3 class="resultPercent">
+                                <span class="descTitle">
+                                </span>
+                            <span class="static">
+                                </span>
+                        </h3>
+                    </div>
+                    <div class="resultDesc">
+                    </div>
+                </div>
+            </div>
+            <div class="bottomType">
+                <p class="caution">※일정 시간 동안 동일 환경에서의 결과는 중복 집계되지 않습니다.</p>
+                <div class="items">
+                    <p class="itemsTitle"><span class="recommId"></span>을 위한 아이템 추천
+                    <div class="itemList"></div>
+                </div>
+                <div class="btns">
+                    <button class="btn00"><img class="btnImg00" src="https://i.imgur.com/4TlsiTO.png"></button>
+                    <button class="btn01"><img class="btnImg01" src="https://i.imgur.com/CznbhPl.png"></button>
+                    <button id="modalBtn" class="btn02"><img class="btnImg02" src="https://i.imgur.com/YlFtPUR.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section>
+    <div class="itemModal">
+        <div class="itemModalFrame">
+            <button class="itemModalCloseBtn">X</button>
+            <ul class="itemsContainer">
+                <li class="recommendItem0"></li>
+                <li class="recommendItem1"></li>
+                <li class="recommendItem2"></li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!-- 민주님 작업 공간 -->
 
 <section>
-    <button id="modalBtn" class="modalBtn">종합결과 보기</button>
     <div class="modalOverlay">
-    
-        <button id="closeBtn" class="closeBtn">X</button>
-        <button class="prevBtn"><i class="fas fa-caret-left"></i></button>
-        <div class="modal">
-            <div class="slideBox">
-    
-                <div class="slideList">
-                    <div class="slide card01">
-                        <div class="image"></div>
-                        <h3 class="type">
-                            typename**1**
-                        </h3>
-                        <p class="desc"></p>
-                        <ul class="items">
-                            <li class="item"></li>
-                            <li class="item"></li>
-                            <li class="item"></li>
-                        </ul>
-                    </div>
-                    <div class="slide card02">
-    
-                        <div class="image"></div>
-                        <h3 class="type">
-                            typename**2**
-                        </h3>
-                        <p class="desc"></p>
-                        <ul class="items">
-                            <li class="item"></li>
-                            <li class="item"></li>
-                            <li class="item"></li>
-                        </ul>
-                    </div>
-                    <div class="slide card03">
-    
-                        <div class="image"></div>
-                        <h3 class="type">
-                            typename**3**
-                        </h3>
-                        <p class="desc"></p>
-                        <ul class="items">
-                            <li class="item"></li>
-                            <li class="item"></li>
-                            <li class="item"></li>
-                        </ul>
+        <div class="modalFrame">
+            <button id="closeBtn" class="closeBtn">X</button>
+            <button class="prevBtn"><i class="fas fa-chevron-left leftArrow"></i></button>
+            <div class="modal">
+                <div class="slideBox">
+                    <div class="slideList">
                     </div>
                 </div>
             </div>
-            <ul class="slidePagination"></ul>
+            <button class="nextBtn"><i class="fas fa-chevron-right rightArrow"></i></button>
         </div>
-        <button class="nextBtn"><i class="fas fa-caret-right"></i></button>
     </div>
-    </div>
-    <script type="text/javascript" src="test.js"></script>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- Footer -->
 <footer class="footer">
-
-    <div class="visitors">일일 방문자 수 : 1명 / 총 방문자 수 : 100명</div>
-
-    <div class="copyright">
+    <div class="count" id="counter">
+    </div>
+    <div class="copyRight">
         <span class="txt2">Copyright 2021. Team8 All rights reserved.</span>
     </div>
 
 </footer>
 
+<script src="../static/js/data.js" charset="utf-8"></script>
+<script src="../static/js/qna.js" charset="utf-8"></script>
+<script src="../static/js/share.js" charset="utf-8"></script>
+<script src="/static/js/intro.js"></script>
+<script src="/static/js/all_result.js"></script>
+<script src="/static/js/backend.js"></script>
 
-<script src="/static/js/index.js"></script>
 </body>
 </html>
+
+
