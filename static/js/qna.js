@@ -1,3 +1,5 @@
+
+// 질문지
 const section1 = document.querySelector(".section1");
 const qna = document.querySelector(".QnA");
 const startBtn = document.querySelector(".start");
@@ -63,7 +65,9 @@ function goNext(qIdx) {
     addAnswer(qnaList[qIdx].a[i], qIdx);
   }
   const status = document.querySelector(".statusBar");
+  const statusText = document.querySelector(".statusNum")
   status.style.width = (100 / EndPoint) * (qIdx + 1) + "%";
+  statusText.innerText = `${qIdx + 1} / 10` 
 }
 
 function begin() {
@@ -134,8 +138,8 @@ function drawResult(resultIndex) {
                     <div class="recommendName">
                       ${product2_name}
                     </div>
-                    <button class="recommendLink">
-                      <a href="${product2_link}" target="_blank">Link</a>
+                    <button class="recommendLink" onclick="location.href='${product2_link}'">
+                      Link
                     </button>
                   </div>
                 </div>
