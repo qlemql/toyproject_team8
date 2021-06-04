@@ -65,7 +65,9 @@ function goNext(qIdx) {
     addAnswer(qnaList[qIdx].a[i], qIdx);
   }
   const status = document.querySelector(".statusBar");
+  const statusText = document.querySelector(".statusNum")
   status.style.width = (100 / EndPoint) * (qIdx + 1) + "%";
+  statusText.innerText = `${qIdx + 1} / 10` 
 }
 
 function begin() {
