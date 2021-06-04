@@ -15,15 +15,16 @@ db = client.dbsparta
 
 # DB 크롤링 함수
 def item_selector(a, b, c):
+    item_list = list(db.crawling.find({"name": {'$in': [a, b, c]}}, {'_id': False}))  # 갱신하는 코드
 
-    def item_thread(item_name) -> None:
+    def item_thread(item_name) -> None:  # 이게 크롤링하는 코드
         crawler.bs(item_name)
         print(item_name + " / DB 업데이트 완료")
 
     threading.Thread(target=item_thread(a)).start()
     threading.Thread(target=item_thread(b)).start()
     threading.Thread(target=item_thread(c)).start()
-    return list(db.crawling.find({"name": {'$in': [a, b, c]}}, {'_id': False}))
+    return item_list
 
 
 # HTML 화면 보여주기
