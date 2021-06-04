@@ -164,7 +164,7 @@ def count_result():
         'counts': count_receive
     }
     if db.result_IP.find({'IP': ip_address}).count() > 1:  # 방문했던 IP 라면 카운트 변동 없음
-        pass
+        db.result_IP.delete_one({'IP': ip_address})
     else:
         db.final_result.insert_one(doc)
         if (db.final_result.find_one({'counts': -1})['type']) == "반들반들 청결 펭귄형":
