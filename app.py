@@ -9,7 +9,9 @@ from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('localhost', 27017,
+                     username='test',
+                     password='test')
 db = client.dbsparta
 
 
@@ -59,7 +61,7 @@ def home():
     if db.visitorIP.find({'IP': ip_address}).count() > 0:  # 방문했던 IP 라면 카운트 변동 없음
         pass
     else:  # 방문하지 않았던 IP 라면 해당 IP를 DB에 추가하고, 카운트 +1
-        db.visitorIP.create_index("date", expireAfterSeconds=5)  # 숫자는 '초' 단위. IP를 얼마나 저장할 것인가
+        db.visitorIP.create_index("date", expireAfterSeconds=3600)  # 숫자는 '초' 단위. IP를 얼마나 저장할 것인가
         db.visitorIP.insert_one({'IP': ip_address, "date": datetime.utcnow()})
         updated_visitor_counts = visitor_counts + 1
         db.visitorCounter.update_one({'Counts': visitor_counts}, {'$set': {'Counts': updated_visitor_counts}})
@@ -155,7 +157,7 @@ def count_result():
     ip_address = flask.request.remote_addr
     result_receive = request.form['result_give']
     count_receive = -1
-    db.result_IP.create_index("date", expireAfterSeconds=20)
+    db.result_IP.create_index("date", expireAfterSeconds=3600)
     db.result_IP.insert_one({'IP': ip_address, "date": datetime.utcnow()})
 
     doc = {
