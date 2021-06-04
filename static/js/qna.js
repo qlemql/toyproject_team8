@@ -1,3 +1,5 @@
+
+// 질문지
 const section1 = document.querySelector(".section1");
 const qna = document.querySelector(".QnA");
 const startBtn = document.querySelector(".start");
