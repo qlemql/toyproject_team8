@@ -104,7 +104,6 @@ function drawResult(resultIndex) {
         url: `/api/${resultInfo[resultIndex].api}`,
         data: {},
         success: function (response) {
-            console.log(response)
             function crawling_call() {
                 for (let j = 0; j < 3; j++) {
                     let crwawler = response["items"];
