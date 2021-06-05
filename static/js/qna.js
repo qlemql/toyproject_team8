@@ -104,6 +104,7 @@ function drawResult(resultIndex) {
         url: `/api/${resultInfo[resultIndex].api}`,
         data: {},
         success: function (response) {
+            console.log(response)
             function crawling_call() {
                 for (let j = 0; j < 3; j++) {
                     let crwawler = response["items"];
@@ -139,8 +140,8 @@ function drawResult(resultIndex) {
                     <div class="recommendName">
                       ${product2_name}
                     </div>
-                    <button class="recommendLink" onclick="location.href='${product2_link}'">
-                      Link
+                    <button class="recommendLink">
+                    <a href="${product2_link}" target="_blank">Link</a>
                     </button>
                   </div>
                 </div>
