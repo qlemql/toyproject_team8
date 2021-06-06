@@ -139,8 +139,8 @@ function drawResult(resultIndex) {
                     <div class="recommendName">
                       ${product2_name}
                     </div>
-                    <button class="recommendLink" onclick="location.href='${product2_link}'">
-                      Link
+                    <button class="recommendLink">
+                    <a href="${product2_link}" target="_blank">Link</a>
                     </button>
                   </div>
                 </div>
